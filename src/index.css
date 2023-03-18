@@ -22,7 +22,7 @@ body{
     grid-template-columns: auto;
     grid-template-rows: 60px auto 60px;
     grid-template-areas: 'header' 'main' 'footer';
-    background-image: url(./images/bg.png);
+    background-image: url(./images/bg2.png);
 }
 
 header, section, aside, footer{

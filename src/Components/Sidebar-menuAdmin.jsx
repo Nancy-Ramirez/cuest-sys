@@ -11,7 +11,7 @@ const SidebarAdmin = () => {
       >
         <i class="bi bi-filter-left px-2 bg-green-200 rounded-md"></i>
       </span>
-      <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[200px] overflow-y-auto text-center bg-gray-700">
+      <div class="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[200px] overflow-y-auto text-center bg-green-700">
         <div class="text-gray-100 text-xl">
           <div class="p-2.5 mt-1 flex items-center justify-center">
             

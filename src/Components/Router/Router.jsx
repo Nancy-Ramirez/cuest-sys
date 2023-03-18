@@ -6,6 +6,7 @@ import Cuestionario from "../Vistas/Cuestionario/Cuestionario"
 import Estudiante from "../Vistas/Estudiantes/Estudiante"
 import Insignia from "../Vistas/Insignias/Insignias";
 import Institucion from "../Vistas/Instituciones/Instituciones";
+import Materias from "../Vistas/Materias/Materias";
 
 
 export default function Router() {
@@ -18,6 +19,8 @@ export default function Router() {
                 <Route path="/estudiante" element={<Estudiante/>} />
                 <Route path="/insignia" element={<Insignia/>} />
                 <Route path="/institucion" element={<Institucion/>} />
+                <Route path="/materia" element={<Materias/>} />
+                
 
                 
                 <Route path="*" element={<>Error404</>}></Route>

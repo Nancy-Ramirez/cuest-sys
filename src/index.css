@@ -23,10 +23,12 @@ body{
     grid-template-rows: 60px auto 60px;
     grid-template-areas: 'header' 'main' 'footer';
     background-image: url(./images/bg2.png);
+    
 }
 
 header, section, aside, footer{
     padding: 2px;
+    
 }
 
 header{
@@ -35,12 +37,15 @@ header{
 
 main {
     display:flex;
-    grid-area: main
+    grid-area: main;
+    
+
 }
 
 section{
 
     width: 100%;
+
 }
 
 aside{

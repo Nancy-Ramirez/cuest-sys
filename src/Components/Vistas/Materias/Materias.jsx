@@ -3,13 +3,13 @@ import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 
-const gestionarCuestionario = () => {
+const gestionarMateria = () => {
   return (
     <main>
       <SidebarAdmin></SidebarAdmin>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
-        <h1 className="p-5 text-center text-3xl text-white">Cuestionario</h1>
+        <h1 className="p-5 text-center text-3xl text-white">Materias</h1>
 
         <div className="m-5">
           <div className="flex items-center justify-end pb-4  m-2">
@@ -48,9 +48,6 @@ const gestionarCuestionario = () => {
                     Nombre
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Materia
-                  </th>
-                  <th scope="col" className="px-6 py-3">
                     Grado
                   </th>
                   <th scope="col" className="px-6 py-3">
@@ -66,12 +63,11 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Descubriendo mi cuerpo
+                        Química
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Biología</td>
-                  <td className="px-6 py-4"> Séptimo</td>
+                  <td className="px-6 py-4">Séptimo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
@@ -107,12 +103,11 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Reacciones químicas
+                        Física
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Química</td>
-                  <td className="px-6 py-4"> Primer año bachillerato</td>
+                  <td className="px-6 py-4">Octavo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
@@ -148,11 +143,10 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Vectores y más
+                        Física
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Física</td>
                   <td className="px-6 py-4"> Segundo año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
@@ -188,10 +182,9 @@ const gestionarCuestionario = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Células</div>
+                      <div className="text-base font-semibold">Química</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-4">Octavo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
@@ -329,4 +322,4 @@ const gestionarCuestionario = () => {
   );
 };
 
-export default gestionarCuestionario;
+export default gestionarMateria;

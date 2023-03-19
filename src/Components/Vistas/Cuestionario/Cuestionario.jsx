@@ -2,14 +2,28 @@ import SidebarAdmin from "../../Sidebar-menuAdmin";
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
+import agregar from "../../../images/iconos/agregar.png"
 
 const gestionarCuestionario = () => {
   return (
     <main>
       <SidebarAdmin></SidebarAdmin>
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">Cuestionario</h1>
+
+        <div className="m-5">
+          <div className="flex items-center justify-end   m-2">
+            <a
+              href="#"
+              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
+                <img src={agregar} alt="" width="40px" />
+              </button>
+            </a>
+          </div>
+        </div>
 
         <div className="m-5">
           <div className="flex items-center justify-end pb-4  m-2">
@@ -77,7 +91,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verCuestionario ">
+                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
@@ -85,7 +99,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-editarCuestionario ">
+                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
@@ -93,7 +107,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-eliminarCuestionario ">
+                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
@@ -118,7 +132,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verCuestionario ">
+                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
@@ -126,7 +140,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-editarCuestionario ">
+                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
@@ -134,7 +148,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-eliminarCuestionario ">
+                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
@@ -159,7 +173,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verCuestionario ">
+                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
@@ -167,7 +181,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-editarCuestionario ">
+                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
@@ -175,7 +189,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-eliminarCuestionario ">
+                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
@@ -198,7 +212,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verCuestionario ">
+                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
@@ -206,7 +220,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-editarCuestionario ">
+                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
@@ -214,7 +228,7 @@ const gestionarCuestionario = () => {
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-eliminarCuestionario ">
+                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
@@ -230,7 +244,7 @@ const gestionarCuestionario = () => {
             <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
               Mostrando{" "}
               <span className="font-semibold text-gray-900 dark:text-white">
-                1-10
+                1-4
               </span>{" "}
               de{" "}
               <span className="font-semibold text-gray-900 dark:text-white">

@@ -2,6 +2,7 @@ import SidebarAdmin from "../../Sidebar-menuAdmin";
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
+import agregar from "../../../images/iconos/agregar.png";
 
 const gestionarMateria = () => {
   return (
@@ -10,6 +11,19 @@ const gestionarMateria = () => {
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">Materias</h1>
+
+        <div className="m-5">
+          <div className="flex items-center justify-end   m-2">
+            <a
+              href="#"
+              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
+                <img src={agregar} alt="" width="40px" />
+              </button>
+            </a>
+          </div>
+        </div>
 
         <div className="m-5">
           <div className="flex items-center justify-end pb-4  m-2">
@@ -36,7 +50,7 @@ const gestionarMateria = () => {
                 type="text"
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar cuestionario"
+                placeholder="Buscar materia"
               />
             </div>
           </div>

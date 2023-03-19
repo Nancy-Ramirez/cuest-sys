@@ -6,7 +6,9 @@ import Cuestionario from "../Vistas/Cuestionario/Cuestionario"
 import Estudiante from "../Vistas/Estudiantes/Estudiante"
 import Insignia from "../Vistas/Insignias/Insignias";
 import Institucion from "../Vistas/Instituciones/Instituciones";
-import Materias from "../Vistas/Materias/Materias";
+import Materia from "../Vistas/Materias/Materias";
+import Usuario from "../Vistas/Usuarios/Usuarios";
+import Reporte from "../Vistas/Reportes/Reportes";
 
 
 export default function Router() {
@@ -19,7 +21,9 @@ export default function Router() {
                 <Route path="/estudiante" element={<Estudiante/>} />
                 <Route path="/insignia" element={<Insignia/>} />
                 <Route path="/institucion" element={<Institucion/>} />
-                <Route path="/materia" element={<Materias/>} />
+                <Route path="/materia" element={<Materia/>} />
+                <Route path="/usuario" element={<Usuario/>} />
+                <Route path="/reporte" element={<Reporte/>} />
                 
 
                 

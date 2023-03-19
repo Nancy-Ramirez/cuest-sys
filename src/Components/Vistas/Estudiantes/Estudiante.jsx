@@ -11,65 +11,8 @@ const gestionarEstudiante = () => {
         <h1 className="p-5 text-center text-3xl text-white">ESTUDIANTES</h1>
 
         <div className="m-5">
-          <div className="flex items-center justify-between pb-4  m-2">
-            <button
-              id="dropdownDefaultButton"
-              data-dropdown-toggle="dropdown"
-              className="text-white bg-green-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              type="button"
-            >
-              Filtrar{" "}
-              <svg
-                className="w-4 h-4 ml-2"
-                aria-hidden="true"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
-            </button>
+          <div className="flex items-center justify-end pb-4  m-2">
 
-            <div
-              id="dropdown"
-              className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-            >
-              <ul
-                className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                aria-labelledby="dropdownDefaultButton"
-              >
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Activos
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    En espera
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >
-                    Rechazados
-                  </a>
-                </li>
-              </ul>
-            </div>
 
             <label htmlFor="table-search" className="sr-only">
               Buscar
@@ -115,9 +58,6 @@ const gestionarEstudiante = () => {
                     Municipio
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Estado
-                  </th>
-                  <th scope="col" className="px-6 py-3">
                     Acciones
                   </th>
                 </tr>
@@ -145,7 +85,6 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">3545872</td>
                   <td className="px-6 py-4"> Liceo Cristiando Juan de Dios</td>
                   <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-4">Aceptado</td>
                   <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
@@ -179,7 +118,6 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">3542842</td>
                   <td className="px-6 py-4"> Colegio Santa Lucia</td>
                   <td className="px-6 py-4">San Bartolo</td>
-                  <td className="px-6 py-4">En espera</td>
                   <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
@@ -214,7 +152,6 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">31425842</td>
                   <td className="px-6 py-4"> Complejo San Luis</td>
                   <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-4">Aceptado</td>
                   <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
@@ -249,7 +186,6 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">3542542</td>
                   <td className="px-6 py-4"> Complejo Santa Eduviges</td>
                   <td className="px-6 py-4">San Benito</td>
-                  <td className="px-6 py-4">Denegado</td>
                   <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"

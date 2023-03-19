@@ -55,12 +55,12 @@ const SidebarAdmin = () => {
 
         <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
           <i className="bi bi-house-door-fill"></i>
-          <Link className="text-[17px] ml-4 text-white font-bold">Usuarios</Link>
+          <Link to="/usuario" className="text-[17px] ml-4 text-white font-bold">Usuarios</Link>
         </div>
 
         <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
           <i className="bi bi-house-door-fill"></i>
-          <Link className="text-[17px] ml-4 text-white font-bold">Reportes</Link>
+          <Link to="/reporte" className="text-[17px] ml-4 text-white font-bold">Reportes</Link>
         </div>
 
         <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">

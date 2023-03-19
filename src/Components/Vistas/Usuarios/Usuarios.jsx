@@ -4,13 +4,13 @@ import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
 
-const gestionarInstitucion = () => {
+const gestionarUsuario = () => {
   return (
     <main>
       <SidebarAdmin></SidebarAdmin>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
-        <h1 className="p-5 text-center text-3xl text-white">Instituciones</h1>
+        <h1 className="p-5 text-center text-3xl text-white">Usuarios</h1>
 
         <div className="m-5">
           <div className="flex items-center justify-end   m-2">
@@ -50,7 +50,7 @@ const gestionarInstitucion = () => {
                 type="text"
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar institución"
+                placeholder="Buscar usuario o rol"
               />
             </div>
           </div>
@@ -62,10 +62,10 @@ const gestionarInstitucion = () => {
                     Nombre
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Tipo
+                    Username
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Municipio
+                    Rol
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Acciones
@@ -80,12 +80,12 @@ const gestionarInstitucion = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                       Colegio Maria Auxiliadora
+                        Guillermo Melara
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Privado</td>
-                  <td className="px-6 py-4"> Soyapango</td>
+                  <td className="px-6 py-4">GuilleMe</td>
+                  <td className="px-6 py-4">Estudiante</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
@@ -121,12 +121,12 @@ const gestionarInstitucion = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Colegio San Juan Bosco
+                        Carlos Merino
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Privada</td>
-                  <td className="px-6 py-4"> Soyapango</td>
+                  <td className="px-6 py-4">Carlos15</td>
+                  <td className="px-6 py-4">Facilitador</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
@@ -162,12 +162,12 @@ const gestionarInstitucion = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Centro Escolar Justicia Divina
+                        Stefany Melgar
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Público</td>
-                  <td className="px-6 py-4">Ilopango</td>
+                  <td className="px-6 py-4">StefanyMeMe</td>
+                  <td className="px-6 py-4">Estudiante</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
@@ -202,11 +202,11 @@ const gestionarInstitucion = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Centro Escolar República de Corea</div>
+                      <div className="text-base font-semibold">Alana Cortez</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Pública</td>
-                  <td className="px-6 py-4">San Bartolo</td>
+                  <td className="px-6 py-4">AlanaCoCO</td>
+                  <td className="px-6 py-4">Administrador</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
@@ -343,4 +343,4 @@ const gestionarInstitucion = () => {
   );
 };
 
-export default gestionarInstitucion;
+export default gestionarUsuario;

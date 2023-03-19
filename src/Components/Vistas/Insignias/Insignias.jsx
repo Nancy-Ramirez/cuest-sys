@@ -1,8 +1,6 @@
 import SidebarAdmin from "../../Sidebar-menuAdmin";
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
-import eliminar from "../../../images/iconos/eliminar.png";
-import agregar from "../../../images/iconos/agregar.png"
 
 const gestionarInsignia = () => {
   return (
@@ -11,19 +9,6 @@ const gestionarInsignia = () => {
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">Insignias</h1>
-
-        <div className="m-5">
-          <div className="flex items-center justify-end   m-2">
-            <a
-              href="#"
-              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
-                <img src={agregar} alt="" width="40px" />
-              </button>
-            </a>
-          </div>
-        </div>
 
         <div className="m-5">
           <div className="flex items-center justify-end pb-4  m-2">
@@ -94,10 +79,10 @@ const gestionarInsignia = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-editarCuestionario ">
+                      <button data-modal-target="staticModal" data-modal-toggle="staticModal" className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>

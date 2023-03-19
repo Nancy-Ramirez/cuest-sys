@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-//Rutas
+//Rutas Gestionar
 import NavbarAdmin from "../NavbarAdmin";
 import Cuestionario from "../Vistas/Cuestionario/Cuestionario"
 import Estudiante from "../Vistas/Estudiantes/Estudiante"
@@ -9,6 +9,9 @@ import Institucion from "../Vistas/Instituciones/Instituciones";
 import Materia from "../Vistas/Materias/Materias";
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import Reporte from "../Vistas/Reportes/Reportes";
+
+//Rutas Editar
+import EditInsignia from "../Vistas/Insignias/EditarInsignia"
 
 
 export default function Router() {
@@ -24,6 +27,9 @@ export default function Router() {
                 <Route path="/materia" element={<Materia/>} />
                 <Route path="/usuario" element={<Usuario/>} />
                 <Route path="/reporte" element={<Reporte/>} />
+
+                //*Modals
+                <Route path="/insignia/insignia" element={<EditInsignia/>}></Route>
                 
 
                 

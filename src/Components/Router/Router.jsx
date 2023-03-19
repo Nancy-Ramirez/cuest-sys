@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 //Rutas Gestionar
-import NavbarAdmin from "../NavbarAdmin";
 import Cuestionario from "../Vistas/Cuestionario/Cuestionario"
 import Estudiante from "../Vistas/Estudiantes/Estudiante"
 import Insignia from "../Vistas/Insignias/Insignias";
@@ -17,7 +16,6 @@ import EditInsignia from "../Vistas/Insignias/EditarInsignia"
 export default function Router() {
     return (
         <BrowserRouter>
-            <NavbarAdmin/>
             <Routes>
                 <Route path="/inicio" element={<h1>nananana</h1>} />
                 <Route path="/cuestionario" element={<Cuestionario/>} />

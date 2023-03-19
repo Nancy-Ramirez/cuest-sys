@@ -1,13 +1,13 @@
-import SidebarAdmin from "../../Sidebar-menuAdmin";
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
+import NavbarAdmin from "../../NavbarAdmin";
 
 const gestionarMateria = () => {
   return (
     <main>
-      <SidebarAdmin></SidebarAdmin>
+      <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">Materias</h1>

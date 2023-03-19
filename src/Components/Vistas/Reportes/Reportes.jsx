@@ -1,10 +1,11 @@
 import "../Reportes/Reportes.css";
 import SidebarAdmin from "../../Sidebar-menuAdmin";
+import NavbarAdmin from "../../NavbarAdmin";
 
 const gestionarReportes = () => {
   return (
     <main>
-      <SidebarAdmin></SidebarAdmin>
+      <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">Reportes</h1>

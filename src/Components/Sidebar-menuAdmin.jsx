@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const SidebarAdmin = () => {
+const SidebarAdmine = () => {
   return (
     
     <aside className="opacity-70">
@@ -78,4 +78,4 @@ const SidebarAdmin = () => {
   );
 };
 
-export default SidebarAdmin;
+export default SidebarAdmine;

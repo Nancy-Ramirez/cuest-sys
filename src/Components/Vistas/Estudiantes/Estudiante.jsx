@@ -1,11 +1,12 @@
-import SidebarAdmin from "../../Sidebar-menuAdmin";
+
 import image1 from "../../../images/iconos/estudiante.png";
 import ver from "../../../images/iconos/ver.png";
+import NavbarAdmin from "../../NavbarAdmin";
 
 const gestionarEstudiante = () => {
   return (
     <main>
-      <SidebarAdmin></SidebarAdmin>
+      <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">ESTUDIANTES</h1>

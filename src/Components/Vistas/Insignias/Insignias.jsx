@@ -1,11 +1,12 @@
-import SidebarAdmin from "../../Sidebar-menuAdmin";
+
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
+import NavbarAdmin from "../../NavbarAdmin";
 
 const gestionarInsignia = () => {
   return (
     <main>
-      <SidebarAdmin></SidebarAdmin>
+      <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
         <h1 className="p-5 text-center text-3xl text-white">Insignias</h1>
@@ -82,7 +83,7 @@ const gestionarInsignia = () => {
                       href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button data-modal-target="staticModal" data-modal-toggle="staticModal" className="btn btn-editarCuestionario ">
+                      <button  className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>

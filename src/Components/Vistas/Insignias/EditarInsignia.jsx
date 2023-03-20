@@ -10,7 +10,7 @@ const EditarInsignia = () => {
           Editar Insignia
         </h1>
 
-        <form className="mx-12 mb-12 flex justify-center space-x-14">
+        <form className=" flex justify-center space-x-14 shadow-md sm:rounded-lg p-25 mr-10 mx-12 ">
          <div className=""> 
           <button
             id="dropdownDefaultButton"
@@ -88,104 +88,9 @@ const EditarInsignia = () => {
                 </a>
               </li>
 
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Plata II
-                </a>
-              </li>
 
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Plata III
-                </a>
-              </li>
 
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Oro I
-                </a>
-              </li>
 
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Oro II
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Oro III
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Platino I
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Platino II
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Platino III
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Diamante I
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Diamante II
-                </a>
-              </li>
-
-              <li>
-                <a
-                  href="#"
-                  className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                >
-                  Diamante III
-                </a>
-              </li>
 
             </ul>
           </div>

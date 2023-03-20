@@ -15,7 +15,7 @@ const gestionarInstitucion = () => {
         <div className="mx-5">
           <div className="flex items-center justify-end   m-2">
             <a
-              href="#"
+              href="/institucion/institucion"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
@@ -96,7 +96,7 @@ const gestionarInstitucion = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/institucion/institucion"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">

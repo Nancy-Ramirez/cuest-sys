@@ -9,8 +9,13 @@ import Materia from "../Vistas/Materias/Materias";
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import Reporte from "../Vistas/Reportes/Reportes";
 
+//Rutas Agregar o Crear
+import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
+
 //Rutas Editar
 import EditInsignia from "../Vistas/Insignias/EditarInsignia"
+
+
 
 
 export default function Router() {
@@ -26,8 +31,9 @@ export default function Router() {
                 <Route path="/usuario" element={<Usuario/>} />
                 <Route path="/reporte" element={<Reporte/>} />
 
-                //*Modals
+                //*Subpantallas
                 <Route path="/insignia/insignia" element={<EditInsignia/>}></Route>
+                <Route path="/institucion/institucion" element={<AgregarInstitucion/>}></Route>
                 
 
                 

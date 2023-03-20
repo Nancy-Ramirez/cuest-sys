@@ -6,14 +6,14 @@ const NavbarAdmin = () => {
     <div className=" mx-auto fixed w-full flex-wrap z-20 top-0">
       <nav className="bg-green-400 opacity-2 flex-wrap border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
-          <a href="https://flowbite.com" className="flex items-center">
+          <a href="#" className="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
+              src=""
               className="mr-3 h-6 sm:h-9"
-              alt="Flowbite Logo"
+              alt="Axis Logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+              AXIS
             </span>
           </a>
           <div className="flex items-center lg:order-2">

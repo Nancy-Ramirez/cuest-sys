@@ -7,7 +7,7 @@ import NavbarAdmin from "../../NavbarAdmin";
 const gestionarUsuario = () => {
   return (
     <main>
-      <NavbarAdmin/>
+      <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
         <h1 className="pt-20 text-center text-3xl text-white">USUARIOS</h1>
@@ -15,7 +15,7 @@ const gestionarUsuario = () => {
         <div className="mx-5">
           <div className="flex items-center justify-end   m-2">
             <a
-              href="#"
+              href="/usuario/usuario"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
@@ -88,7 +88,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Estudiante</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
@@ -96,7 +96,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/usuario/usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -104,7 +104,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario ">
@@ -129,7 +129,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Facilitador</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
@@ -137,7 +137,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/usuario/usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -145,7 +145,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario ">
@@ -170,7 +170,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Estudiante</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
@@ -178,7 +178,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/usuario/usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -186,7 +186,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario ">
@@ -202,14 +202,16 @@ const gestionarUsuario = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Alana Cortez</div>
+                      <div className="text-base font-semibold">
+                        Alana Cortez
+                      </div>
                     </div>
                   </th>
                   <td className="px-6 py-4">AlanaCoCO</td>
                   <td className="px-6 py-4">Administrador</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
@@ -217,7 +219,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/usuario/usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -225,7 +227,7 @@ const gestionarUsuario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario ">
@@ -254,7 +256,7 @@ const gestionarUsuario = () => {
             <ul className="inline-flex items-center -space-x-px">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Anterior</span>
@@ -275,7 +277,7 @@ const gestionarUsuario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   1
@@ -283,7 +285,7 @@ const gestionarUsuario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   2
@@ -291,7 +293,7 @@ const gestionarUsuario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   aria-current="page"
                   className="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
                 >
@@ -300,7 +302,7 @@ const gestionarUsuario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   ...
@@ -308,7 +310,7 @@ const gestionarUsuario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   5
@@ -316,7 +318,7 @@ const gestionarUsuario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Siguiente</span>

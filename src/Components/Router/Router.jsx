@@ -14,6 +14,8 @@ import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
 
 //Rutas Editar
 import EditInsignia from "../Vistas/Insignias/EditarInsignia";
+import EditarMateria from "../Vistas/Materias/AgregarMateria";
+import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 
 export default function Router() {
   return (
@@ -36,9 +38,11 @@ export default function Router() {
 
         {/*Materia */}
         <Route path="/materia" element={<Materia />} />
+        <Route path="/materia/materia" element={<EditarMateria />} />
 
         {/*Usuario */}
         <Route path="/usuario" element={<Usuario />} />
+        <Route path="/usuario/usuario" element={<EditarUsuario />} />
 
         {/*Reporte */}
         <Route path="/reporte" element={<Reporte />} />

@@ -8,7 +8,7 @@ const gestionarReportes = () => {
       <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mr-10">
-        <h1 className="p-5 text-center text-3xl text-white">Reportes</h1>
+        <h1 className="pt-20 text-center text-3xl text-white">Reportes</h1>
 
         <div className="filesReporte p-10 grid grid-cols-3 gap-9 place-content-stretch h-64  ">
           <a href="">

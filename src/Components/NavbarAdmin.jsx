@@ -3,7 +3,7 @@ import logo from "../images/iconos/home.png";
 
 const NavbarAdmin = () => {
   return (
-    <div className="w-auto mx-auto  flex-wrap">
+    <div className=" mx-auto fixed w-full flex-wrap z-20 top-0">
       <nav className="bg-green-400 opacity-2 flex-wrap border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
           <a href="https://flowbite.com" className="flex items-center">

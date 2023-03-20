@@ -9,9 +9,9 @@ const gestionarInsignia = () => {
       <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
-        <h1 className="p-5 text-center text-3xl text-white">Insignias</h1>
+        <h1 className="pt-20 text-center text-3xl text-white">INSIGNIAS</h1>
 
-        <div className="m-5">
+        <div className="mx-5">
           <div className="flex items-center justify-end pb-4  m-2">
             <label htmlFor="table-search" className="sr-only">
               Buscar

@@ -3,7 +3,7 @@
   border: 0;
   position: relative;
   font-weight: bold;
-  transition: all 500ms ease-in-out;
+  transition: all 200ms ease-in-out;
   font-size: 20px;
 }
 

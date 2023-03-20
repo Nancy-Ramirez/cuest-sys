@@ -11,9 +11,9 @@ const gestionarCuestionario = () => {
       <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mr-10">
-        <h1 className="p-5 text-center text-3xl text-white">Cuestionario</h1>
+        <h1 className="pt-20 text-center text-3xl text-white">CUESTIONARIO</h1>
 
-        <div className="m-5">
+        <div className="">
           <div className="flex items-center justify-end   m-2">
             <a
               href="#"

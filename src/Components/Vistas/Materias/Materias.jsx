@@ -10,7 +10,7 @@ const gestionarMateria = () => {
       <NavbarAdmin/>
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
-        <h1 className="p-5 text-center text-3xl text-white">Materias</h1>
+        <h1 className="pt-20 text-center text-3xl text-white">MATERIAS</h1>
 
         <div className="m-5">
           <div className="flex items-center justify-end   m-2">

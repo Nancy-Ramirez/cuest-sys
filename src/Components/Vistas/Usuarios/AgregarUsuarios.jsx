@@ -7,7 +7,7 @@ const EditarUsuario = () => {
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 pt-12 mr-10">
         <h1 className="p-12 text-center text-3xl text-white">
-          Actualizar Materia
+          Actualizar Usuario
         </h1>
 
         <form className="mx-80 mb-8 flex justify-center space-x-48">

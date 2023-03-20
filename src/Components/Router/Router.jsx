@@ -16,12 +16,13 @@ import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
 import EditInsignia from "../Vistas/Insignias/EditarInsignia";
 import EditarMateria from "../Vistas/Materias/AgregarMateria";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
+import Inicio from "../Vistas/Inicio/Inicio";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/inicio" element={<h1>nananana</h1>} />
+        <Route path="/" element={<Inicio/>} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />

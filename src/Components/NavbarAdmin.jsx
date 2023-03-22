@@ -10,10 +10,10 @@ const NavbarAdmin = () => {
             <img
               src=""
               className="mr-3 h-6 sm:h-9"
-              alt="Axis Logo"
+              alt="nombre Logo"
             />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              AXIS
+              NOMBRE
             </span>
           </a>
           <div className="flex items-center lg:order-2">

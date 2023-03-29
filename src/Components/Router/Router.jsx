@@ -15,12 +15,13 @@ import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
 import EditInsignia from "../Vistas/Insignias/EditarInsignia";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 import Inicio from "../Vistas/Inicio/Inicio";
+import { PorMunicipio } from "../Vistas/OpcionesReportes/Municipio";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio/>} />
+        <Route path="/" element={<Inicio />} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />

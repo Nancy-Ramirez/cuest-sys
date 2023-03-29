@@ -11,7 +11,7 @@ const gestionarReportes = () => {
 
         <div className="filesReporte p-10 md:grid md:grid-cols-3 gap-9 place-content-stretch flex flex-col  ">
           <a href="/" className="pb-10">
-            <button className="btnReporte btnUsuarioMunicipio ">
+            <button className="btnReporte btnUsuarioMunicipio" >
               Usuario por municipio
             </button>
           </a>

@@ -11,7 +11,7 @@ const NavbarAdmin = () => {
             LOGO
           </a>
           <input type="checkbox" className="" id="toogle" />
-          <label for="toogle">
+          <label htmlFor="toogle">
             <img src={menu} width="25px" />
           </label>
           <div className="menu justify-between">

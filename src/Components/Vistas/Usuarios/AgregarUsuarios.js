@@ -10,7 +10,7 @@ const EditarUsuario = () => {
           Actualizar Usuario
         </h1>
 
-        <form className="mx-80 mb-8 flex justify-center space-x-48">
+        <form className="mb-8 flex justify-center space-x-48">
           <div>
             {/*Nombre del usuario*/}
             <div className="mb-6 w-96">

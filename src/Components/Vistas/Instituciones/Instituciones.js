@@ -1,20 +1,32 @@
-
-import image1 from "../../../images/iconos/estudiante.png";
 import ver from "../../../images/iconos/ver.png";
+import editar from "../../../images/iconos/editar.png";
+import eliminar from "../../../images/iconos/eliminar.png";
+import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 
-const gestionarEstudiante = () => {
+const gestionarInstitucion = () => {
   return (
     <main>
       <NavbarAdmin/>
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
-        <h1 className="pt-20 text-center text-3xl text-white">ESTUDIANTES</h1>
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mx-12">
+        <h1 className="pt-24 text-center text-3xl text-white">INSTITUCIONES</h1>
+
+        <div className="mx-5">
+          <div className="flex items-center justify-end   m-2">
+            <a
+              href="/institucion/institucion"
+              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
+                <img src={agregar} alt="" width="40px" />
+              </button>
+            </a>
+          </div>
+        </div>
 
         <div className="m-5">
           <div className="flex items-center justify-end pb-4  m-2">
-
-
             <label htmlFor="table-search" className="sr-only">
               Buscar
             </label>
@@ -38,22 +50,19 @@ const gestionarEstudiante = () => {
                 type="text"
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar estudiante"
+                placeholder="Buscar institución"
               />
             </div>
           </div>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-black dark:text-gray-400 ">
-              <thead className="text-xs text-black uppercase bg-green-400 dark:bg-gray-700 dark:text-white">
+              <thead className="text-xs text-black uppercase bg-green-400 dark:bg-gray-700 dark:text-white text-center">
                 <tr>
                   <th scope="col" className="px-6 py-3">
                     Nombre
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    NIE
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Institución
+                    Tipo
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Municipio
@@ -63,137 +72,164 @@ const gestionarEstudiante = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="text-center">
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={image1}
-                      alt="Jese image"
-                    />
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Ernesto Guillermo Solares Melara
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        GuilleMe@gmail.com
+                       Colegio Maria Auxiliadora
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">3545872</td>
-                  <td className="px-6 py-4"> Liceo Cristiando Juan de Dios</td>
-                  <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
+                  <td className="px-6 py-4">Privado</td>
+                  <td className="px-6 py-4"> Soyapango</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verEstudiante ">
+                      <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
+                      </button>
+                    </a>
+                    <a
+                      href="/institucion/institucion"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-editarCuestionario ">
+                        <img src={editar} alt="" width="25px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
                   </td>
                 </tr>
-                <tr className="bg-green-200 border dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={image1}
-                      alt="Jese image"
-                    />
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Katherine Stefani Lopez Chavez
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        KatherineLopez@gmail.com
+                        Colegio San Juan Bosco
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">3542842</td>
-                  <td className="px-6 py-4"> Colegio Santa Lucia</td>
+                  <td className="px-6 py-4">Privada</td>
+                  <td className="px-6 py-4"> Soyapango</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-verCuestionario ">
+                        <img src={ver} alt="" width="30px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-editarCuestionario ">
+                        <img src={editar} alt="" width="25px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">
+                        Centro Escolar Justicia Divina
+                      </div>
+                    </div>
+                  </th>
+                  <td className="px-6 py-4">Público</td>
+                  <td className="px-6 py-4">Ilopango</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-verCuestionario ">
+                        <img src={ver} alt="" width="30px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-editarCuestionario ">
+                        <img src={editar} alt="" width="25px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
+                    </a>
+                  </td>
+                </tr>
+
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">Centro Escolar República de Corea</div>
+                    </div>
+                  </th>
+                  <td className="px-6 py-4">Pública</td>
                   <td className="px-6 py-4">San Bartolo</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
+                  <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verEstudiante ">
+                      <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={image1}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Alejandro Antonio Juarez Medina{" "}
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        MedinaMedina@gmail.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">31425842</td>
-                  <td className="px-6 py-4"> Complejo San Luis</td>
-                  <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verEstudiante ">
-                        <img src={ver} alt="" width="30px" />
+                      <button className="btn btn-editarCuestionario ">
+                        <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={image1}
-                      alt="Jese image"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Romina Caldea Carmona Perez
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        CarmonaCaldea@gmail.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">3542542</td>
-                  <td className="px-6 py-4"> Complejo Santa Eduviges</td>
-                  <td className="px-6 py-4">San Benito</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-verEstudiante ">
-                        <img src={ver} alt="" width="30px" />
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
                   </td>
@@ -307,4 +343,4 @@ const gestionarEstudiante = () => {
   );
 };
 
-export default gestionarEstudiante;
+export default gestionarInstitucion;

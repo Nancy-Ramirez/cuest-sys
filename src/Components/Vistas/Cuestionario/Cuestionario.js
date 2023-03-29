@@ -1,22 +1,21 @@
-
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
-import agregar from "../../../images/iconos/agregar.png"
+import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 
 const gestionarCuestionario = () => {
   return (
     <main>
-      <NavbarAdmin/>
+      <NavbarAdmin />
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mr-10">
-        <h1 className="pt-20 text-center text-3xl text-white">CUESTIONARIO</h1>
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mx-10">
+        <h1 className="pt-24 text-center text-3xl text-white">CUESTIONARIO</h1>
 
         <div className="">
-          <div className="flex items-center justify-end   m-2">
+          <div className="flex items-center justify-end m-2">
             <a
-              href="#"
+              href="/"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
@@ -89,7 +88,7 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4"> Séptimo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -97,7 +96,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -105,7 +104,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
@@ -130,7 +129,7 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4"> Primer año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -138,7 +137,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -146,7 +145,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
@@ -171,7 +170,7 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4"> Segundo año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -179,7 +178,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -187,7 +186,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
@@ -210,7 +209,7 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4">Octavo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -218,7 +217,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -226,7 +225,7 @@ const gestionarCuestionario = () => {
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
@@ -255,7 +254,7 @@ const gestionarCuestionario = () => {
             <ul className="inline-flex items-center -space-x-px">
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Anterior</span>
@@ -276,7 +275,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   1
@@ -284,7 +283,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   2
@@ -292,7 +291,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   aria-current="page"
                   className="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
                 >
@@ -301,7 +300,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   ...
@@ -309,7 +308,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   5
@@ -317,7 +316,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/"
                   className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Siguiente</span>

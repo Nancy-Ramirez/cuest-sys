@@ -26,43 +26,68 @@ body {
   grid-template-areas: "header" "main" "footer";
   background-image: url(./images/bg2.png);
 }
-h1{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 /*Navigation*/
-.navigation {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.navigation ul {
+.wrapper nav {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 0.4rem;
+  color: white;
+}
+
+.wrapper nav .logo {
+  font-weight: 700;
+}
+
+.wrapper nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.wrapper nav Link {
   text-decoration: none;
 }
 
-.navigation ul li {
-  list-style: none;
-  margin: 0 1rem;
-  cursor: pointer;
-  position: relative;
+nav #toogle,
+nav label {
+  display: none;
 }
 
-.navigation ul li::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  transform: scaleX(0);
-  background-color: green;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.navigation ul li:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
+@media (max-width: 60em) {
+  .wrapper nav .menu {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
 
+  .wrapper nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.3rem 0;
+  }
+
+  .wrapper nav label{
+    display: inline-flex;
+    color:white;
+    cursor:pointer;
+  }
+
+  .wrapper nav #toogle:checked ~ .menu{
+    height: 100%;
+  }
+}

@@ -5,7 +5,7 @@ const AgregarInstitucion = () => {
     <main>
       <NavbarAdmin />
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 pt-12 mr-10">
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 pt-12 mx-12">
         <h1 className="p-12 text-center text-3xl text-white">
           Actualizar instituciones
         </h1>

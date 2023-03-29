@@ -1,31 +1,17 @@
+
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
-import eliminar from "../../../images/iconos/eliminar.png";
-import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 
-const gestionarInstitucion = () => {
+const gestionarInsignia = () => {
   return (
     <main>
       <NavbarAdmin/>
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mr-10">
-        <h1 className="pt-20 text-center text-3xl text-white">INSTITUCIONES</h1>
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mx-12">
+        <h1 className="pt-24 text-center text-3xl text-white">INSIGNIAS</h1>
 
         <div className="mx-5">
-          <div className="flex items-center justify-end   m-2">
-            <a
-              href="/institucion/institucion"
-              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
-                <img src={agregar} alt="" width="40px" />
-              </button>
-            </a>
-          </div>
-        </div>
-
-        <div className="m-5">
           <div className="flex items-center justify-end pb-4  m-2">
             <label htmlFor="table-search" className="sr-only">
               Buscar
@@ -50,7 +36,7 @@ const gestionarInstitucion = () => {
                 type="text"
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar institución"
+                placeholder="Buscar insignia"
               />
             </div>
           </div>
@@ -62,10 +48,10 @@ const gestionarInstitucion = () => {
                     Nombre
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Tipo
+                    Puntaje mínimo
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Municipio
+                    Puntaje máximo
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Acciones
@@ -79,38 +65,29 @@ const gestionarInstitucion = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">
-                       Colegio Maria Auxiliadora
-                      </div>
+                      <div className="text-base font-semibold">Sin clasificación</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Privado</td>
-                  <td className="px-6 py-4"> Soyapango</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
+                  <td className="px-6 py-4">0</td>
+                  <td className="px-6 py-4">250</td>
+                  <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="/institucion/institucion"
+                      href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button className="btn btn-editarCuestionario ">
+                      <button  className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                    
                   </td>
                 </tr>
 
@@ -120,38 +97,29 @@ const gestionarInstitucion = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Colegio San Juan Bosco
-                      </div>
+                      <div className="text-base font-semibold">Bronce I</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Privada</td>
-                  <td className="px-6 py-4"> Soyapango</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
+                  <td className="px-6 py-4">251</td>
+                  <td className="px-6 py-4">100</td>
+                  <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                    
                   </td>
                 </tr>
 
@@ -161,38 +129,29 @@ const gestionarInstitucion = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Centro Escolar Justicia Divina
-                      </div>
+                      <div className="text-base font-semibold">Bronce II</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Público</td>
-                  <td className="px-6 py-4">Ilopango</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
+                  <td className="px-6 py-4">1001</td>
+                  <td className="px-6 py-4">2500</td>
+                  <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                    
                   </td>
                 </tr>
 
@@ -202,36 +161,29 @@ const gestionarInstitucion = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Centro Escolar República de Corea</div>
+                      <div className="text-base font-semibold">Bronce III</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Pública</td>
-                  <td className="px-6 py-4">San Bartolo</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
+                  <td className="px-6 py-4">2501</td>
+                  <td className="px-6 py-4">5000</td>
+                  <td className="px-6 py-8 flex justify-center content-center">
                     <a
                       href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="#"
+                      href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                    
                   </td>
                 </tr>
               </tbody>
@@ -343,4 +295,4 @@ const gestionarInstitucion = () => {
   );
 };
 
-export default gestionarInstitucion;
+export default gestionarInsignia;

@@ -5,7 +5,6 @@ import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
 import Estudiante from "../Vistas/Estudiantes/Estudiante";
 import Insignia from "../Vistas/Insignias/Insignias";
 import Institucion from "../Vistas/Instituciones/Instituciones";
-import Materia from "../Vistas/Materias/Materias";
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import Reporte from "../Vistas/Reportes/Reportes";
 
@@ -14,7 +13,6 @@ import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
 
 //Rutas Editar
 import EditInsignia from "../Vistas/Insignias/EditarInsignia";
-import EditarMateria from "../Vistas/Materias/AgregarMateria";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 import Inicio from "../Vistas/Inicio/Inicio";
 
@@ -36,10 +34,6 @@ export default function Router() {
           path="/institucion/institucion"
           element={<AgregarInstitucion />}
         ></Route>
-
-        {/*Materia */}
-        <Route path="/materia" element={<Materia />} />
-        <Route path="/materia/materia" element={<EditarMateria />} />
 
         {/*Usuario */}
         <Route path="/usuario" element={<Usuario />} />

@@ -4,7 +4,6 @@ const gestionarInicio = () => {
   return (
     <main>
       <NavbarAdmin />
-
     </main>
   );
 };

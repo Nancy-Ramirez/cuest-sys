@@ -2,79 +2,128 @@ import { Link } from "react-router-dom";
 
 const SidebarAdmine = () => {
   return (
-    
-    <aside className="opacity-70">
-      <span
-        className="absolute text-white text-4xl top-5 left-4 cursor-pointer"
-      >
-        <i className="bi bi-filter-left px-2 bg-green-200 rounded-md"></i>
-      </span>
-      <div className="sidebar fixed top-0 bottom-0 lg:left-0 p-2 w-[200px] overflow-y-auto text-center bg-green-700">
-        <div className="text-gray-100 text-xl">
-          <div className="p-2.5 mt-1 flex items-center justify-center">
-            
-            <h1 className="font-bold text-black text-[30px] ml-3 mb-10 text-center">
-              AXIS
-            </h1>
-            <i
-              className="bi bi-x cursor-pointer ml-28 lg:hidden"
-            ></i>
-          </div>
+    <nav className="bg-col1 opacity-2 flex-wrap border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-col1">
+      <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+        <a href="/" className="flex items-center">
+          <img src="" className="mr-3 h-6 sm:h-9" alt="nombre Logo" />
+          <span className=" text-white self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            NOMBRE
+          </span>
+        </a>
+        <div className="flex items-center lg:order-2">
+          <Link
+            href="#"
+            className="text-white dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-col2 dark:opacity-10 focus:outline-none dark:focus:ring-gray-800"
+          >
+            Log out
+          </Link>
 
+          <button
+            data-collapse-toggle="mobile-menu-2"
+            type="button"
+            className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg lg:hidden hover:opacity-10 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="mobile-menu-2"
+            aria-expanded="false"
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+            <svg
+              className="hidden w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+          </button>
         </div>
+        <div
+          className="navigation hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+          id="mobile-menu-2"
+        >
+          <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+            <li>
+              <Link
+                to="/"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Inicio
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cuestionario"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-green-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Cuestionario
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/institucion"
+                href="#"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Institución
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/insignia"
+                href="#"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Insignia
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/estudiante"
+                href="#"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Estudiante
+              </Link>
+            </li>
 
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/inicio" className="text-[17px] ml-4 text-white font-bold">Inicio</Link>
-        </div>
- 
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/cuestionario" className="text-[17px] ml-4 text-white font-bold">Cuestionario</Link>
-        </div>
+            <li>
+              <Link
+                to="/usuario"
+                href="#"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Usuarios
+              </Link>
+            </li>
 
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/materia" className="text-[17px] ml-4 text-white font-bold">Materias</Link>
+            <li>
+              <Link
+                to="/reporte"
+                href="#"
+                className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
+              >
+                Reportes
+              </Link>
+            </li>
+          </ul>
         </div>
-
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/institucion" className="text-[17px] ml-4 text-white font-bold">Instituciones</Link>
-        </div>
-
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/insignia" className="text-[17px] ml-4 text-white font-bold">Insignias</Link>
-        </div>
-
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/estudiante" className="text-[17px] ml-4 text-white font-bold">Estudiantes</Link>
-        </div>
-
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/usuario" className="text-[17px] ml-4 text-white font-bold">Usuarios</Link>
-        </div>
-
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-house-door-fill"></i>
-          <Link to="/reporte" className="text-[17px] ml-4 text-white font-bold">Reportes</Link>
-        </div>
-
-        <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-green-600  hover:rounder-lg">
-          <i className="bi bi-box-arrow-in-right"></i>
-          <span className="text-[17px] ml-4 text-white font-bold">Logout</span>
-        </div>
-        
-      </div><div className="flex flex-1">
-            
-            <main className="flex items-center justify-center flex-1 px-25 py-8">
-              <h1 className="text-5xl font-bold text-white hidden">In progress</h1>
-            </main>
-          </div>
-    </aside>
+      </div>
+    </nav>
   );
 };
 

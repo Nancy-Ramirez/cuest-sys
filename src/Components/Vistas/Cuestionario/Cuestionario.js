@@ -13,7 +13,7 @@ const gestionarCuestionario = () => {
         <h1 className="pt-24 text-center text-3xl text-white">CUESTIONARIO</h1>
 
         <div className="">
-          <div className="flex items-center justify-end m-2">
+          <div className="flex items-center px-5 md:justify-end m-2">
             <a
               href="/"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -26,7 +26,7 @@ const gestionarCuestionario = () => {
         </div>
 
         <div className="m-5">
-          <div className="flex items-center justify-end pb-4  m-2">
+          <div className="flex items-center md:justify-end pb-4  m-2">
             <label htmlFor="table-search" className="sr-only">
               Buscar
             </label>

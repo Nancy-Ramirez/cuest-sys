@@ -10,7 +10,7 @@ const AgregarInstitucion = () => {
           Actualizar instituciones
         </h1>
 
-        <form className="mx-80 mb-8 flex justify-center space-x-48">
+        <form className="mb-8 flex justify-center space-x-48">
           <div>
             <div className="mb-6 w-96">
               <label

@@ -11,7 +11,7 @@ const gestionarEstudiante = () => {
         <h1 className="pt-24 text-center text-3xl text-white">ESTUDIANTES</h1>
 
         <div className="m-5">
-          <div className="flex items-center justify-end pb-4  m-2">
+          <div className="flex items-center md:justify-end pb-4 m-2">
             <label htmlFor="table-search" className="sr-only">
               Buscar
             </label>

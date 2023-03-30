@@ -2,9 +2,8 @@
 
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx, html}",
     "./node_modules/flowbite/**/*.js",
-    "./src/**/*.{html,js}",
     "./node_modules/tw-elements/dist/js/**/*.js",
   ],
 
@@ -15,9 +14,9 @@ module.exports = {
       colo3: "#008F8C",
       colo4: "#0CABA8",
       colo5: "#0FC2C0",
-      coll6: "#32A89C"
+      coll6: "#32A89C",
     },
     extend: {},
   },
-  plugins: [require("flowbite/plugin", "tw-elements/dist/plugin")],
+  plugins: [require("flowbite/plugin")],
 };

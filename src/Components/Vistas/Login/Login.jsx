@@ -1,37 +1,86 @@
-
+import { Link } from "react-router-dom";
+import logo from "../../../images/iconoF.png"
+import {BtnOlvidarContra} from "../../BotoncitosModals/botonOlvidarContra"
 
 export const Login = () => {
     
     return (
-       <div class="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
-	<div class="relative py-3 sm:max-w-xl sm:mx-auto">
-		<div
-			class="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
-		</div>
-		<div class="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
-			<div class="max-w-md mx-auto">
-				<div>
-					<h1 class="text-2xl font-semibold">Login Form with Floating Labels</h1>
-				</div>
-				<div class="divide-y divide-gray-200">
-					<div class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-						<div class="relative">
-							<input autocomplete="off" id="email" name="email" type="text" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
-							<label for="email" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
-						</div>
-						<div class="relative">
-							<input autocomplete="off" id="password" name="password" type="password" class="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
-							<label for="password" class="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
-						</div>
-						<div class="relative">
-							<button class="bg-blue-500 text-white rounded-md px-2 py-1">Submit</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div> 
-       
-    )
+      <div>
+        <section className=" min-h-screen flex justify-center opacity-90 py-2 px-4 sm:px-6 lg:px-8  relative items-center">
+          <div className="max-w-md w-full space-y-8 p-2 bg-white rounded-xl shadow-lg z-10">
+            <div className="grid  gap-2 grid-cols-1">
+              <section className="bg-gray-50 dark:bg-gray-900">
+                <div className="flex flex-col items-center justify-center px-6 py-2 mx-auto md:h-screen lg:py-0">
+                  <div className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                    <img
+                      className="w-32 mr-2 rounded-full "
+                      src={logo}
+                      alt=""
+                    />
+                  </div>
+                  <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                      <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
+                        Ingresa a tu cuenta
+                      </h1>
+                      <form className="space-y-4 md:space-y-6" action="#">
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >
+                            Correo electrónico
+                          </label>
+                          <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="nombre@xxxxx.com"
+                            required=""
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="password"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >
+                            Contraseña
+                          </label>
+                          <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            placeholder="••••••••"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required=""
+                          />
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <BtnOlvidarContra></BtnOlvidarContra>
+                        </div>
+                        <div className="log flex justify-center">
+                          <Link to="/" className="button text">
+                            <svg>
+                              <rect
+                                x="0"
+                                y="0"
+                                fill="none"
+                                width="100%"
+                                height="100%"
+                              />
+                            </svg>
+                            Ingresar
+                          </Link>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
 }

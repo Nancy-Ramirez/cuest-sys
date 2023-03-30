@@ -52,7 +52,7 @@ export default function Router() {
 
         {/*Errores */}
         <Route path="/*" element={<Error />} />
-        
+
         {/*Login */}
         <Route path="/login" element={<Login />}></Route>
       </Routes>

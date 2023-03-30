@@ -38,7 +38,7 @@ const NavbarAdmin = () => {
                 <Link to="/reporte">Reportes</Link>
               </li>
               <li>
-                <Link to="/">Salir</Link>
+                <Link to="/login">Salir</Link>
               </li>
             </ul>
           </div>

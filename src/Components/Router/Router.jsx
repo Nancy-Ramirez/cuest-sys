@@ -15,16 +15,15 @@ import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
 import EditInsignia from "../Vistas/Insignias/EditarInsignia";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 import Inicio from "../Vistas/Inicio/Inicio";
-import { PorMunicipio } from "../Vistas/OpcionesReportes/Municipio";
 import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
 import { Error } from "../PaginaError";
+import {Login} from "../Vistas/Login/Login"
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/*" element={<Error />} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
@@ -52,10 +51,10 @@ export default function Router() {
         <Route path="/insignia" element={<Insignia />} />
 
         {/*Errores */}
-        <Route path="*" element={<Error404/>}></Route>
-
+        <Route path="/*" element={<Error />} />
+        
         {/*Login */}
-        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/login" element={<Login />}></Route>
       </Routes>
     </BrowserRouter>
   );

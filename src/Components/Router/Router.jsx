@@ -16,6 +16,7 @@ import EditInsignia from "../Vistas/Insignias/EditarInsignia";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 import Inicio from "../Vistas/Inicio/Inicio";
 import { PorMunicipio } from "../Vistas/OpcionesReportes/Municipio";
+import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
 
 export default function Router() {
   return (
@@ -28,6 +29,7 @@ export default function Router() {
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />
+        <Route path="/estudiante/estudiante/:id" element={<VerEstudiante />} />
 
         {/*institución */}
         <Route path="/institucion" element={<Institucion />} />

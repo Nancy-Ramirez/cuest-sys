@@ -10,9 +10,12 @@ module.exports = {
 
   theme: {
     colors: {
-      col1: "#015958",
-      col2: "#005A5B",
-      col3: "#023535",
+      colo1: "#023535",
+      colo2: "#015958",
+      colo3: "#008F8C",
+      colo4: "#0CABA8",
+      colo5: "#0FC2C0",
+      coll6: "#32A89C"
     },
     extend: {},
   },

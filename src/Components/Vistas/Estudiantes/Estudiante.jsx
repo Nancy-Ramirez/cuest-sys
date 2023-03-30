@@ -1,6 +1,8 @@
 import imm1 from "../../../images/iconos/estudiante.png";
 import ver from "../../../images/iconos/ver.png";
+import eliminar from "../../../images/iconos/eliminar.png";
 import NavbarAdmin from "../../NavbarAdmin";
+import { Link } from "react-router-dom";
 
 const gestionarEstudiante = () => {
   return (
@@ -41,7 +43,7 @@ const gestionarEstudiante = () => {
           </div>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-black dark:text-gray-400 ">
-              <thead className="text-xs text-black uppercase bg-green-400 dark:bg-gray-700 dark:text-white">
+              <thead className="text-xs text-black uppercase bg-colo5 dark:bg-gray-700 dark:text-white">
                 <tr>
                   <th scope="col" className="px-6 py-3">
                     Nombre
@@ -61,7 +63,7 @@ const gestionarEstudiante = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
@@ -75,7 +77,7 @@ const gestionarEstudiante = () => {
                       <div className="text-base font-semibold">
                         Ernesto Guillermo Solares Melara
                       </div>
-                      <div className="font-normal text-gray-500">
+                      <div className="font-normal text-gray-500 hover:text-white">
                         GuilleMe@gmail.com
                       </div>
                     </div>
@@ -83,18 +85,21 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">3545872</td>
                   <td className="px-6 py-4"> Liceo Cristiando Juan de Dios</td>
                   <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="/"
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <Link
+                      to="/estudiante/estudiante/:id"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verEstudiante ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
+                    </Link>
+                    <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
                   </td>
                 </tr>
-                <tr className="bg-green-200 border dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+                <tr className="bg-green-200 border dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
@@ -116,19 +121,22 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">3542842</td>
                   <td className="px-6 py-4"> Colegio Santa Lucia</td>
                   <td className="px-6 py-4">San Bartolo</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="/"
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <Link
+                      to="/estudiante/estudiante/:id"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verEstudiante ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
+                    </Link>
+                    <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
                   </td>
                 </tr>
 
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
@@ -150,19 +158,22 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">31425842</td>
                   <td className="px-6 py-4"> Complejo San Luis</td>
                   <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="/"
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <Link
+                      to="/estudiante/estudiante/:id"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verEstudiante ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
+                    </Link>
+                    <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
                   </td>
                 </tr>
 
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-green-300 dark:hover:bg-gray-600">
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
@@ -184,15 +195,18 @@ const gestionarEstudiante = () => {
                   <td className="px-6 py-4">3542542</td>
                   <td className="px-6 py-4"> Complejo Santa Eduviges</td>
                   <td className="px-6 py-4">San Benito</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="/"
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <Link
+                      to="/estudiante/estudiante/:id"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verEstudiante ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
+                    </Link>
+                    <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
                   </td>
                 </tr>
               </tbody>
@@ -235,12 +249,12 @@ const gestionarEstudiante = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/estudiante/estudiante/:id"
                   className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   1
-                </a>
+                </Link>
               </li>
               <li>
                 <a

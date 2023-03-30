@@ -4,7 +4,7 @@ import menu from "../images/iconos/menu.png"
 
 const NavbarAdmin = () => {
   return (
-    <div className="bg-col2 opacity-2 border-gray-200 mx-auto fixed w-full flex-wrap z-20 top-0">
+    <div className="bg-colo2 opacity-2 border-gray-200 mx-auto fixed w-full flex-wrap z-20 top-0">
       <div className="wrapper justify-between">
         <nav>
           <a href="/" className="logo">

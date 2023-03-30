@@ -52,8 +52,10 @@ export default function Router() {
         <Route path="/insignia" element={<Insignia />} />
 
         {/*Errores */}
+        <Route path="*" element={<Error404/>}></Route>
 
-        <Route path="*" element={<>Error404</>}></Route>
+        {/*Login */}
+        <Route path="/login" element={<Login/>}></Route>
       </Routes>
     </BrowserRouter>
   );

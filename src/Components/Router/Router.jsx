@@ -17,12 +17,14 @@ import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 import Inicio from "../Vistas/Inicio/Inicio";
 import { PorMunicipio } from "../Vistas/OpcionesReportes/Municipio";
 import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
+import { Error } from "../PaginaError";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Inicio />} />
+        <Route path="/*" element={<Error />} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />

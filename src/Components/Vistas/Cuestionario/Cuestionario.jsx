@@ -3,6 +3,7 @@ import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
+import { Link } from "react-router-dom";
 
 const gestionarCuestionario = () => {
   return (
@@ -14,14 +15,14 @@ const gestionarCuestionario = () => {
 
         <div className="">
           <div className="flex items-center px-5 md:justify-end m-2">
-            <a
-              href="/"
+            <Link
+              to="/crear-cuestionario"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
                 <img src={agregar} alt="" width="40px" />
               </button>
-            </a>
+            </Link>
           </div>
         </div>
 

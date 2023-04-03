@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cuestionarios</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,500,0,0"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-success">
+          <div
+            class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100"
+          >
+            <!--Logo-->
+            <a
+              href="#"
+              class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none text-reset"
+            >
+              <span class="d-none d-sm-inline">Menu</span>
+            </a>
+            <!--!MENÚ DE ADMINISTRADOR-->
+            <ul
+              class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+              id="menu"
+            >
+              <!--inicio-->
+              <li class="nav-item">
+                <a href="#" class="nav-link align-middle px-0 text-reset">
+                  <i class=""></i>
+                  <span class="ms-1 d-none d-sm-inline">Inicio</span>
+                </a>
+              </li>
+              <!--Cuestionarios-->
+              <li>
+                <a href="/app/Cuestionario/Cuestionario.html" class="nav-link px-0 align-middle text-reset">
+                  <i class="fs-4 bi-people"></i>
+                  <span class="ms-1 d-none d-sm-inline">Cuestionarios</span>
+                </a>
+              </li> 
+              <!--Materias-->
+              <li>
+                <a href="/app/Materia/Materia.html" class="nav-link px-0 align-middle text-reset">
+                  <i class="fs-4 bi-table"></i>
+                  <span class="ms-1 d-none d-sm-inline">Materias</span></a
+                >
+              </li>
+               <!--Instituciones-->
+               <li>
+                <a href="/app/Institucion/Institucion.html" class="nav-link px-0 align-middle text-reset">
+                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Instituciones</span> </a>
+            </li>
+            <!--Insignias-->
+            <li class="nav-item">
+                <a href="/app/Insignia/Insignia.html" class="nav-link align-middle px-0 text-reset">
+                  <i class=""></i>
+                  <span class="ms-1 d-none d-sm-inline">Insignias</span>
+                </a>
+              </li>
+              <!--Estudiantes-->
+              <li>
+                <a href="/app/Estudiante/Estudiante.html" class="nav-link px-0 align-middle text-reset">
+                  <i class="fs-4 bi-people"></i>
+                  <span class="ms-1 d-none d-sm-inline">Estudiantes</span>
+                </a>
+              </li>
+              <!--Usuarios-->
+              <li>
+                <a href="/app/Usuario/Usuario.html" class="nav-link px-0 align-middle text-reset">
+                  <i class="fs-4 bi-people"></i>
+                  <span class="ms-1 d-none d-sm-inline">Usuarios</span>
+                </a>
+              </li>
+              <!--Reportes-->
+              <li>
+                <a href="/app/Reportes/Reportes.html" class="nav-link px-0 align-middle text-reset">
+                  <i class="fs-4 bi-people"></i>
+                  <span class="ms-1 d-none d-sm-inline">Reportes</span>
+                </a>
+              </li>
+            </ul>
+            <hr />
+            <div class="dropdown pb-4">
+              <a
+                href="#"
+                class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                id="dropdownUser1"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://github.com/mdo.png"
+                  alt="hugenerd"
+                  width="30"
+                  height="30"
+                  class="rounded-circle"
+                />
+                <span class="d-none d-sm-inline mx-1">Carolina</span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Salir</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!--!CONTENIDO DE LA PAG-->
+        <div class="col py-3">
+          <div class="container-fluid">
+            <!--Encabezado de pagina-->
+            <h1 class="h3 mb-2 text-gray-800">Materia</h1>
+
+            <!--Tabla-->
+            <div class="card shadow mb-4">
+              <div class="card-header py-3">
+                <div class="d-flex justify-content-between">
+                  <h6 class="m-0 font-weight.bold text-primary"></h6>
+                  <button
+                    type="button"
+                    class="btn btn-outline-success rounded-3 m-2"
+                  >
+                    <a href="crearCuestionario.html"
+                      ><span
+                        class="material-symbols-rounded justify-content-center"
+                        >add</span
+                      ></a
+                    >
+                  </button>
+                </div>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Default"
+                    aria-describedby="inputGroup-sizing-default"
+                    placeholder="Nombre de la materia"
+                  />
+                  <div class="input-group-prepend">
+                    <button
+                      type="button"
+                      class="btn btn-outline-warning rounded-3"
+                    >
+                      <span class="material-symbols-rounded">
+                        edit_square
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="card-header py-3">
+                <div class="table-responsive">
+                  <table
+                    class="table table-hover"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing=""
+                  >
+                    <thead class="thead-dark">
+                      <tr class="text-center">
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Grado</th>
+                        <th>Opciones</th>
+                      </tr>
+                    </thead>
+                    <tbody class="text-center">
+                      <tr>
+                        <td>1</td>
+                        <td>Química</td>
+                        <td>Octavo</td>
+                        <td>
+                          <div class="example-button-row">
+                            <div class="example-flex-container">
+                              <div class="d-flex justify-content-center">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-info rounded-3 m-2"
+                                >
+                                  <span class="material-symbols-rounded">
+                                    edit_square
+                                  </span>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger rounded-3 m-2"
+                                >
+                                  <span class="material-symbols-rounded">
+                                    delete_forever
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Biología</td>
+                        <td>Septimo</td>
+                        <td>
+                          <div class="example-button-row">
+                            <div class="example-flex-container">
+                              <div class="d-flex justify-content-center">
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-info rounded-3 m-2"
+                                >
+                                  <span class="material-symbols-rounded">
+                                    edit_square
+                                  </span>
+                                </button>
+                                <button
+                                  type="button"
+                                  class="btn btn-outline-danger rounded-3 m-2"
+                                >
+                                  <span class="material-symbols-rounded">
+                                    delete_forever
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="d-flex justify-content-between">
+                    <div class="col-sm-12 col-md-5">
+                      <div
+                        class="dataTables_info"
+                        id="dataTable_info"
+                        role="status"
+                        aria-live="polite"
+                      >
+                      Mostrando 5 de 20 registros
+                      </div>
+                    </div>
+                    <ul class="pagination">
+                      <li
+                        class="paginate_button page-item previous"
+                        id="dataTable_previous"
+                      >
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="0"
+                          tabindex="0"
+                          class="page-link"
+                          >Previous</a
+                        >
+                      </li>
+                      <li class="paginate_button page-item">
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="1"
+                          tabindex="0"
+                          class="page-link"
+                          >1</a
+                        >
+                      </li>
+                      <li class="paginate_button page-item active">
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="2"
+                          tabindex="0"
+                          class="page-link"
+                          >2</a
+                        >
+                      </li>
+                      <li class="paginate_button page-item">
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="3"
+                          tabindex="0"
+                          class="page-link"
+                          >3</a
+                        >
+                      </li>
+                      <li class="paginate_button page-item">
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="4"
+                          tabindex="0"
+                          class="page-link"
+                          >4</a
+                        >
+                      </li>
+                      <li class="paginate_button page-item">
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="5"
+                          tabindex="0"
+                          class="page-link"
+                          >5</a
+                        >
+                      </li>
+                      <li class="paginate_button page-item">
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="6"
+                          tabindex="0"
+                          class="page-link"
+                          >6</a
+                        >
+                      </li>
+                      <li
+                        class="paginate_button page-item next"
+                        id="dataTable_next"
+                      >
+                        <a
+                          href="#"
+                          aria-controls="dataTable"
+                          data-dt-idx="7"
+                          tabindex="0"
+                          class="page-link"
+                          >Next</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"
+  ></script>
+</html>

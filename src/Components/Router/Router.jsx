@@ -18,21 +18,23 @@ import Inicio from "../Vistas/Inicio/Inicio";
 import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
 import { Error } from "../PaginaError";
 import {Login} from "../Vistas/Login/Login"
+import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Login />} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
+        <Route path="/crear-cuestionario" element={<CrearCuestionario />} />
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />
         <Route path="/estudiante/estudiante/:id" element={<VerEstudiante />} />
 
-        {/*institución */}
+        {/*Institución */}
         <Route path="/institucion" element={<Institucion />} />
         <Route
           path="/institucion/institucion"
@@ -54,7 +56,7 @@ export default function Router() {
         <Route path="/*" element={<Error />} />
 
         {/*Login */}
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/inicio" element={<Inicio/>}></Route>
       </Routes>
     </BrowserRouter>
   );

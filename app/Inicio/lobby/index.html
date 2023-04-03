@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lobby</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="main.js"></script>
+  <link rel="stylesheet" href="mainlobby.css">
+</head>
+
+<body>
+
+  <!--navbar con solo un boton de inicio o dos opciones simples-->
+  <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-sushi mb-3">
+    <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+      <div class="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+        <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
+          href="#">
+          axis
+        </a>
+        <button
+          class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+          type="button">
+          <span class="block relative w-6 h-px rounded-sm bg-white"></span>
+          <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+          <span class="block relative w-6 h-px rounded-sm bg-white mt-1"></span>
+        </button>
+      </div>
+      <div class="lg:flex flex-grow items-center" id="example-navbar-warning">
+        <ul class="flex flex-col lg:flex-row list-none ml-auto">
+          <li class="nav-item">
+            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+              href="#">
+              Ingresa
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75"
+              href="#">
+              Registrate
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!--cuerpo aquí iria la opcion dinamica-->
+  <!--hero/headder-->
+
+  <div class="hero min-h-screen"
+    style="background-image: url(https://images.pexels.com/photos/2694037/pexels-photo-2694037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+    <div class="hero-overlay bg-opacity-60"></div>
+    <div class="hero-content text-center text-neutral-content">
+      <div class="max-w-md">
+        <h1 class="mb-5 text-5xl font-bold">Bienvenido a AXIS</h1>
+        <p class="mb-5">(Descripcion de la app para estudiantes)</p>
+        <!--<button class="btn btn-outline btn-success">Registrate</button>-->
+      </div>
+    </div>
+  </div>
+
+  <!--descripcion-->
+  <section class="bg-darkmoss text-white">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
+      <div class="mx-auto max-w-lg text-center">
+        <h2 class="text-3xl font-bold sm:text-4xl">¿Qué hace de de axis tu mejor opción para reforzar ciencias?</h2>
+
+        <p class="mt-4 text-gray-300">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
+          aliquam doloribus nesciunt eos fugiat. Vitae aperiam fugit consequuntur
+          saepe laborum.
+        </p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <a class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-jungleleaf/10 hover:shadow-jungleleaf/10"
+          href="/services/digital-campaigns">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-pink-500" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+          </svg>
+
+          <h2 class="mt-4 text-xl font-bold text-white">Tu mejor opción para estudiar</h2>
+
+          <p class="mt-1 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
+            possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+          </p>
+        </a>
+
+        <a class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-jungleleaf/10 hover:shadow-jungleleaf/10"
+          href="/services/digital-campaigns">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-pink-500" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+          </svg>
+
+          <h2 class="mt-4 text-xl font-bold text-white">quieres reforzar</h2>
+
+          <p class="mt-1 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
+            possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+          </p>
+        </a>
+
+        <a class="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-jungleleaf/10 hover:shadow-jungleleaf/10"
+          href="#">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-pink-500" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path d="M12 14l9-5-9-5-9 5 9 5z" />
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+          </svg>
+
+          <h2 class="mt-4 text-xl font-bold text-white">Dinamica forma de aprender</h2>
+
+          <p class="mt-1 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo
+            possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+          </p>
+        </a>
+        <br>
+        <div class="mt-12 text-center">
+          <a href="#"
+            class="inline-block rounded bg-junglegreen px-12 py-3 text-sm font-medium text-white transition hover:bg-jungleleaf focus:outline-none focus:ring focus:ring-yellow-400">
+            Registrate hoy!
+          </a>
+        </div>
+      </div>
+  </section>
+
+
+  <!--footer-->
+  <footer class="p-4 bg-white rounded-lg shadow md:px-6 md:py-8 dark:bg-springleaves">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <a href="#" class="flex items-center mb-4 sm:mb-0">
+        <img src="" class="h-8 mr-3" alt="" />
+        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">axis</span>
+      </a>
+      <ul class="flex flex-wrap items-center mb-6 text-sm text-bone sm:mb-0 dark:text-bone">
+        <li>
+          <a href="#" class="mr-4 hover:underline md:mr-6 ">Sobre Nosotros</a>
+        </li>
+        <li>
+          <a href="#" class="hover:underline">Contactanos</a>
+        </li>
+      </ul>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© <a href="#"
+        class="hover:underline">axis™</a>. All Rights Reserved.
+    </span>
+  </footer>
+
+
+</body>
+
+
+</html>

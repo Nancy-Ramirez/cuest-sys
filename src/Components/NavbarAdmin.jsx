@@ -17,7 +17,7 @@ const NavbarAdmin = () => {
           <div className="menu justify-between">
             <ul>
               <li>
-                <Link to="/">Inicio</Link>
+                <Link to="/inicio">Inicio</Link>
               </li>
               <li>
                 <Link to="/cuestionario">Cuestionario</Link>
@@ -38,7 +38,7 @@ const NavbarAdmin = () => {
                 <Link to="/reporte">Reportes</Link>
               </li>
               <li>
-                <Link to="/login">Salir</Link>
+                <Link to="/">Salir</Link>
               </li>
             </ul>
           </div>

@@ -7,6 +7,8 @@ import Insignia from "../Vistas/Insignias/Insignias";
 import Institucion from "../Vistas/Instituciones/Instituciones";
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import Reporte from "../Vistas/Reportes/Reportes";
+import Unidad from "../Vistas/Unidades/Unidad";
+import Reseña from "../Vistas/Reseñas/Reseñas";
 
 //Rutas Agregar o Crear
 import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
@@ -19,12 +21,14 @@ import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
 import { Error } from "../PaginaError";
 import {Login} from "../Vistas/Login/Login"
 import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
+import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
 
 export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/reseña" element={<Reseña/>} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
@@ -33,6 +37,10 @@ export default function Router() {
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />
         <Route path="/estudiante/estudiante/:id" element={<VerEstudiante />} />
+
+        {/*Unidades */}
+        <Route path="/unidad" element={<Unidad />} />
+        <Route path="/unidad/unidad" element={<EditarUnidad />} />
 
         {/*Institución */}
         <Route path="/institucion" element={<Institucion />} />

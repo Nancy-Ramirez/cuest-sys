@@ -14,6 +14,7 @@ module.exports = {
       colo4: "#0CABA8",
       colo5: "#0FC2C0",
       coll6: "#32A89C",
+      colo7: "#00ABBD",
     },
     extend: {},
   },

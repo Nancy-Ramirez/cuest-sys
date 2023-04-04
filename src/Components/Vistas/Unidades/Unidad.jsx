@@ -1,16 +1,31 @@
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
+import eliminar from "../../../images/iconos/eliminar.png";
+import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 
-const gestionarInsignia = () => {
+const gestionarUnidades = () => {
   return (
     <main>
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mx-12">
-        <h1 className="pt-24 text-center text-3xl text-white">INSIGNIAS</h1>
+        <h1 className="pt-24 text-center text-3xl text-white">UNIDADES</h1>
 
         <div className="mx-5">
+          <div className="flex items-center md:justify-end px-5 m-2">
+            <a
+              href="/unidad/unidad"
+              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+            >
+              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
+                <img src={agregar} alt="" width="40px" />
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div className="m-5">
           <div className="flex items-center md:justify-end pb-4  m-2">
             <label htmlFor="table-search" className="sr-only">
               Buscar
@@ -35,22 +50,25 @@ const gestionarInsignia = () => {
                 type="text"
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar insignia"
+                placeholder="Buscar institución"
               />
             </div>
           </div>
-          <div className="mx-24 relative overflow-x-auto shadow-md sm:rounded-lg">
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-black dark:text-gray-400 ">
               <thead className="text-xs text-black uppercase bg-colo5 dark:bg-gray-700 dark:text-white text-center">
                 <tr>
                   <th scope="col" className="px-6 py-3">
+                    N°
+                  </th>
+                  <th scope="col" className="px-6 py-3">
                     Nombre
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Puntaje mínimo
+                    Grado
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Puntaje máximo
+                    Materia
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Acciones
@@ -62,131 +80,164 @@ const gestionarInsignia = () => {
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                    className="items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Sin clasificación
-                      </div>
+                      <div className="text-base font-semibold">1</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">0</td>
-                  <td className="px-6 py-4">250</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
+                  <td className="px-6 py-4">Ciencia y tecnología</td>
+                  <td className="px-6 py-4">Séptimo</td>
+                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="/insignia/insignia"
+                      href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
+                    </a>
                   </td>
                 </tr>
-
                 {/*Dato 2 */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                    className="items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Bronce I</div>
+                      <div className="text-base font-semibold">2</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">251</td>
-                  <td className="px-6 py-4">100</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
+                  <td className="px-6 py-4">Propiedades de la materia</td>
+                  <td className="px-6 py-4">Séptimo</td>
+                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="/insignia/insignia"
+                      href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
+                    </a>
                   </td>
                 </tr>
-
                 {/*Dato 3 */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                    className="items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Bronce II</div>
+                      <div className="text-base font-semibold">3</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">1001</td>
-                  <td className="px-6 py-4">2500</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
+                  <td className="px-6 py-4">Materia y energía</td>
+                  <td className="px-6 py-4">Séptimo</td>
+                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
                     <a
                       href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario ">
                         <img src={ver} alt="" width="30px" />
                       </button>
                     </a>
                     <a
-                      href="/insignia/insignia"
+                      href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
+                      </button>
+                    </a>
+                  </td>
+                </tr>
+                {/*Dato 4 */}
+                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
+                  <th
+                    scope="row"
+                    className="items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    <div className="pl-3">
+                      <div className="text-base font-semibold">1</div>
+                    </div>
+                  </th>
+                  <td className="px-6 py-4">Reacciones químicas</td>
+                  <td className="px-6 py-4">Octavo</td>
+                  <td className="px-6 py-4">Química</td>
+                  <td className="px-6 py-8 flex justify-between content-center">
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-verCuestionario ">
+                        <img src={ver} alt="" width="30px" />
+                      </button>
+                    </a>
+                    <a
+                      href="/unidad/unidad"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-editarCuestionario ">
+                        <img src={editar} alt="" width="25px" />
+                      </button>
+                    </a>
+                    <a
+                      href="#"
+                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    >
+                      <button className="btn btn-eliminarCuestionario ">
+                        <img src={eliminar} alt="" width="25px" />
                       </button>
                     </a>
                   </td>
                 </tr>
 
-                {/*Dato 4 */}
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Bronce III</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">2501</td>
-                  <td className="px-6 py-4">5000</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="/insignia/insignia"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario ">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </a>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
@@ -296,4 +347,4 @@ const gestionarInsignia = () => {
   );
 };
 
-export default gestionarInsignia;
+export default gestionarUnidades;

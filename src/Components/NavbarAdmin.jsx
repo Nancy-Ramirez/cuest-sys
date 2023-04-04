@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import menu from "../images/iconos/menu.png"
+import logo from "../images/Logo.png"
 
 
 const NavbarAdmin = () => {
@@ -7,8 +8,8 @@ const NavbarAdmin = () => {
     <div className="bg-colo2 opacity-2 border-gray-200 mx-auto fixed w-full flex-wrap z-20 top-0">
       <div className="wrapper justify-between">
         <nav>
-          <a href="/" className="logo">
-            LOGO
+          <a href="/inicio" className="logo">
+            <img src={logo} width="60px" alt=""/>
           </a>
           <input type="checkbox" className="" id="toogle" />
           <label htmlFor="toogle">
@@ -26,6 +27,9 @@ const NavbarAdmin = () => {
                 <Link to="/institucion">Institución</Link>
               </li>
               <li>
+                <Link to="/unidad">Unidad</Link>
+              </li>
+              <li>
                 <Link to="/insignia">Insignia</Link>
               </li>
               <li>
@@ -36,6 +40,9 @@ const NavbarAdmin = () => {
               </li>
               <li>
                 <Link to="/reporte">Reportes</Link>
+              </li>
+              <li>
+                <Link to="/reseña">Reseñas</Link>
               </li>
               <li>
                 <Link to="/">Salir</Link>

@@ -333,3 +333,116 @@ p {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.btnReportes{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.btnReportes:after {
+  content: "";
+  top: 0;
+  right: 0;
+  height: 1px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.btnReportes:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 1em;
+  background-color: transparent;
+  transition: all 0.25s ease;
+}
+
+.btnReportes .btn__text {
+  color: #000;
+  position: relative;
+  display: block;
+  padding: 0.459em 2.29em;
+  line-height: 1.5;
+  transition: transform 0.5s ease;
+}
+
+.btnReportes .btn__text:before,
+.btnReportes .btn__text:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background-color: #333;
+}
+
+.btnReportes .btn__text:before {
+  top: 0;
+  left: 0;
+  transition: width 0.15s 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes .btn__text:after {
+  bottom: 0;
+  right: 0;
+  transition: width 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes .btn__text span:before,
+.btnReportes .btn__text span:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 1px;
+  background-color: #333;
+  transition: all 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+}
+
+.btnReportes .btn__text span:before {
+  bottom: 0;
+  left: 0;
+  transition: height 0.15s 0 cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes .btn__text span:after {
+  right: 0;
+  top: 0;
+  transition: height 0.15s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes:hover {
+  cursor: pointer;
+}
+
+.btnReportes:hover:before {
+  transition: all 0.4s ease;
+  width: 0;
+}
+
+.btnReportes:hover .btn__text {
+  transition: transform 0.5s ease, width 1s ease;
+}
+
+.btnReportes:hover .btn__text:before {
+  max-width: 100%;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.btnReportes:hover .btn__text:after {
+  transition: width 0.15s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.btnReportes:hover .btn__text span:before {
+  height: 100%;
+  left: 0;
+  transition: height 0.15s 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes:hover .btn__text span:after {
+  height: 100%;
+  right: 0;
+  transition: height 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+

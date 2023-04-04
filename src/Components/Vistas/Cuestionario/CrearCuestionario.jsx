@@ -118,8 +118,8 @@ const CrearCuestionario = () => {
                         />
                       </div>
                       {/*!--Agregar preguntas-->*/}
-                      <div className="aggP flex justify-end">
-                          <Link to="/inicio" className="buttonP text">
+                      <div className="aggP flex justify-end ">
+                          <Link to="/inicio" className="buttonP text w-full">
                             <svg>
                               <rect
                                 x="0"

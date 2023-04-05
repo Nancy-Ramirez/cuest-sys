@@ -4,9 +4,9 @@ export const Municipio = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <div className="Contra p-2 ">
+      <div className="Contra ModalMunicipio p-2 ">
         <a
-          className="btnContra px-6 py-3 rounded-md"
+          className="btnContra btnModalMunicipio px-6 py-3 rounded-md"
           type="button"
           onClick={() => setShowModal(true)}
         >
@@ -70,6 +70,19 @@ export const Municipio = () => {
                         <option id="2">Ilopango</option>
                         <option id="3">...</option>
                       </select>
+                    </div>
+                  </div>
+
+                  {/*TODOS */}
+                  <div className="w-full p-1 pt-4">
+                    <div className="">
+                      <input
+                      type="checkbox"
+                        className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        name="repTodosMunicipios"
+                        id="repTodosMunicipios"
+                      /> <span className="px-2">Todos los municipios</span>
+
                     </div>
                   </div>
 

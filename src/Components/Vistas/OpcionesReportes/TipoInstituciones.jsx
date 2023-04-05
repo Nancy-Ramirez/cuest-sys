@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-export const InstitucionesR = () => {
+export const TipoInstituciones = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <div className="Contra ModalInstituciones p-2 ">
+      <div className="Contra ModalTipoInstituciones p-2 ">
         <a
-          className="btnContra btnModalInstituciones px-6 py-3 rounded-md"
+          className="btnContra btnModalTipoInstituciones px-6 py-3 rounded-md"
           type="button"
           onClick={() => setShowModal(true)}
         >
@@ -24,7 +24,7 @@ export const InstitucionesR = () => {
               <div className="relative w-full max-w-lg p-4 mx-auto bg-gray-100 rounded-md shadow-lg">
                 <div className="mt-2 py-5 text-center sm:ml-4 sm:text-left">
                   <h4 className="text-lg font-medium text-center text-gray-800">
-                    Reportes de usuario por instituciones
+                    Reportes de usuarios por tipo de instituciones
                   </h4>
 
                   {/*Opciones de busqueda */}
@@ -35,32 +35,31 @@ export const InstitucionesR = () => {
                       htmlFor="repInstituciones"
                       className="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white"
                     >
-                      Instituciones
+                      Tipo de instituciones
                     </label>
 
                     <div className="">
                       <select
                         className="rounded-lg border border-black w-full"
-                        name="repInstituciones"
-                        id="repInstituciones"
+                        name="repTipoInstituciones"
+                        id="repTipoInstituciones"
                       >
                         <option id="">Selecione</option>
-                        <option id="1">Complejo Educativos Santa Lucía</option>
-                        <option id="2">Instituto Nacional de Soyapango</option>
-                        <option id="3">...</option>
+                        <option id="1">Pública</option>
+                        <option id="2">Privada</option>
                       </select>
                     </div>
                   </div>
-
                   {/*TODOS */}
                   <div className="w-full p-1 pt-4">
                     <div className="">
                       <input
                       type="checkbox"
                         className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                        name="repTodasInstituciones"
-                        id="repTodasInstituciones"
+                        name="repTodosTipos"
+                        id="repTodosTipos"
                       /> <span className="px-2">Todas las instituciones</span>
+
                     </div>
                   </div>
 

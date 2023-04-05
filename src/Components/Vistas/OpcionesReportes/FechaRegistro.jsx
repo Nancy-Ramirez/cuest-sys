@@ -4,9 +4,9 @@ export const FechaRegistro = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <div className="Contra p-2 ">
+      <div className="Contra ModalFechaRegistro p-2 ">
         <a
-          className="btnContra px-6 py-3 rounded-md"
+          className="btnContra btnModalFechaRegistro px-6 py-3 rounded-md"
           type="button"
           onClick={() => setShowModal(true)}
         >
@@ -60,6 +60,20 @@ export const FechaRegistro = () => {
                       required
                     />
                   </div>
+
+                  {/*TODOS */}
+                  <div className="w-full p-1 pt-4">
+                    <div className="">
+                      <input
+                        type="checkbox"
+                        className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        name="repTodasFechas"
+                        id="repTodasFechas"
+                      />{" "}
+                      <span className="px-2">Todas los registros</span>
+                    </div>
+                  </div>
+
                   {/*Botones*/}
                   <div className=" items-center gap-2 mt-8 sm:flex">
                     <a

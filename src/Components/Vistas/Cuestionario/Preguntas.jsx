@@ -7,7 +7,7 @@ export const AgregarPreguntas = () => {
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 pt-12 mx-12">
-        <Link to="/cuestionario/cuestionario"
+        <Link to="/cuestionario/cuestionario"></Link>
       <Icon icon="lucide:arrow-big-left" width="24" height="24" />
         <h1 className="p-12 text-center text-3xl text-white">
           Agregar Preguntas

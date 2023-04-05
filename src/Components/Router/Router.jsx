@@ -22,6 +22,7 @@ import { Error } from "../PaginaError";
 import {Login} from "../Vistas/Login/Login"
 import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
 import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
+import { AgregarPreguntas } from "../Vistas/Cuestionario/Preguntas";
 
 export default function Router() {
   return (
@@ -33,6 +34,7 @@ export default function Router() {
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
         <Route path="/crear-cuestionario" element={<CrearCuestionario />} />
+        <Route path="/agregar-preguntas" element={<AgregarPreguntas />} />
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />

@@ -285,7 +285,7 @@ p {
   cursor: pointer;
   font-size: 16px;
   line-height: 40px;
-  max-width: 160px;
+  max-width: full;
   width: 100%;
   position: relative;
   text-decoration: none;
@@ -445,4 +445,5 @@ p {
   right: 0;
   transition: height 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 

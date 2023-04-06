@@ -9,7 +9,7 @@ export const AgregarPreguntas = () => {
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-12 pt-12 mx-24">
         <div className="flex justify-between p-12 text-center text-3xl text-white">
-          <Link to="/crear-cuestionario" className="flex justify-start">
+          <Link to="/cuestionario/crear-cuestionario" className="flex justify-start">
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
           <h1 className="flex justify-center">Agregar Preguntas</h1>

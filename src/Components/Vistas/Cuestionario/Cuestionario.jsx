@@ -16,7 +16,7 @@ const gestionarCuestionario = () => {
         <div className="">
           <div className="flex items-center px-5 md:justify-end m-2">
             <Link
-              to="/crear-cuestionario"
+              to="/cuestionario/crear-cuestionario"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">

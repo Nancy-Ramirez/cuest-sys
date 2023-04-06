@@ -35,8 +35,8 @@ export default function Router() {
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
-        <Route path="/crear-cuestionario" element={<CrearCuestionario />} />
-        <Route path="/agregar-preguntas" element={<AgregarPreguntas />} />
+        <Route path="/cuestionario/crear-cuestionario" element={<CrearCuestionario />} />
+        <Route path="/cuestionario/crear-cuestionario/agregar-preguntas" element={<AgregarPreguntas />} />
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />

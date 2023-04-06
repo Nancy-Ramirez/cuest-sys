@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { Error } from "../PaginaError";
+import {Login} from "../Vistas/Login/Login"
 //Rutas Gestionar
 import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
 import Estudiante from "../Vistas/Estudiantes/Estudiante";
@@ -18,8 +20,7 @@ import EditInsignia from "../Vistas/Insignias/EditarInsignia";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 import Inicio from "../Vistas/Inicio/Inicio";
 import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
-import { Error } from "../PaginaError";
-import {Login} from "../Vistas/Login/Login"
+
 import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
 import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
 import { AgregarPreguntas } from "../Vistas/Cuestionario/Preguntas";

@@ -12,7 +12,7 @@ const CrearCuestionario = () => {
           <Link to="/cuestionario" className="flex justify-start">
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
-          <h1 className="flex justify-center">Crear Cuestionario</h1>
+          <h1 className="flex justify-center">Cuestionario</h1>
           <div></div>
         </div>
         <div>

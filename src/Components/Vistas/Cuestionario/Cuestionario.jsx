@@ -81,37 +81,37 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Descubriendo mi cuerpo
+                      Aprendamos a ser científicos y científicas 
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-4">Ciencias</td>
                   <td className="px-6 py-4"> Séptimo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
 
@@ -129,30 +129,30 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4">Química</td>
                   <td className="px-6 py-4"> Primer año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
 
@@ -170,30 +170,30 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4">Física</td>
                   <td className="px-6 py-4"> Segundo año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
 
@@ -206,33 +206,33 @@ const gestionarCuestionario = () => {
                       <div className="text-base font-semibold">Células</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-4">Ciencias</td>
                   <td className="px-6 py-4">Octavo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </Link>
                   </td>
                 </tr>
               </tbody>
@@ -254,8 +254,8 @@ const gestionarCuestionario = () => {
             </span>
             <ul className="inline-flex items-center -space-x-px">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Anterior</span>
@@ -272,7 +272,7 @@ const gestionarCuestionario = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li>
                 <a

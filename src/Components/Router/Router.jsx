@@ -1,29 +1,42 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Error } from "../PaginaError";
-import {Login} from "../Vistas/Login/Login"
-//Rutas Gestionar
-import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
-import Estudiante from "../Vistas/Estudiantes/Estudiante";
-import Insignia from "../Vistas/Insignias/Insignias";
-import Institucion from "../Vistas/Instituciones/Instituciones";
-import Usuario from "../Vistas/Usuarios/Usuarios";
-import Reporte from "../Vistas/Reportes/Reportes";
-import Unidad from "../Vistas/Unidades/Unidad";
-import Reseña from "../Vistas/Reseñas/Reseñas";
-
-//Rutas Agregar o Crear
-import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
-
-//Rutas Editar
-import EditInsignia from "../Vistas/Insignias/EditarInsignia";
-import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
+import {Login} from "../Vistas/Login/Login";
 import Inicio from "../Vistas/Inicio/Inicio";
+
+//Rutas Cuestionario
+import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
+import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
+import { AgregarPreguntas } from "../Vistas/Cuestionario/Preguntas";
+import { VerCuestionario } from "../Vistas/Cuestionario/verCuestionario";
+
+//Rutas Estudiantes
+import Estudiante from "../Vistas/Estudiantes/Estudiante";
 import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
 
-import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
+//Rutas Insignias
+import Insignia from "../Vistas/Insignias/Insignias";
+import EditInsignia from "../Vistas/Insignias/EditarInsignia";
+
+//Rutas Instituciones
+import Institucion from "../Vistas/Instituciones/Instituciones";
+import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
+
+//Rutas Reportes
+import Reporte from "../Vistas/Reportes/Reportes";
+
+//Rutas Reseñas
+import Reseña from "../Vistas/Reseñas/Reseñas";
+
+//Rutas Unidades
+import Unidad from "../Vistas/Unidades/Unidad";
 import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
-import { AgregarPreguntas } from "../Vistas/Cuestionario/Preguntas";
+
+//Rutas Usuario
+import Usuario from "../Vistas/Usuarios/Usuarios";
+import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
+
+
 
 export default function Router() {
   return (
@@ -37,6 +50,8 @@ export default function Router() {
         <Route path="/cuestionario" element={<Cuestionario />} />
         <Route path="/cuestionario/crear-cuestionario" element={<CrearCuestionario />} />
         <Route path="/cuestionario/crear-cuestionario/agregar-preguntas" element={<AgregarPreguntas />} />
+        <Route path="/cuestionario/ver-cuestionario" element={<VerCuestionario />} />
+
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />

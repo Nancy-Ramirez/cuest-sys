@@ -4,10 +4,50 @@ import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const gestionarCuestionario = () => {
+
+  
+    function eliminarCuestionario() {
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger",
+          },
+          buttonsStyling: false,
+        });
+        swalWithBootstrapButtons
+          .fire({
+            title: "¿Estás seguro?",
+            text: "Recuerda que esta acción es irreversible",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Aceptar",
+            cancelButtonText: "Cancelar",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                "¡ELIMINADO",
+                "El cuestionario ha sido eliminado",
+                "success"
+              );
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire(
+                "Cancelado",
+                "El cuestionario está a salvo",
+                "error"
+              );
+            }
+          });
+      }
+
   return (
-    <main>
+    <main >
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mx-10">
@@ -81,7 +121,7 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                      Aprendamos a ser científicos y científicas 
+                        Aprendamos a ser científicos y científicas
                       </div>
                     </div>
                   </th>
@@ -104,14 +144,14 @@ const gestionarCuestionario = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </Link>
-                    <Link
-                      to="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <button
+                        onClick={() => eliminarCuestionario()}
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </Link>
+                    </div>
                   </td>
                 </tr>
 
@@ -145,14 +185,14 @@ const gestionarCuestionario = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </Link>
-                    <Link
-                      to="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <button
+                        onClick={eliminarCuestionario()}
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </Link>
+                    </div>
                   </td>
                 </tr>
 
@@ -186,14 +226,14 @@ const gestionarCuestionario = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </Link>
-                    <Link
-                      to="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <button
+                        onClick={eliminarCuestionario()}
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </Link>
+                    </div>
                   </td>
                 </tr>
 
@@ -225,14 +265,11 @@ const gestionarCuestionario = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </Link>
-                    <Link
-                      to="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </Link>
+                    </div>
                   </td>
                 </tr>
               </tbody>

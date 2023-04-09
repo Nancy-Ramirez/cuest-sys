@@ -185,7 +185,8 @@ nav label {
   cursor: pointer;
   font-size: 16px;
   line-height: 40px;
-  max-width: 160px;
+  max-width: 250px;
+  padding: 2px;
   width: 100%;
   position: relative;
   text-decoration: none;
@@ -195,6 +196,7 @@ nav label {
   justify-content: center;
 }
 .cont .button svg {
+  width: 150px;  
   height: 40px;
   left: 0;
   top: 0;
@@ -471,10 +473,11 @@ justify-self: center;
 
 .app .pregunta-numero{
   margin-bottom: 20px;
+  font-size: 12px;
 }
 
 .app .pregunta-numero span{
-  font-size: 28px;
+  font-size: 12px;
 }
 
 .app .pregunta-titulo{
@@ -488,7 +491,7 @@ justify-self: center;
 }
 
 /*botones de respuesta*/
-.app button {
+.app .btnRespuesta {
   width: 100%;
   font-size: 16px;
   color: #ffffff;
@@ -505,20 +508,21 @@ justify-self: center;
 
 /* FINALIZADO */
 
-.app button:hover {
+.app .btnRespuesta:hover {
   background-color: #015958;
 }
 
-.app button[disabled] {
+.app .btnRespuesta[disabled] {
   background-color: #555e7d;
   color: #ffffff;
   cursor: not-allowed;
 }
 
-.app button:focus {
+.app .btnRespuesta:focus {
   outline: none;
 }
 
-.app button svg {
+.app .btnRespuesta svg {
   margin-right: 5px;
 }
+

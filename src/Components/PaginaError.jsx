@@ -13,7 +13,7 @@ export const Error = () => {
       </span>
     </section>
     <div className="flex justify-center pt-48">
-    <Link to="/" className="button">
+    <Link to="/inicio" className="button">
         <svg>
              <rect
              x="0"

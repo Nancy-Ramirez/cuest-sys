@@ -40,19 +40,24 @@ export const VerCuestionario = () => {
             <p className="pl-9 pr-2">Materia: </p>
             <p>Ciencias Naturales </p>
           </div>
+          <div className="flex justify-start p-4">
+            <p className="-ml-8 pr-2">Cant. Preguntas: </p>
+            <p>4</p>
+          </div>
           {/*!--Ver preguntas-->*/}
           <div className="flex justify-end py-4 text w-full">
                     <Link
-                      to="/cuestionario/crear-cuestionario/agregar-preguntas"
+                      to="/cuestionario/ver-preguntas"
                       className="buttonP  text-white"
                     >
                       <button
                         type="submit"
                         className="  text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
                       >
-                         preguntas
+                         Preguntas
                       </button>
                     </Link>
+                    
                   </div>
 
           <p></p>

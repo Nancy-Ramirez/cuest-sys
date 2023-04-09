@@ -35,6 +35,7 @@ import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
 //Rutas Usuario
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
+import { VerPreguntas } from "../Vistas/Cuestionario/verPreguntas";
 
 
 
@@ -51,6 +52,7 @@ export default function Router() {
         <Route path="/cuestionario/crear-cuestionario" element={<CrearCuestionario />} />
         <Route path="/cuestionario/crear-cuestionario/agregar-preguntas" element={<AgregarPreguntas />} />
         <Route path="/cuestionario/ver-cuestionario" element={<VerCuestionario />} />
+        <Route path="/cuestionario/ver-preguntas" element={<VerPreguntas />} />
 
 
         {/*Estudiante */}

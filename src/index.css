@@ -1,9 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 html {
   box-sizing: border-box;
+
 }
 
 *,
@@ -16,7 +18,7 @@ html {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: rgb(0, 0, 0);
   display: grid;
   min-width: 95vw;
@@ -36,7 +38,6 @@ h1 {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 1rem;
 }
 
 .wrapper nav {
@@ -49,9 +50,6 @@ h1 {
   color: white;
 }
 
-.wrapper nav .logo {
-  font-weight: 700;
-}
 
 .wrapper nav ul {
   list-style: none;
@@ -68,7 +66,7 @@ nav label {
   display: none;
 }
 
-@media (max-width: 60em) {
+@media (max-width: 70em) {
   .wrapper nav .menu {
     width: 100%;
     height: 0;
@@ -187,7 +185,8 @@ nav label {
   cursor: pointer;
   font-size: 16px;
   line-height: 40px;
-  max-width: 160px;
+  max-width: 250px;
+  padding: 2px;
   width: 100%;
   position: relative;
   text-decoration: none;
@@ -197,6 +196,7 @@ nav label {
   justify-content: center;
 }
 .cont .button svg {
+  width: 150px;  
   height: 40px;
   left: 0;
   top: 0;
@@ -222,7 +222,7 @@ nav label {
 /*Inicio*/
 .contenedorSaludo {
   display: flex;
-  width: 300px;
+  width: 350px;
   height: 40px;
   color: #fff;
   font-size: 40px;
@@ -281,12 +281,13 @@ p {
 }
 
 /*Login*/
-.log .button {
+.log .button,
+.aggP .buttonP {
   color: #000;
   cursor: pointer;
   font-size: 16px;
   line-height: 40px;
-  max-width: 160px;
+  max-width: full;
   width: 100%;
   position: relative;
   text-decoration: none;
@@ -295,7 +296,8 @@ p {
   display: flex;
   justify-content: center;
 }
-.log .button svg {
+.log .button svg,
+.aggP .buttonP svg {
   height: 40px;
   left: 0;
   top: 0;
@@ -303,7 +305,8 @@ p {
   width: 100%;
 }
 
-.log .button rect {
+.log .button rect,
+.aggP .buttonP rect {
   fill: none;
   stroke: #000000;
   stroke-width: 2;
@@ -311,9 +314,215 @@ p {
   transition: all 0.5s linear;
 }
 
-.log .button:hover rect {
+.log .button:hover rect,
+.aggP .buttonP:hover rect {
   stroke-width: 5;
   stroke-dasharray: 20, 300;
   stroke-dashoffset: 48;
   transition: all 2s cubic-bezier(0.22, 1, 0.25, 1);
 }
+
+.aggP .buttonP {
+  font-size: 12px;
+}
+
+.contCuestionario{
+  font-family: 'Montserrat', sans-serif;
+}
+/*Botones*/
+
+.Contra .btnContra {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.btnReportes{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+.btnReportes:after {
+  content: "";
+  top: 0;
+  right: 0;
+  height: 1px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.btnReportes:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: 1em;
+  background-color: transparent;
+  transition: all 0.25s ease;
+}
+
+.btnReportes .btn__text {
+  color: #000;
+  position: relative;
+  display: block;
+  padding: 0.459em 2.29em;
+  line-height: 1.5;
+  transition: transform 0.5s ease;
+}
+
+.btnReportes .btn__text:before,
+.btnReportes .btn__text:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  background-color: #333;
+}
+
+.btnReportes .btn__text:before {
+  top: 0;
+  left: 0;
+  transition: width 0.15s 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes .btn__text:after {
+  bottom: 0;
+  right: 0;
+  transition: width 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes .btn__text span:before,
+.btnReportes .btn__text span:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 1px;
+  background-color: #333;
+  transition: all 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+}
+
+.btnReportes .btn__text span:before {
+  bottom: 0;
+  left: 0;
+  transition: height 0.15s 0 cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes .btn__text span:after {
+  right: 0;
+  top: 0;
+  transition: height 0.15s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes:hover {
+  cursor: pointer;
+}
+
+.btnReportes:hover:before {
+  transition: all 0.4s ease;
+  width: 0;
+}
+
+.btnReportes:hover .btn__text {
+  transition: transform 0.5s ease, width 1s ease;
+}
+
+.btnReportes:hover .btn__text:before {
+  max-width: 100%;
+  transition: width 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.btnReportes:hover .btn__text:after {
+  transition: width 0.15s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+}
+
+.btnReportes:hover .btn__text span:before {
+  height: 100%;
+  left: 0;
+  transition: height 0.15s 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btnReportes:hover .btn__text span:after {
+  height: 100%;
+  right: 0;
+  transition: height 0.15s 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*!ver Preguntas*/
+
+.verP .app{
+  max-width: 700px;
+  min-width: 700px;
+  height: min-content;
+  min-height: 200px;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 10px 10px 42px 0px rgba(0, 0, 0 , 0.25);
+justify-self: center;
+  justify-content: space-evenly;
+  margin-top: -23px;
+}
+
+.app .lado-izquierda{
+  width: 100%;
+  position: relative;
+  display: flex;
+
+  justify-content: space-around;
+}
+
+.app .pregunta-numero{
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.app .pregunta-numero span{
+  font-size: 12px;
+}
+
+.app .pregunta-titulo{
+  margin-bottom: 12px;
+}
+
+.app .lado-derecho{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*botones de respuesta*/
+.app .btnRespuesta {
+  width: 100%;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #008F8C;
+  border-radius: 15px;
+  display: flex;
+  margin-top: 10px;
+  padding: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #023535;
+  cursor: pointer;
+}
+
+/* FINALIZADO */
+
+.app .btnRespuesta:hover {
+  background-color: #015958;
+}
+
+.app .btnRespuesta[disabled] {
+  background-color: #555e7d;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.app .btnRespuesta:focus {
+  outline: none;
+}
+
+.app .btnRespuesta svg {
+  margin-right: 5px;
+}
+

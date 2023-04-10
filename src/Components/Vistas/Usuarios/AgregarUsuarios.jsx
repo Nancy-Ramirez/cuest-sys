@@ -1,14 +1,20 @@
 import NavbarAdmin from "../../NavbarAdmin";
+import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 const EditarUsuario = () => {
   return (
     <main>
       <NavbarAdmin />
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 pt-12 mx-12">
-        <h1 className="p-12 text-center text-3xl text-white">
-          Actualizar Usuario
-        </h1>
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-40 pt-12 mx-12">
+      <div className="flex justify-between p-16 text-center text-3xl text-white">
+          <Link to="/usuario" className="flex justify-start">
+            <Icon icon="lucide:arrow-big-left" width="35" height="35" />
+          </Link>
+          <h1 className="flex justify-center">Editar usuarios</h1>
+          <div></div>
+        </div>
 
         <form className="mb-8 flex justify-center space-x-48">
           <div>

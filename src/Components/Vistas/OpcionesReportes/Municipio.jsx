@@ -1,70 +1,108 @@
+import { useState } from "react";
 
-
-export const PorMunicipio = () => {
-
-    return (
-
-        <div
-            data-te-modal-init
-            class="fixed top-0 left-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+export const Municipio = () => {
+  const [showModal, setShowModal] = useState(false);
+  return (
+    <>
+      <div className="Contra ModalMunicipio p-2 ">
+        <a
+          className="btnContra btnModalMunicipio px-6 py-3 rounded-md"
+          type="button"
+          onClick={() => setShowModal(true)}
+        >
+          Seleccionar
+        </a>
+      </div>
+      {showModal ? (
+        <>
+          <div className="fixed inset-0 z-10 overflow-y-auto p-18">
             <div
-                data-te-modal-dialog-ref
-                class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
-                <div
-                    class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-                    <div
-                        class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                        <h5
-                            class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                            id="exampleModalLabel">
-                            Modal title
-                        </h5>
-                        <button
-                            type="button"
-                            class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                            data-te-modal-dismiss
-                            aria-label="Close">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke-width="1.5"
-                                stroke="currentColor"
-                                class="h-6 w-6">
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
+              className="fixed inset-0 w-full h-full bg-black opacity-40"
+              onClick={() => setShowModal(false)}
+            ></div>
+            <div className="flex items-center min-h-screen  py-8">
+              <div className="relative w-full max-w-lg p-4 mx-auto bg-gray-100 rounded-md shadow-lg">
+                <div className="mt-2 py-5 text-center sm:ml-4 sm:text-left">
+                  <h4 className="text-lg font-medium text-center text-gray-800">
+                    Reportes de usuario por municipio
+                  </h4>
+
+                  {/*Opciones de busqueda */}
+
+                  {/*Departamentos */}
+                  <div className="w-full p-1 ">
+                    <label
+                      htmlFor="repUsuarioMunicipio"
+                      className="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Departamentos
+                    </label>
+
+                    <div className="">
+                      <select
+                        className="rounded-lg border border-black w-full"
+                        name="repUsuarioMunicipio"
+                        id="repUsuarioMunicipio"
+                      >
+                        <option id="">Selecione</option>
+                        <option id="1">San Salvador</option>
+                        <option id="2">Cuscatlán</option>
+                        <option id="3">...</option>
+                      </select>
                     </div>
-                    <div class="relative flex-auto p-4" data-te-modal-body-ref>
-                        Modal body text goes here.
+                  </div>
+                  {/*Municipios */}
+                  <div className="w-full p-1">
+                    <label
+                      htmlFor="repUsuarioMunicipio"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Municipios
+                    </label>
+                    <div className="">
+                      <select
+                        className="rounded-lg w-full"
+                        name="repUsuarioMunicipio"
+                        id="repUsuarioMunicipio"
+                      >
+                        <option id="">Selecione</option>
+                        <option id="1">Soyapango</option>
+                        <option id="2">Ilopango</option>
+                        <option id="3">...</option>
+                      </select>
                     </div>
-                    <div
-                        class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                        <button
-                            type="button"
-                            class="inline-block rounded bg-primary-100 px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-                            data-te-modal-dismiss
-                            data-te-ripple-init
-                            data-te-ripple-color="light">
-                            Close
-                        </button>
-                        <button
-                            type="button"
-                            class="ml-1 inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
-                            data-te-ripple-init
-                            data-te-ripple-color="light">
-                            Save changes
-                        </button>
+                  </div>
+
+                  {/*TODOS */}
+                  <div className="w-full p-1 pt-4">
+                    <div className="">
+                      <input
+                      type="checkbox"
+                        className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        name="repTodosMunicipios"
+                        id="repTodosMunicipios"
+                      /> <span className="px-2">Todos los municipios</span>
+
                     </div>
+                  </div>
+
+                  {/*Botones*/}
+                  <div className=" items-center gap-2 mt-8 sm:flex">
+                    <a
+                      className="btnReportes w-full"
+                      onClick={() => setShowModal(false)}
+                    >
+                      <span class="btn__text">
+                        <span>Generar Reporte</span>
+                      </span>
+                    </a>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    )
-}
+          </div>
+        </>
+      ) : null}
+    </>
+  );
+};

@@ -3,10 +3,51 @@ import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const gestionarCuestionario = () => {
+
+  
+    function eliminarCuestionario() {
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger",
+          },
+          buttonsStyling: false,
+        });
+        swalWithBootstrapButtons
+          .fire({
+            title: "¿Estás seguro?",
+            text: "Recuerda que esta acción es irreversible",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Aceptar",
+            cancelButtonText: "Cancelar",
+            reverseButtons: true,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                "¡ELIMINADO",
+                "El cuestionario ha sido eliminado",
+                "success"
+              );
+            } else if (
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire(
+                "Cancelado",
+                "El cuestionario está a salvo",
+                "error"
+              );
+            }
+          });
+      }
+
   return (
-    <main>
+    <main >
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mx-10">
@@ -14,14 +55,14 @@ const gestionarCuestionario = () => {
 
         <div className="">
           <div className="flex items-center px-5 md:justify-end m-2">
-            <a
-              href="/"
+            <Link
+              to="/cuestionario/crear-cuestionario"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
                 <img src={agregar} alt="" width="40px" />
               </button>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -80,37 +121,37 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Descubriendo mi cuerpo
+                        Aprendamos a ser científicos y científicas
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-4">Ciencias</td>
                   <td className="px-6 py-4"> Séptimo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                    </Link>
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <button
+                        onClick={() => eliminarCuestionario()}
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </div>
                   </td>
                 </tr>
 
@@ -128,30 +169,30 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4">Química</td>
                   <td className="px-6 py-4"> Primer año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                    </Link>
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <button
+                        onClick={eliminarCuestionario()}
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </div>
                   </td>
                 </tr>
 
@@ -169,30 +210,30 @@ const gestionarCuestionario = () => {
                   <td className="px-6 py-4">Física</td>
                   <td className="px-6 py-4"> Segundo año bachillerato</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                    </Link>
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                      <button
+                        onClick={eliminarCuestionario()}
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </div>
                   </td>
                 </tr>
 
@@ -205,33 +246,30 @@ const gestionarCuestionario = () => {
                       <div className="text-base font-semibold">Células</div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Biología</td>
+                  <td className="px-6 py-4">Ciencias</td>
                   <td className="px-6 py-4">Octavo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="/"
+                    <Link
+                      to="/cuestionario/ver-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
                         <img src={ver} alt="" width="30px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
+                    </Link>
+                    <Link
+                      to="/cuestionario/crear-cuestionario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
                         <img src={editar} alt="" width="25px" />
                       </button>
-                    </a>
-                    <a
-                      href="/"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
+                    </Link>
+                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
                         <img src={eliminar} alt="" width="25px" />
                       </button>
-                    </a>
+                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -253,8 +291,8 @@ const gestionarCuestionario = () => {
             </span>
             <ul className="inline-flex items-center -space-x-px">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Anterior</span>
@@ -271,7 +309,7 @@ const gestionarCuestionario = () => {
                       clipRule="evenodd"
                     ></path>
                   </svg>
-                </a>
+                </Link>
               </li>
               <li>
                 <a
@@ -316,7 +354,7 @@ const gestionarCuestionario = () => {
               </li>
               <li>
                 <a
-                  href="/"
+                  href="#"
                   className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
                 >
                   <span className="sr-only">Siguiente</span>

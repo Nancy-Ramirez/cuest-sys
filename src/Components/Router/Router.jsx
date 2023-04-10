@@ -1,38 +1,69 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-//Rutas Gestionar
-import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
-import Estudiante from "../Vistas/Estudiantes/Estudiante";
-import Insignia from "../Vistas/Insignias/Insignias";
-import Institucion from "../Vistas/Instituciones/Instituciones";
-import Usuario from "../Vistas/Usuarios/Usuarios";
-import Reporte from "../Vistas/Reportes/Reportes";
+import { Error } from "../PaginaError";
+import {Login} from "../Vistas/Login/Login";
+import Inicio from "../Vistas/Inicio/Inicio";
 
-//Rutas Agregar o Crear
+//Rutas Cuestionario
+import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
+import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
+import { AgregarPreguntas } from "../Vistas/Cuestionario/Preguntas";
+import { VerCuestionario } from "../Vistas/Cuestionario/verCuestionario";
+
+//Rutas Estudiantes
+import Estudiante from "../Vistas/Estudiantes/Estudiante";
+import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
+
+//Rutas Insignias
+import Insignia from "../Vistas/Insignias/Insignias";
+import EditInsignia from "../Vistas/Insignias/EditarInsignia";
+
+//Rutas Instituciones
+import Institucion from "../Vistas/Instituciones/Instituciones";
 import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
 
-//Rutas Editar
-import EditInsignia from "../Vistas/Insignias/EditarInsignia";
+//Rutas Reportes
+import Reporte from "../Vistas/Reportes/Reportes";
+
+//Rutas Reseñas
+import Reseña from "../Vistas/Reseñas/Reseñas";
+
+//Rutas Unidades
+import Unidad from "../Vistas/Unidades/Unidad";
+import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
+
+//Rutas Usuario
+import Usuario from "../Vistas/Usuarios/Usuarios";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
-import Inicio from "../Vistas/Inicio/Inicio";
-import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
-import { Error } from "../PaginaError";
-import {Login} from "../Vistas/Login/Login"
+import { VerPreguntas } from "../Vistas/Cuestionario/verPreguntas";
+
+
 
 export default function Router() {
   return (
+    
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/reseña" element={<Reseña/>} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
+        <Route path="/cuestionario/crear-cuestionario" element={<CrearCuestionario />} />
+        <Route path="/cuestionario/crear-cuestionario/agregar-preguntas" element={<AgregarPreguntas />} />
+        <Route path="/cuestionario/ver-cuestionario" element={<VerCuestionario />} />
+        <Route path="/cuestionario/ver-preguntas" element={<VerPreguntas />} />
+
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />
         <Route path="/estudiante/estudiante/:id" element={<VerEstudiante />} />
 
-        {/*institución */}
+        {/*Unidades */}
+        <Route path="/unidad" element={<Unidad />} />
+        <Route path="/unidad/unidad" element={<EditarUnidad />} />
+
+        {/*Institución */}
         <Route path="/institucion" element={<Institucion />} />
         <Route
           path="/institucion/institucion"
@@ -54,7 +85,7 @@ export default function Router() {
         <Route path="/*" element={<Error />} />
 
         {/*Login */}
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/inicio" element={<Inicio/>}></Route>
       </Routes>
     </BrowserRouter>
   );

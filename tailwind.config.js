@@ -3,8 +3,7 @@
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx, html}",
-    "./node_modules/flowbite/**/*.js",
-    "./node_modules/tw-elements/dist/js/**/*.js",
+    "./node_modules/flowbite/**/*.js"
   ],
 
   theme: {
@@ -15,6 +14,7 @@ module.exports = {
       colo4: "#0CABA8",
       colo5: "#0FC2C0",
       coll6: "#32A89C",
+      colo7: "#00ABBD",
     },
     extend: {},
   },

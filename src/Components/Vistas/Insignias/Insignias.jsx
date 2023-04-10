@@ -1,4 +1,3 @@
-
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import NavbarAdmin from "../../NavbarAdmin";
@@ -6,7 +5,7 @@ import NavbarAdmin from "../../NavbarAdmin";
 const gestionarInsignia = () => {
   return (
     <main>
-      <NavbarAdmin/>
+      <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mx-12">
         <h1 className="pt-24 text-center text-3xl text-white">INSIGNIAS</h1>
@@ -40,7 +39,7 @@ const gestionarInsignia = () => {
               />
             </div>
           </div>
-          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <div className="mx-24 relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-black dark:text-gray-400 ">
               <thead className="text-xs text-black uppercase bg-colo5 dark:bg-gray-700 dark:text-white text-center">
                 <tr>
@@ -59,13 +58,16 @@ const gestionarInsignia = () => {
                 </tr>
               </thead>
               <tbody className="text-center">
+                {/*Dato 1 */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Sin clasificación</div>
+                      <div className="text-base font-semibold">
+                        Sin clasificación
+                      </div>
                     </div>
                   </th>
                   <td className="px-6 py-4">0</td>
@@ -83,14 +85,14 @@ const gestionarInsignia = () => {
                       href="/insignia/insignia"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
-                      <button  className="btn btn-editarCuestionario ">
+                      <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    
                   </td>
                 </tr>
 
+                {/*Dato 2 */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
@@ -119,10 +121,10 @@ const gestionarInsignia = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    
                   </td>
                 </tr>
 
+                {/*Dato 3 */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
@@ -151,10 +153,10 @@ const gestionarInsignia = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    
                   </td>
                 </tr>
 
+                {/*Dato 4 */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
@@ -183,7 +185,6 @@ const gestionarInsignia = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    
                   </td>
                 </tr>
               </tbody>

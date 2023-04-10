@@ -1,9 +1,30 @@
 import { Link } from "react-router-dom";
 import logo from "../../../images/iconoF.png"
 import {BtnOlvidarContra} from "../../BotoncitosModals/botonOlvidarContra"
+import { useState } from "react";
 
 export const Login = () => {
-    
+  //Estado inicial del formulario
+  const datosLogin = {
+    email: "",
+    password: ""
+  };
+
+  //Estado inicial de la alerta
+  const initialStateInput = {
+    input: "",
+    message: "",
+    state: false
+  };
+
+  //Estado para manejar los valores del formulario
+  const [formulario, setFormulario] = useState(datosLogin);
+
+  //Estado para manejar las alertas de validación
+  const [alerta, setAlerta] = useState([initialStateInput]);
+
+
+
     return (
       <div>
         <section className=" min-h-screen flex justify-center opacity-90 py-2 px-4 sm:px-6 lg:px-8  relative items-center">

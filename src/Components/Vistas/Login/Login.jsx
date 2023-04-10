@@ -23,6 +23,17 @@ export const Login = () => {
   //Estado para manejar las alertas de validación
   const [alerta, setAlerta] = useState([initialStateInput]);
 
+  //Función para obtener lo de los inputs
+  const ManejarEventoDeInputs = (event) => {
+    
+    //La propiedad target del event nos permitirá obtener los valores 
+    const name = event.target.name;
+    const value = event.target.value;
+
+    //Actualizamos los valores capturados a nuestro estado de formulario
+    setFormulario({ ...formulario, [name]: value });
+  }
+
 
 
     return (

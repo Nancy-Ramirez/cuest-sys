@@ -34,8 +34,22 @@ export const Login = () => {
     setFormulario({ ...formulario, [name]: value });
   }
 
+  //Funcion que se va a encargar de validar los campos
+  const handleLoginSession = (e) => {
+    e.preventDefault(); //Previene el comportamiento por defecto que trae consigo el evento
 
+    //Ordenamos los datos para enviarlos a la validación
+    let verificarInputs = [
+      { nombre: "email", value: formulario.email },
+      { nombre: "password", value: formulario.password },
+    ];
 
+    //Enviamos los datos a la funcion de validación y recibimos las validaciones
+    
+
+  }
+
+  console.log(formulario);
     return (
       <div>
         <section className=" min-h-screen flex justify-center opacity-90 py-2 px-4 sm:px-6 lg:px-8  relative items-center">
@@ -44,18 +58,14 @@ export const Login = () => {
               <section className="bg-gray-50 dark:bg-gray-900">
                 <div className="flex flex-col items-center justify-center py-2 mx-auto md:h-screen lg:py-0">
                   <div className="flex items-center mb-6 ">
-                    <img
-                      className="w-32 mr-2 "
-                      src={logo}
-                      alt=""
-                    />
+                    <img className="w-32 mr-2 " src={logo} alt="" />
                   </div>
                   <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                       <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                         ¡Bienvenido de vuelta!
                       </h1>
-                      <form className="space-y-4 md:space-y-6" onSubmit={handleLoginSesion}>
+                      <form className="space-y-4 md:space-y-6">
                         <div>
                           <label
                             htmlFor="email"
@@ -66,7 +76,6 @@ export const Login = () => {
                           <input
                             type="email"
                             name="email"
-                            id="email"
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nombre@xxxxx.com"
                             value={formulario.email}
@@ -83,10 +92,10 @@ export const Login = () => {
                           <input
                             type="password"
                             name="password"
-                            id="password"
                             placeholder="••••••••"
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            required=""
+                            value={formulario.password}
+                            onChange={ManejarEventoDeInputs}
                           />
                         </div>
                         <div className="flex items-center justify-between">

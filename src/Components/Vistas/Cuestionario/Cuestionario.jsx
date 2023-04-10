@@ -7,47 +7,44 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const gestionarCuestionario = () => {
+  const FuncionEliminar = () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
 
-  
-    function eliminarCuestionario() {
-        const swalWithBootstrapButtons = Swal.mixin({
-          customClass: {
-            confirmButton: "btn btn-success",
-            cancelButton: "btn btn-danger",
-          },
-          buttonsStyling: false,
-        });
-        swalWithBootstrapButtons
-          .fire({
-            title: "¿Estás seguro?",
-            text: "Recuerda que esta acción es irreversible",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Aceptar",
-            cancelButtonText: "Cancelar",
-            reverseButtons: true,
-          })
-          .then((result) => {
-            if (result.isConfirmed) {
-              swalWithBootstrapButtons.fire(
-                "¡ELIMINADO",
-                "El cuestionario ha sido eliminado",
-                "success"
-              );
-            } else if (
-              result.dismiss === Swal.DismissReason.cancel
-            ) {
-              swalWithBootstrapButtons.fire(
-                "Cancelado",
-                "El cuestionario está a salvo",
-                "error"
-              );
-            }
-          });
-      }
+    swalWithBootstrapButtons
+      .fire({
+        title: "¿Estás seguro?",
+        text: "Recuerda que esta acción es irreversible",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Aceptar",
+        cancelButtonText: "Cancelar",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "¡ELIMINADO",
+            "El cuestionario ha sido eliminado",
+            "success"
+          );
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire(
+            "Cancelado",
+            "El cuestionario está a salvo",
+            "error"
+          );
+        }
+      });
+  };
 
   return (
-    <main >
+    <main>
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mx-10">
@@ -146,7 +143,7 @@ const gestionarCuestionario = () => {
                     </Link>
                     <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       <button
-                        onClick={() => eliminarCuestionario()}
+                        onClick={FuncionEliminar}
                         className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
                       >
                         <img src={eliminar} alt="" width="25px" />
@@ -187,8 +184,8 @@ const gestionarCuestionario = () => {
                     </Link>
                     <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       <button
-                        onClick={eliminarCuestionario()}
                         className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                        onClick={FuncionEliminar}
                       >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
@@ -228,8 +225,8 @@ const gestionarCuestionario = () => {
                     </Link>
                     <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                       <button
-                        onClick={eliminarCuestionario()}
                         className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                        onClick={FuncionEliminar}
                       >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
@@ -266,7 +263,10 @@ const gestionarCuestionario = () => {
                       </button>
                     </Link>
                     <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <button className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400">
+                      <button
+                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                        onClick={FuncionEliminar}
+                      >
                         <img src={eliminar} alt="" width="25px" />
                       </button>
                     </div>

@@ -55,7 +55,7 @@ export const Login = () => {
                       <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                         ¡Bienvenido de vuelta!
                       </h1>
-                      <form className="space-y-4 md:space-y-6" action="#">
+                      <form className="space-y-4 md:space-y-6" onSubmit={handleLoginSesion}>
                         <div>
                           <label
                             htmlFor="email"
@@ -69,7 +69,8 @@ export const Login = () => {
                             id="email"
                             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="nombre@xxxxx.com"
-                            required=""
+                            value={formulario.email}
+                            onChange={ManejarEventoDeInputs}
                           />
                         </div>
                         <div>

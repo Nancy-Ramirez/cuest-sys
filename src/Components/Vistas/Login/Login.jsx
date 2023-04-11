@@ -45,9 +45,78 @@ export const Login = () => {
     ];
 
     //Enviamos los datos a la funcion de validación y recibimos las validaciones
-    
+    const datosValidados = ValidarInputs(verificarInputs);
+    console.log(datosValidados);
 
+    //Enviamos las validaciones al estado que se va a encargar de mostrarlas en el formulario
+    setAlerta(datosValidados);
+
+    //Obtenemos el total de validación
+    const totalValidaciones = datosValidados.filter(input => input.estado === false).map((estado) => { return false });
+
+    console.log("Total de validaciones", totalValidaciones.length);
+
+    //Validacion para enviar los datos al servidor
+    if (totalValidaciones.length >= 1) {
+      console.log("Enviar al servidor");
+    };
   }
+  const ValidarInputs = (data) => {
+    console.log(data);
+    //Declaramos un arreglo el cual se va a encargar de guardar las validaciones
+    let errors = [];
+
+    //Recibidos los datos a validar
+    const datosDelFormulario = data;
+
+    //Proceso de validacion
+    datosDelFormulario.map((valorInput) => {
+      switch (valorInput.nombre) {
+        case "email": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Campo requerido",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+
+        case "password": {
+          if (
+            valorInput.value === "" ||
+            valorInput.value === null ||
+            valorInput.value.length < 8
+          ) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Campo requerido",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        default: {
+          break;
+        }
+      }
+    });
+    //Retornamos el total de validaciones
+    return errors;
+  };
 
   console.log(formulario);
     return (
@@ -65,7 +134,10 @@ export const Login = () => {
                       <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white text-center">
                         ¡Bienvenido de vuelta!
                       </h1>
-                      <form className="space-y-4 md:space-y-6">
+                      <form
+                        onSubmit={handleLoginSession}
+                        className="space-y-4 md:space-y-6"
+                      >
                         <div>
                           <label
                             htmlFor="email"
@@ -81,6 +153,15 @@ export const Login = () => {
                             value={formulario.email}
                             onChange={ManejarEventoDeInputs}
                           />
+                          {
+                            alerta.filter(input => input.valorInput === "email" && input.estado === true).map(message => (
+                              <div className="py-2">
+                                <span className="text-red-500 mt-2">
+                                  {message.message}
+                                </span>
+                              </div>
+                            ))
+                          }
                         </div>
                         <div>
                           <label
@@ -102,7 +183,7 @@ export const Login = () => {
                           <BtnOlvidarContra></BtnOlvidarContra>
                         </div>
                         <div className="log flex justify-center">
-                          <Link to="/inicio" className="button text">
+                          <button className="button text">
                             <svg>
                               <rect
                                 x="0"
@@ -113,7 +194,7 @@ export const Login = () => {
                               />
                             </svg>
                             Ingresar
-                          </Link>
+                          </button>
                         </div>
                       </form>
                     </div>

@@ -12,9 +12,9 @@ export const Login = () => {
 
   //Estado inicial de la alerta
   const initialStateInput = {
-    input: "",
-    message: "",
-    state: false
+    valorInput: "",
+    mensaje: "",
+    estado: false,
   };
 
   //Estado para manejar los valores del formulario
@@ -157,7 +157,7 @@ export const Login = () => {
                             alerta.filter(input => input.valorInput === "email" && input.estado === true).map(message => (
                               <div className="py-2">
                                 <span className="text-red-500 mt-2">
-                                  {message.message}
+                                  {message.mensaje}
                                 </span>
                               </div>
                             ))

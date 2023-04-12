@@ -24,41 +24,40 @@ export const VerCuestionario = () => {
         </div>
         <div className="px-20 text-white">
           <div className="flex justify-start p-4">
-            <p className="pr-2 leading-normal">Descripción: </p>
+            <p className="pr-2 leading-normal font-bold">Descripción: </p>
             <p className="leading-normal">
-              Si la ciencia es una actividad que produce resultados que
-              son aprovechados por las sociedades, de igual forma la tecnología
+              Si la ciencia es una actividad que produce resultados que son
+              aprovechados por las sociedades, de igual forma la tecnología
               permite la creación de aparatos que contribuyen a satisfacer
               necesidades vitales.{" "}
             </p>
           </div>
           <div className="flex justify-start p-4">
-            <p className="pl-12 pr-2">Grado: </p>
+            <p className="pl-12 pr-2 font-bold">Grado: </p>
             <p>Séptimo </p>
           </div>
           <div className="flex justify-start p-4">
-            <p className="pl-9 pr-2">Materia: </p>
+            <p className="pl-9 pr-2 font-bold">Materia: </p>
             <p>Ciencias Naturales </p>
           </div>
           <div className="flex justify-start p-4">
-            <p className="-ml-8 pr-2">Cant. Preguntas: </p>
+            <p className="-ml-8 pr-2 font-bold">Cant. Preguntas: </p>
             <p>4</p>
           </div>
           {/*!--Ver preguntas-->*/}
           <div className="flex justify-end py-4 text w-full">
-                    <Link
-                      to="/cuestionario/ver-preguntas"
-                      className="buttonP  text-white"
-                    >
-                      <button
-                        type="submit"
-                        className="  text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
-                      >
-                         Preguntas
-                      </button>
-                    </Link>
-                    
-                  </div>
+            <Link
+              to="/cuestionario/ver-preguntas"
+              className="buttonP  text-white"
+            >
+              <button
+                type="submit"
+                className="  text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
+              >
+                Preguntas
+              </button>
+            </Link>
+          </div>
 
           <p></p>
         </div>

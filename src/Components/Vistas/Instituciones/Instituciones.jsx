@@ -3,11 +3,28 @@ import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
+import Swal from "sweetalert2";
 
 const gestionarInstitucion = () => {
+  const FuncionEliminar = () => {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede revertir",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, estoy seguro",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Eliminado", "La institución se ha removido", "success");
+      }
+    });
+  };
+
   return (
     <main>
-      <NavbarAdmin/>
+      <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-25 mx-12">
         <h1 className="pt-24 text-center text-3xl text-white">INSTITUCIONES</h1>
@@ -80,21 +97,13 @@ const gestionarInstitucion = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                       Colegio Maria Auxiliadora
+                        Colegio Maria Auxiliadora
                       </div>
                     </div>
                   </th>
                   <td className="px-6 py-4">Privado</td>
                   <td className="px-6 py-4"> Soyapango</td>
                   <td className="px-6 py-8 flex justify-between content-center">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
                     <a
                       href="/institucion/institucion"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -103,14 +112,13 @@ const gestionarInstitucion = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
 
@@ -129,29 +137,20 @@ const gestionarInstitucion = () => {
                   <td className="px-6 py-4"> Soyapango</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="#"
+                      href="/institucion/institucion"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
 
@@ -170,29 +169,20 @@ const gestionarInstitucion = () => {
                   <td className="px-6 py-4">Ilopango</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="#"
+                      href="/institucion/institucion"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
 
@@ -202,36 +192,29 @@ const gestionarInstitucion = () => {
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Centro Escolar República de Corea</div>
+                      <div className="text-base font-semibold">
+                        Centro Escolar República de Corea
+                      </div>
                     </div>
                   </th>
                   <td className="px-6 py-4">Pública</td>
                   <td className="px-6 py-4">San Bartolo</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="#"
+                      href="/institucion/institucion"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
               </tbody>

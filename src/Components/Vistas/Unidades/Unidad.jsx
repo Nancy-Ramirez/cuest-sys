@@ -3,8 +3,25 @@ import editar from "../../../images/iconos/editar.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
+import Swal from "sweetalert2";
 
 const gestionarUnidades = () => {
+  const FuncionEliminar = () => {
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede revertir",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, estoy seguro",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Eliminado", "La unidad se ha removido", "success");
+      }
+    });
+  };
+
   return (
     <main>
       <NavbarAdmin />
@@ -91,14 +108,6 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
                       href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
@@ -106,14 +115,12 @@ const gestionarUnidades = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
                 {/*Dato 2 */}
@@ -131,14 +138,6 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
                       href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
@@ -146,14 +145,13 @@ const gestionarUnidades = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
                 {/*Dato 3 */}
@@ -171,14 +169,6 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
                       href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
@@ -186,14 +176,13 @@ const gestionarUnidades = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
                 {/*Dato 4 */}
@@ -211,14 +200,6 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Química</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
                       href="/unidad/unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
@@ -226,18 +207,15 @@ const gestionarUnidades = () => {
                         <img src={editar} alt="" width="25px" />
                       </button>
                     </a>
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+
+                    <button
+                      onClick={FuncionEliminar}
+                      className="btn btn-eliminarCuestionario "
                     >
-                      <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </a>
+                      <img src={eliminar} alt="" width="25px" />
+                    </button>
                   </td>
                 </tr>
-
-                
               </tbody>
             </table>
           </div>

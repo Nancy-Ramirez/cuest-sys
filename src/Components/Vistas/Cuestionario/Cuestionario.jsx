@@ -8,39 +8,19 @@ import Swal from "sweetalert2";
 
 const gestionarCuestionario = () => {
   const FuncionEliminar = () => {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "btn btn-danger",
-      },
-      buttonsStyling: false,
+    Swal.fire({
+      title: "¿Estás seguro?",
+      text: "Esta acción no se puede revertir",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, estoy seguro",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Eliminado", "El cuestionario se ha removido", "success");
+      }
     });
-
-    swalWithBootstrapButtons
-      .fire({
-        title: "¿Estás seguro?",
-        text: "Recuerda que esta acción es irreversible",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Aceptar",
-        cancelButtonText: "Cancelar",
-        reverseButtons: true,
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire(
-            "¡ELIMINADO",
-            "El cuestionario ha sido eliminado",
-            "success"
-          );
-        } else if (result.dismiss === Swal.DismissReason.cancel) {
-          swalWithBootstrapButtons.fire(
-            "Cancelado",
-            "El cuestionario está a salvo",
-            "error"
-          );
-        }
-      });
   };
 
   return (

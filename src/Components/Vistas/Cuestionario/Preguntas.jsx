@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import NavbarAdmin from "../../NavbarAdmin";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export const AgregarPreguntas = () => {
   //!VALIDACIONES DE DATOS
@@ -28,16 +29,32 @@ export const AgregarPreguntas = () => {
 
   //Estado para manejar las alertas de validación
   const [alerta, setAlerta] = useState([initialStateInput]);
+  const [respuestaCheck, setRespuestaCheck] = useState(false);
 
   //Funcion para obtener lo de los inputs
   const ManejarEventoDeInputs = (event) => {
     //La propiedad target del event nos permitirá obtener los valores
     const name = event.target.name;
     const value = event.target.value;
+    const id = event.target.id;
 
-    //Actualizamos los valores capturados a nuestro estado de formulario
-    setFormulario({ ...formulario, [name]: value });
+    console.log(id);
+    console.log(name);
+    
+    if (name === "respcorrecta") {
+      const check = document.getElementById(id);
+      console.log(check);
+      setRespuestaCheck(check?.checked);
+      console.log(check?.checked);
+      formulario.respcorrecta = id;
+    } else {
+      //Actualizamos los valores capturados a nuestro estado de formulario
+      setFormulario({ ...formulario, [name]: value });
+    }
+      
   };
+
+  console.log("Obtener respuesta check", respuestaCheck);
 
   //Funcion que se va a encargar de validar los campos
   const handleLoginSession = (e) => {
@@ -64,16 +81,21 @@ export const AgregarPreguntas = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input === false)
+      .filter((input) => input.estado === false)
       .map((estado) => {
         return false;
       });
+    console.log(totalValidaciones);
 
     console.log("Total de validaciones", totalValidaciones.length);
 
     //Validación para enviar los datos al servidor
-    if (totalValidaciones.length >= 1) {
-      console.log("Enviar al servidor");
+    if (totalValidaciones.length >= 6) {
+
+      if (respuestaCheck !== false) {
+        console.log("Enviar al servidor");
+        console.log(formulario);
+      } 
     }
   };
 
@@ -106,39 +128,8 @@ export const AgregarPreguntas = () => {
           }
           break;
         }
-        case "puntuacion": {
-          if (valorInput.value === "" || valorInput.value === null) {
-            errors.push({
-              valorInput: valorInput.nombre,
-              mensaje: "Por favor ingrese la puntuación de esta pregunta",
-              estado: true,
-            });
-          } else {
-            var num = false;
-            for (var i = 0; i < valorInput.value.length; i++) {
-              if (
-                valorInput.value.charCodeAt(i) >= 48 &&
-                valorInput.value.charCodeAt(i) <= 57
-              ) {
-                num = true;
-              }
-            }
-            if (num === true) {
-              errors.push({
-                valorInput: valorInput.nombre,
-                mensaje: "",
-                estado: false,
-              });
-            } else {
-              errors.push({
-                valorInput: valorInput.nombre,
-                mensaje: "Ingrese un puntaje válido",
-                estado: true,
-              });
-            }
-            break;
-          }
-        }
+
+        // eslint-disable-next-line no-fallthrough
         case "respuesta1": {
           if (valorInput.value === "" || valorInput.value === null) {
             errors.push({
@@ -203,13 +194,60 @@ export const AgregarPreguntas = () => {
           }
           break;
         }
+        case "puntuacion": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Por favor ingrese la puntuación de esta pregunta",
+              estado: true,
+            });
+          } else {
+            var num = false;
+            for (var i = 0; i < valorInput.value.length; i++) {
+              if (
+                valorInput.value.charCodeAt(i) >= 48 &&
+                valorInput.value.charCodeAt(i) <= 57
+              ) {
+                num = true;
+              }
+            }
+            if (num === true) {
+              errors.push({
+                valorInput: valorInput.nombre,
+                mensaje: "",
+                estado: false,
+              });
+            } else {
+              errors.push({
+                valorInput: valorInput.nombre,
+                mensaje: "Ingrese un puntaje válido",
+                estado: true,
+              });
+            }
+            break;
+          }
+        }
       }
     });
     //retornamos el total de validaciones
     return errors;
   };
   console.log(formulario);
+  console.log("aqui deberia ir", formulario.respcorrecta);
 
+
+  //!Validacion de checkbox
+
+  const alertaValidarChecks = () => {
+    
+    if (formulario.respcorrecta === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Respuesta correcta no seleccionada",
+        text: "Debe seleccionar cual de todas las respuestas ingresadas es la correcta",
+      });
+    }
+  }
   return (
     <main>
       <NavbarAdmin />
@@ -250,14 +288,11 @@ export const AgregarPreguntas = () => {
               {alerta
                 .filter(
                   (input) =>
-                    input.valorInput === "pregunta" &&
-                    input.estado === true
+                    input.valorInput === "pregunta" && input.estado === true
                 )
                 .map((message) => (
                   <div className="py-2">
-                    <span className="text-red-500 mt-2">
-                      {message.mensaje}
-                    </span>
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
                   </div>
                 ))}
             </div>
@@ -281,20 +316,18 @@ export const AgregarPreguntas = () => {
               {alerta
                 .filter(
                   (input) =>
-                    input.valorInput === "puntuacion" &&
-                    input.estado === true
+                    input.valorInput === "puntuacion" && input.estado === true
                 )
                 .map((message) => (
                   <div className="py-2">
-                    <span className="text-red-500 mt-2">
-                      {message.mensaje}
-                    </span>
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
                   </div>
                 ))}
+              ;
             </div>
 
             {/*AREA DE RESPUESTAS */}
-            <div className="">
+            <div>
               <h2 className="text-lg text-white text-center p-2">
                 Sección de respuestas
               </h2>
@@ -317,8 +350,7 @@ export const AgregarPreguntas = () => {
                 {alerta
                   .filter(
                     (input) =>
-                      input.valorInput === "respuesta1" &&
-                      input.estado === true
+                      input.valorInput === "respuesta1" && input.estado === true
                   )
                   .map((message) => (
                     <div className="py-2">
@@ -343,21 +375,20 @@ export const AgregarPreguntas = () => {
                   name="respuesta2"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   value={formulario.respuesta2}
-                      onChange={ManejarEventoDeInputs}
-                    />
-                    {alerta
-                      .filter(
-                        (input) =>
-                          input.valorInput === "respuesta2" &&
-                          input.estado === true
-                      )
-                      .map((message) => (
-                        <div className="py-2">
-                          <span className="text-red-500 mt-2">
-                            {message.mensaje}
-                          </span>
-                        </div>
-                      ))}
+                  onChange={ManejarEventoDeInputs}
+                />
+                {alerta
+                  .filter(
+                    (input) =>
+                      input.valorInput === "respuesta2" && input.estado === true
+                  )
+                  .map((message) => (
+                    <div className="py-2">
+                      <span className="text-red-500 mt-2">
+                        {message.mensaje}
+                      </span>
+                    </div>
+                  ))}
               </div>
 
               {/*Respuesta 3*/}
@@ -379,8 +410,7 @@ export const AgregarPreguntas = () => {
                 {alerta
                   .filter(
                     (input) =>
-                      input.valorInput === "respuesta3" &&
-                      input.estado === true
+                      input.valorInput === "respuesta3" && input.estado === true
                   )
                   .map((message) => (
                     <div className="py-2">
@@ -410,8 +440,7 @@ export const AgregarPreguntas = () => {
                 {alerta
                   .filter(
                     (input) =>
-                      input.valorInput === "respuesta4" &&
-                      input.estado === true
+                      input.valorInput === "respuesta4" && input.estado === true
                   )
                   .map((message) => (
                     <div className="py-2">
@@ -437,6 +466,7 @@ export const AgregarPreguntas = () => {
                       className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       name="respcorrecta"
                       id="respcorrecta1"
+                      onChange={ManejarEventoDeInputs}
                     />{" "}
                     <span className="px-2">Respuesta 1</span>
                   </div>
@@ -450,6 +480,7 @@ export const AgregarPreguntas = () => {
                       className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       name="respcorrecta"
                       id="respcorrecta2"
+                      onChange={ManejarEventoDeInputs}
                     />{" "}
                     <span className="px-2">Respuesta 2</span>
                   </div>
@@ -464,6 +495,7 @@ export const AgregarPreguntas = () => {
                       className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       name="respcorrecta"
                       id="respcorrecta3"
+                      onChange={ManejarEventoDeInputs}
                     />{" "}
                     <span className="px-2">Respuesta 3</span>
                   </div>
@@ -477,6 +509,7 @@ export const AgregarPreguntas = () => {
                       className="w-4 h-4 text-black bg-gray-300 border-gray-300 rounded focus:ring-black dark:focus:ring-black dark:ring-offset-black focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       name="respcorrecta"
                       id="respcorrecta4"
+                      onChange={ManejarEventoDeInputs}
                     />{" "}
                     <span className="px-2">Respuesta 4</span>
                   </div>
@@ -488,6 +521,7 @@ export const AgregarPreguntas = () => {
               <button
                 type="submit"
                 className="  text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
+                onClick={alertaValidarChecks}
               >
                 Siguiente
               </button>

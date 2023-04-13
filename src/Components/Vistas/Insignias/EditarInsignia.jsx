@@ -111,8 +111,8 @@ const EditarInsignia = () => {
                 estado: true,
               });
             }
-            break;
           }
+          break;
         }
         case "pMaxima": {
           if (valorInput.value === "" || valorInput.value === null) {
@@ -122,16 +122,16 @@ const EditarInsignia = () => {
               estado: true,
             });
           } else {
-            var num = false;
-            for (var i = 0; i < valorInput.value.length; i++) {
+            var nume = false;
+            for (var j = 0; j < valorInput.value.length; j++) {
               if (
-                valorInput.value.charCodeAt(i) >= 48 &&
-                valorInput.value.charCodeAt(i) <= 57
+                valorInput.value.charCodeAt(j) >= 48 &&
+                valorInput.value.charCodeAt(j) <= 57
               ) {
-                num = true;
+                nume = true;
               }
             }
-            if (num === true) {
+            if (nume === true) {
               errors.push({
                 valorInput: valorInput.nombre,
                 mensaje: "",
@@ -144,8 +144,8 @@ const EditarInsignia = () => {
                 estado: true,
               });
             }
-            break;
           }
+          break;
         }
       }
     });

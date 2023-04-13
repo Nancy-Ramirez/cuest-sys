@@ -77,6 +77,7 @@ export const Login = () => {
     const datosDelFormulario = data;
 
     //Proceso de validacion
+    // eslint-disable-next-line array-callback-return
     datosDelFormulario.map((valorInput) => {
       // eslint-disable-next-line default-case
       switch (valorInput.nombre) {

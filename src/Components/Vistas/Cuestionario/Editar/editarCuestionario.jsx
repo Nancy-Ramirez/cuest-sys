@@ -2,9 +2,13 @@ import NavbarAdmin from "../../../NavbarAdmin";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const EditarCuestionario = () => {
   //!VALIDACIONES DE DATOS
+
+  //Navegacion del boton luego de validar correctamente
+    const Navigate = useNavigate();
   //Estado inicial del formulario
   const datosCuestionario = {
     nombreC: "",
@@ -58,7 +62,7 @@ export const EditarCuestionario = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input === false)
+      .filter((input) => input.estado === false)
       .map((estado) => {
         return false;
       });
@@ -66,8 +70,9 @@ export const EditarCuestionario = () => {
     console.log("Total de validacioes", totalValidaciones.length);
 
     //Validación para enviar los datos al servidor
-    if (totalValidaciones.length >= 1) {
+    if (totalValidaciones.length >= 4) {
       console.log("Enviar al servidor");
+      Navigate("/cuestionario/editar-cuestionario/preguntas");
     }
   };
 
@@ -171,6 +176,8 @@ export const EditarCuestionario = () => {
     return errors;
   };
   console.log(formulario);
+
+  //!Alerta de inicio de sesión
   return (
     <main>
       <NavbarAdmin />
@@ -366,10 +373,7 @@ export const EditarCuestionario = () => {
                       to="/cuestionario/crear-cuestionario/agregar-preguntas"
                       className="buttonP  text-white"
                       >*/}
-                    <button
-                      type="submit"
-                      className="  text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
-                    >
+                    <button className="button text text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600">
                       Editar preguntas
                     </button>
                     {/* </Link>*/}

@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import logo from "../../../images/iconoF.png";
 import { BtnOlvidarContra } from "../../BotoncitosModals/botonOlvidarContra";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  //Valores invalidos para el correo
+  const Navigate = useNavigate();
+
+  //Valores validos para el correo
   const isValidEmail =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -64,8 +67,11 @@ export const Login = () => {
     console.log("Total de validaciones", totalValidaciones.length);
 
     //Validacion para enviar los datos al servidor
-    if (totalValidaciones.length >= 1) {
+    if (totalValidaciones.length >= 2) {
       console.log("Enviar al servidor");
+      setTimeout(() => {
+        Navigate("/inicio");
+      }, 2000);
     }
   };
   const ValidarInputs = (data) => {
@@ -174,6 +180,8 @@ export const Login = () => {
   };
 
   console.log(formulario);
+
+  //!Alerta de inicio de sesión
   return (
     <div>
       <section className=" min-h-screen flex justify-center opacity-90 py-2 px-4 sm:px-6 lg:px-8  relative items-center">

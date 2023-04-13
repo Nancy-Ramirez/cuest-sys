@@ -5,6 +5,7 @@ import agregar from "../../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../../NavbarAdmin";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Icon } from "@iconify/react";
 
 export const TablaPreguntas = () => {
   const FuncionEliminar = () => {
@@ -18,7 +19,7 @@ export const TablaPreguntas = () => {
       confirmButtonText: "Si, estoy seguro",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Eliminado", "El cuestionario se ha removido", "success");
+        Swal.fire("Eliminado", "La pregunta se ha removido", "success");
       }
     });
   };
@@ -28,12 +29,21 @@ export const TablaPreguntas = () => {
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mx-10">
-        <h1 className="pt-24 text-center text-3xl text-white">PREGUNTAS</h1>
+        <div className="flex justify-between pt-28 p-10 text-center text-3xl text-white">
+          <Link
+            to="/cuestionario/editar-cuestionario"
+            className="flex justify-start"
+          >
+            <Icon icon="lucide:arrow-big-left" width="35" height="35" />
+          </Link>
+          <h1 className="flex justify-center">Resumen de preguntas</h1>
+          <div></div>
+        </div>
 
         <div className="">
           <div className="flex items-center px-20 md:justify-end m-2">
             <Link
-              to="/cuestionario/crear-cuestionario"
+              to="/cuestionario/editar-cuestionario/nueva-pregunta"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
               <button className="btn btn-verCuestionario rounded-full hover:bg-green-400">
@@ -84,7 +94,7 @@ export const TablaPreguntas = () => {
                       </button>
                     </Link>
                     <Link
-                      to="/cuestionario/editar-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/preg"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -125,7 +135,7 @@ export const TablaPreguntas = () => {
                       </button>
                     </Link>
                     <Link
-                      to="/cuestionario/editar-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/preg"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -165,7 +175,7 @@ export const TablaPreguntas = () => {
                       </button>
                     </Link>
                     <Link
-                      to="/cuestionario/editar-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/preg"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
@@ -190,7 +200,8 @@ export const TablaPreguntas = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Una aplicación de la ciencia y de la tecnología se da en el campo de
+                        Una aplicación de la ciencia y de la tecnología se da en
+                        el campo de
                       </div>
                     </div>
                   </th>
@@ -205,7 +216,7 @@ export const TablaPreguntas = () => {
                       </button>
                     </Link>
                     <Link
-                      to="/cuestionario/editar-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/preg"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">

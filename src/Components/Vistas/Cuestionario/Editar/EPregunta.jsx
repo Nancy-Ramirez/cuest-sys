@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-export const AgregarPreguntas = () => {
+export const EPregunta = () => {
   //!VALIDACIONES DE DATOS
   //Estado inicial del formulario
   const datosPreguntas = {
@@ -40,7 +40,7 @@ export const AgregarPreguntas = () => {
 
     console.log(id);
     console.log(name);
-    
+
     if (name === "respcorrecta") {
       const check = document.getElementById(id);
       console.log(check);
@@ -51,7 +51,6 @@ export const AgregarPreguntas = () => {
       //Actualizamos los valores capturados a nuestro estado de formulario
       setFormulario({ ...formulario, [name]: value });
     }
-      
   };
 
   console.log("Obtener respuesta check", respuestaCheck);
@@ -91,11 +90,10 @@ export const AgregarPreguntas = () => {
 
     //Validación para enviar los datos al servidor
     if (totalValidaciones.length >= 6) {
-
       if (respuestaCheck !== false) {
         console.log("Enviar al servidor");
         console.log(formulario);
-      } 
+      }
     }
   };
 
@@ -235,11 +233,9 @@ export const AgregarPreguntas = () => {
   console.log(formulario);
   console.log("aqui deberia ir", formulario.respcorrecta);
 
-
   //!Validacion de checkbox
 
   const alertaValidarChecks = () => {
-    
     if (formulario.respcorrecta === "") {
       Swal.fire({
         icon: "error",
@@ -247,7 +243,7 @@ export const AgregarPreguntas = () => {
         text: "Debe seleccionar cual de todas las respuestas ingresadas es la correcta",
       });
     }
-  }
+  };
   return (
     <main>
       <NavbarAdmin />
@@ -255,12 +251,12 @@ export const AgregarPreguntas = () => {
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-12 pt-12 mx-24">
         <div className="flex justify-between p-12 text-center text-3xl text-white">
           <Link
-            to="/cuestionario/crear-cuestionario"
+            to="/cuestionario/editar-cuestionario/preguntas"
             className="flex justify-start"
           >
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
-          <h1 className="flex justify-center">Agregar Preguntas</h1>
+          <h1 className="flex justify-center">Editar Pregunta</h1>
           <div></div>
         </div>
 
@@ -323,6 +319,7 @@ export const AgregarPreguntas = () => {
                     <span className="text-red-500 mt-2">{message.mensaje}</span>
                   </div>
                 ))}
+              
             </div>
 
             {/*AREA DE RESPUESTAS */}
@@ -522,7 +519,7 @@ export const AgregarPreguntas = () => {
                 className="  text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600"
                 onClick={alertaValidarChecks}
               >
-                Siguiente
+                Actualizar
               </button>
             </div>
           </div>

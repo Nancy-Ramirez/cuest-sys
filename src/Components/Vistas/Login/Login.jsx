@@ -3,9 +3,11 @@ import logo from "../../../images/iconoF.png";
 import { BtnOlvidarContra } from "../../BotoncitosModals/botonOlvidarContra";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const Login = () => {
   const Navigate = useNavigate();
+const [log, setLog] = useState(false);
 
   //Valores validos para el correo
   const isValidEmail =
@@ -69,9 +71,10 @@ export const Login = () => {
     //Validacion para enviar los datos al servidor
     if (totalValidaciones.length >= 2) {
       console.log("Enviar al servidor");
+      setLog(true);
       setTimeout(() => {
         Navigate("/inicio");
-      }, 2000);
+      }, 3000);
     }
   };
   const ValidarInputs = (data) => {
@@ -182,6 +185,26 @@ export const Login = () => {
   console.log(formulario);
 
   //!Alerta de inicio de sesión
+  const alertaLoginExistoso = () => {
+    if (log ===true) {
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "Ingreso existoso",
+      });
+    }
+  }
   return (
     <div>
       <section className=" min-h-screen flex justify-center opacity-90 py-2 px-4 sm:px-6 lg:px-8  relative items-center">
@@ -263,7 +286,10 @@ export const Login = () => {
                         <BtnOlvidarContra></BtnOlvidarContra>
                       </div>
                       <div className="log flex justify-center">
-                        <button className="button text">
+                        <button
+                          onClick={alertaLoginExistoso}
+                          className="button text"
+                        >
                           <svg>
                             <rect
                               x="0"

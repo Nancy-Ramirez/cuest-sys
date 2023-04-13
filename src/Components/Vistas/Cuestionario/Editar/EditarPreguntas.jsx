@@ -1,12 +1,12 @@
-import ver from "../../../images/iconos/ver.png";
-import editar from "../../../images/iconos/editar.png";
-import eliminar from "../../../images/iconos/eliminar.png";
-import agregar from "../../../images/iconos/agregar.png";
-import NavbarAdmin from "../../NavbarAdmin";
+import ver from "../../../../images/iconos/ver.png";
+import editar from "../../../../images/iconos/editar.png";
+import eliminar from "../../../../images/iconos/eliminar.png";
+import agregar from "../../../../images/iconos/agregar.png";
+import NavbarAdmin from "../../../NavbarAdmin";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const gestionarCuestionario = () => {
+export const TablaPreguntas = () => {
   const FuncionEliminar = () => {
     Swal.fire({
       title: "¿Estás seguro?",
@@ -28,10 +28,10 @@ const gestionarCuestionario = () => {
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-15 mx-10">
-        <h1 className="pt-24 text-center text-3xl text-white">CUESTIONARIO</h1>
+        <h1 className="pt-24 text-center text-3xl text-white">PREGUNTAS</h1>
 
         <div className="">
-          <div className="flex items-center px-5 md:justify-end m-2">
+          <div className="flex items-center px-20 md:justify-end m-2">
             <Link
               to="/cuestionario/crear-cuestionario"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
@@ -44,46 +44,15 @@ const gestionarCuestionario = () => {
         </div>
 
         <div className="m-5">
-          <div className="flex items-center md:justify-end pb-4  m-2">
-            <label htmlFor="table-search" className="sr-only">
-              Buscar
-            </label>
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <svg
-                  className="w-5 h-5 text-black dark:text-black"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-              </div>
-              <input
-                type="text"
-                id="table-search-users"
-                className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Buscar cuestionario"
-              />
-            </div>
-          </div>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left text-black dark:text-gray-400 ">
               <thead className="text-xs text-black uppercase bg-colo4 dark:bg-gray-700 dark:text-white text-center">
                 <tr>
                   <th scope="col" className="px-6 py-3">
-                    Nombre
+                    Pregunta
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Materia
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Grado
+                    Puntuación
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Acciones
@@ -91,6 +60,7 @@ const gestionarCuestionario = () => {
                 </tr>
               </thead>
               <tbody className="text-center">
+                {/*primer registro */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
@@ -98,12 +68,12 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Aprendamos a ser científicos y científicas
+                        Dos características importantes delconocimiento
+                        cientíico son
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Ciencias</td>
-                  <td className="px-6 py-4"> Séptimo</td>
+                  <td className="px-6 py-4">12</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
                       to="/cuestionario/ver-cuestionario"
@@ -131,7 +101,7 @@ const gestionarCuestionario = () => {
                     </div>
                   </td>
                 </tr>
-
+                {/*Segundo registro */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
@@ -139,12 +109,12 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Reacciones químicas
+                        Una caracteristica de los conocimientos adquiridos sa
+                        través de la práctica
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Química</td>
-                  <td className="px-6 py-4"> Primer año bachillerato</td>
+                  <td className="px-6 py-4">10</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
                       to="/cuestionario/ver-cuestionario"
@@ -172,7 +142,7 @@ const gestionarCuestionario = () => {
                     </div>
                   </td>
                 </tr>
-
+                {/*Tercer registro */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
@@ -180,12 +150,11 @@ const gestionarCuestionario = () => {
                   >
                     <div className="pl-3">
                       <div className="text-base font-semibold">
-                        Vectores y más
+                        Un ejemplo de ciencia formal es el de
                       </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Física</td>
-                  <td className="px-6 py-4"> Segundo año bachillerato</td>
+                  <td className="px-6 py-4">10</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
                       to="/cuestionario/ver-cuestionario"
@@ -213,18 +182,19 @@ const gestionarCuestionario = () => {
                     </div>
                   </td>
                 </tr>
-
+                {/*cuarto registro */}
                 <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                   <th
                     scope="row"
                     className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     <div className="pl-3">
-                      <div className="text-base font-semibold">Células</div>
+                      <div className="text-base font-semibold">
+                        Una aplicación de la ciencia y de la tecnología se da en el campo de
+                      </div>
                     </div>
                   </th>
-                  <td className="px-6 py-4">Ciencias</td>
-                  <td className="px-6 py-4">Octavo</td>
+                  <td className="px-6 py-4">10</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
                       to="/cuestionario/ver-cuestionario"
@@ -361,4 +331,3 @@ const gestionarCuestionario = () => {
   );
 };
 
-export default gestionarCuestionario;

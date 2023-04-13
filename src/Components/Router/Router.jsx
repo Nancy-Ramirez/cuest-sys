@@ -6,9 +6,12 @@ import Inicio from "../Vistas/Inicio/Inicio";
 
 //Rutas Cuestionario
 import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
-import CrearCuestionario from "../Vistas/Cuestionario/CrearCuestionario";
-import { AgregarPreguntas } from "../Vistas/Cuestionario/Preguntas";
+import CrearCuestionario from "../Vistas/Cuestionario/Crear/CrearCuestionario";
+import { AgregarPreguntas } from "../Vistas/Cuestionario/Crear/Preguntas";
 import { VerCuestionario } from "../Vistas/Cuestionario/verCuestionario";
+import { EditarCuestionario } from "../Vistas/Cuestionario/Editar/editarCuestionario";
+import { VerPreguntas } from "../Vistas/Cuestionario/verPreguntas";
+import { TablaPreguntas } from "../Vistas/Cuestionario/Editar/EditarPreguntas";
 
 //Rutas Estudiantes
 import Estudiante from "../Vistas/Estudiantes/Estudiante";
@@ -35,26 +38,39 @@ import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
 //Rutas Usuario
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
-import { VerPreguntas } from "../Vistas/Cuestionario/verPreguntas";
-
 
 
 
 export default function Router() {
   return (
-    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/reseña" element={<Reseña/>} />
+        <Route path="/reseña" element={<Reseña />} />
 
         {/*Cuestionario */}
         <Route path="/cuestionario" element={<Cuestionario />} />
-        <Route path="/cuestionario/crear-cuestionario" element={<CrearCuestionario />} />
-        <Route path="/cuestionario/crear-cuestionario/agregar-preguntas" element={<AgregarPreguntas />} />
-        <Route path="/cuestionario/ver-cuestionario" element={<VerCuestionario />} />
+        <Route
+          path="/cuestionario/crear-cuestionario"
+          element={<CrearCuestionario />}
+        />
+        <Route
+          path="/cuestionario/crear-cuestionario/agregar-preguntas"
+          element={<AgregarPreguntas />}
+        />
+        <Route
+          path="/cuestionario/ver-cuestionario"
+          element={<VerCuestionario />}
+        />
         <Route path="/cuestionario/ver-preguntas" element={<VerPreguntas />} />
-
+        <Route
+          path="/cuestionario/editar-cuestionario"
+          element={<EditarCuestionario />}
+        />
+        <Route
+          path="/cuestionario/editar-cuestionario/preguntas"
+          element={<TablaPreguntas />}
+        />
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />
@@ -86,7 +102,7 @@ export default function Router() {
         <Route path="/*" element={<Error />} />
 
         {/*Login */}
-        <Route path="/inicio" element={<Inicio/>}></Route>
+        <Route path="/inicio" element={<Inicio />}></Route>
       </Routes>
     </BrowserRouter>
   );

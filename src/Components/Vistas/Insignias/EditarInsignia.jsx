@@ -159,7 +159,7 @@ const EditarInsignia = () => {
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-40 pt-12 mx-12">
-      <div className="flex justify-between p-16 text-center text-3xl text-white">
+        <div className="flex justify-between p-16 text-center text-3xl text-white">
           <Link to="/insignia" className="flex justify-start">
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
@@ -167,13 +167,16 @@ const EditarInsignia = () => {
           <div></div>
         </div>
 
-        <form onSubmit={handleLoginSession} className=" mb-8 flex justify-center space-x-48">
+        <form
+          onSubmit={handleLoginSession}
+          className=" mb-8 flex justify-center space-x-48"
+        >
           <div>
             {/*Nombre insignia*/}
             <div className="mb-6 ">
               <label
                 htmlFor="tipoInstitucion"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-white mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Nombre de insignia
               </label>
@@ -195,8 +198,10 @@ const EditarInsignia = () => {
             <div className="mb-6 w-96">
               <label
                 htmlFor="pMinima"
-                className="block text-sm font-medium text-gray-900 dark:text-white mb-1"
-              >Puntuación mínima</label>
+                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
+              >
+                Puntuación mínima
+              </label>
               <input
                 type="number"
                 id="pMinima"
@@ -208,14 +213,11 @@ const EditarInsignia = () => {
               {alerta
                 .filter(
                   (input) =>
-                    input.valorInput === "pMinima" &&
-                    input.estado === true
+                    input.valorInput === "pMinima" && input.estado === true
                 )
                 .map((message) => (
                   <div className="py-2">
-                    <span className="text-red-500 mt-2">
-                      {message.mensaje}
-                    </span>
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
                   </div>
                 ))}
             </div>
@@ -223,8 +225,11 @@ const EditarInsignia = () => {
             <div className="mb-6 w-96">
               <label
                 htmlFor="pMaxima"
-                className="block text-sm font-medium text-gray-900 dark:text-white mb-1"
-              > Puntuación Máxima</label>
+                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
+              >
+                {" "}
+                Puntuación Máxima
+              </label>
               <input
                 type="number"
                 id="pMaxima"
@@ -236,14 +241,11 @@ const EditarInsignia = () => {
               {alerta
                 .filter(
                   (input) =>
-                    input.valorInput === "pMaxima" &&
-                    input.estado === true
+                    input.valorInput === "pMaxima" && input.estado === true
                 )
                 .map((message) => (
                   <div className="py-2">
-                    <span className="text-red-500 mt-2">
-                      {message.mensaje}
-                    </span>
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
                   </div>
                 ))}
             </div>

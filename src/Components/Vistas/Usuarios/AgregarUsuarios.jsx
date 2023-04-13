@@ -5,10 +5,13 @@ import { useState } from "react";
 
 const EditarUsuario = () => {
   //!VALIDACIONES DE DATOS
+  const isValidEmail =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   //Estado inicial del formulario
   const datosUsuario = {
     nombreUSuario: "",
-    nomUnidad: "",
+    emailU: "",
+    passwordU:"",
   };
 
   //Estado inicial de la elerta
@@ -42,7 +45,8 @@ const EditarUsuario = () => {
     //ordenamos los datos para enviarlos a la validación
     let verificarInputs = [
       { nombre: "nombreUSuario", value: formulario.nombreUSuario },
-      { nombre: "nomUnidad", value: formulario.nomUnidad },
+      { nombre: "emailU", value: formulario.emailU },
+      {nombre: "passwordU", value: formulario.passwordU},
     ];
 
     //Enviamos los datos a la función de validación y recibimos las validaciones
@@ -84,7 +88,7 @@ const EditarUsuario = () => {
           if (valorInput.value === "" || valorInput.value === null) {
             errors.push({
               valorInput: valorInput.nombre,
-              mensaje: "Ingrese el nombre de la unidad",
+              mensaje: "Ingrese el nombre del usario",
               estado: true,
             });
           } else {
@@ -96,24 +100,76 @@ const EditarUsuario = () => {
           }
           break;
         }
-        case "nUnidad": {
+
+        case "emailU": {
           if (valorInput.value === "" || valorInput.value === null) {
             errors.push({
               valorInput: valorInput.nombre,
-              mensaje: "Ingrese el número de unidad",
+              mensaje: "Por favor ingresa un correo electrónico",
+              estado: true,
+            });
+          } else if (!isValidEmail.test(valorInput.value)) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Ingresa un correo electrónico válido",
               estado: true,
             });
           } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+
+        case "passwordU": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Por favor ingresar tu contraseña",
+              estado: true,
+            });
+          } else if (valorInput.value.length < 8) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "La contraseña debe tener al menos 8 caracteres",
+              estado: true,
+            });
+          } else {
+            var mayus = false;
+            var minus = false;
             var num = false;
+            var caracter_raro = false;
+
             for (var i = 0; i < valorInput.value.length; i++) {
               if (
+                valorInput.value.charCodeAt(i) >= 65 &&
+                valorInput.value.charCodeAt(i) <= 90
+              ) {
+                mayus = true;
+              } else if (
+                valorInput.value.charCodeAt(i) >= 97 &&
+                valorInput.value.charCodeAt(i) <= 122
+              ) {
+                minus = true;
+              } else if (
                 valorInput.value.charCodeAt(i) >= 48 &&
                 valorInput.value.charCodeAt(i) <= 57
               ) {
                 num = true;
+              } else {
+                caracter_raro = true;
               }
             }
-            if (num === true) {
+
+            if (
+              mayus === true &&
+              minus === true &&
+              num === true &&
+              caracter_raro === true
+            ) {
               errors.push({
                 valorInput: valorInput.nombre,
                 mensaje: "",
@@ -122,14 +178,14 @@ const EditarUsuario = () => {
             } else {
               errors.push({
                 valorInput: valorInput.nombre,
-                mensaje: "Ingrese un número de unidad válido",
-                estado: true,
+                mensaje:
+                  "Ingresar una combinación correcta de almenos 8 caracteres",
+                estado: false,
               });
             }
+            break;
           }
-          break;
         }
-        
       }
     });
     //retornamos el total de validaciones
@@ -150,13 +206,16 @@ const EditarUsuario = () => {
           <div></div>
         </div>
 
-        <form className="mb-8 flex justify-center space-x-48">
+        <form
+          onSubmit={handleLoginSession}
+          className="mb-8 flex justify-center space-x-48"
+        >
           <div>
             {/*Nombre del usuario*/}
             <div className="mb-6 w-96">
               <label
                 htmlFor="nombreUsuario"
-                className="block text-sm font-medium text-gray-900 dark:text-white mb-1"
+                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
               >
                 Nombre
               </label>
@@ -165,37 +224,60 @@ const EditarUsuario = () => {
                 id="nombreUSuario"
                 name="nombreUSuario"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
+                value={formulario.nombreUSuario}
+                onChange={ManejarEventoDeInputs}
               />
+              {alerta
+                .filter(
+                  (input) =>
+                    input.valorInput === "nombreUSuario" &&
+                    input.estado === true
+                )
+                .map((message) => (
+                  <div className="py-2">
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
+                  </div>
+                ))}
             </div>
 
-            {/*Username*/}
+            {/*email*/}
             <div className="mb-6 w-96">
               <label
-                htmlFor="username"
-                className="block text-sm font-medium text-gray-900 dark:text-white mb-1"
+                htmlFor="emailU"
+                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
               >
                 Username
               </label>
               <input
-                type="text"
-                id="username"
+                type="email"
+                id="emailU"
+                name="emailU"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
+                value={formulario.emailU}
+                onChange={ManejarEventoDeInputs}
               />
+              {alerta
+                .filter(
+                  (input) =>
+                    input.valorInput === "emailU" && input.estado === true
+                )
+                .map((message) => (
+                  <div className="py-2">
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
+                  </div>
+                ))}
             </div>
 
             {/*Rol*/}
             <div className="mb-6 ">
               <label
                 htmlFor="rol"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-white mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Rol
               </label>
               <div className="">
                 <select className="rounded-lg w-96" name="rol" id="rol">
-                  <option id="">Seleccione</option>
                   <option id="facilitador">Facilitador</option>
                   <option id="admin">Administrador</option>
                 </select>
@@ -205,17 +287,29 @@ const EditarUsuario = () => {
             {/*Contraseña*/}
             <div className="mb-6 w-96">
               <label
-                htmlFor="contraseña"
-                className="block text-sm font-medium text-gray-900 dark:text-white mb-1"
+                htmlFor="passwordU"
+                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
               >
                 Contraseña
               </label>
               <input
                 type="password"
-                id="contraseña"
+                id="passwordU"
+                name="passwordU"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
+                value={formulario.passwordU}
+                onChange={ManejarEventoDeInputs}
               />
+              {alerta
+                .filter(
+                  (input) =>
+                    input.valorInput === "passwordU" && input.estado === true
+                )
+                .map((message) => (
+                  <div className="py-2">
+                    <span className="text-red-500 mt-2">{message.mensaje}</span>
+                  </div>
+                ))}
             </div>
 
             <div className="flex justify-end">

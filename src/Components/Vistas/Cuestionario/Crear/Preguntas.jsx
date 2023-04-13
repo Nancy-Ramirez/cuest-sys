@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import NavbarAdmin from "../../NavbarAdmin";
+import NavbarAdmin from "../../../NavbarAdmin";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";

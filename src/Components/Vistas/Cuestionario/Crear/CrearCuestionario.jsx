@@ -1,4 +1,4 @@
-import NavbarAdmin from "../../NavbarAdmin";
+import NavbarAdmin from "../../../NavbarAdmin";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";

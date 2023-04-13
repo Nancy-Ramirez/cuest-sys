@@ -1,22 +1,235 @@
 import { Link } from "react-router-dom";
 import NavbarAdmin from "../../NavbarAdmin";
 import { Icon } from "@iconify/react";
+import { useState } from "react";
 
 export const AgregarPreguntas = () => {
+  //!VALIDACIONES DE DATOS
+  //Estado inicial del formulario
+  const datosPreguntas = {
+    pregunta: "",
+    puntuacion: "",
+    respuesta1: "",
+    respuesta2: "",
+    respuesta3: "",
+    respuesta4: "",
+    respcorrecta: "",
+  };
+
+  //Estado inicial de la elerta
+  const initialStateInput = {
+    valorInput: "",
+    mensaje: "",
+    estado: false,
+  };
+
+  //Estado para manejar los valores del formulario
+  const [formulario, setFormulario] = useState(datosPreguntas);
+
+  //Estado para manejar las alertas de validación
+  const [alerta, setAlerta] = useState([initialStateInput]);
+
+  //Funcion para obtener lo de los inputs
+  const ManejarEventoDeInputs = (event) => {
+    //La propiedad target del event nos permitirá obtener los valores
+    const name = event.target.name;
+    const value = event.target.value;
+
+    //Actualizamos los valores capturados a nuestro estado de formulario
+    setFormulario({ ...formulario, [name]: value });
+  };
+
+  //Funcion que se va a encargar de validar los campos
+  const handleLoginSession = (e) => {
+    //Previene el comportamiento por defecto que trae consigo el evento
+    e.preventDefault();
+
+    //ordenamos los datos para enviarlos a la validación
+    let verificarInputs = [
+      { nombre: "pregunta", value: formulario.pregunta },
+      { nombre: "puntuacion", value: formulario.puntuacion },
+      { nombre: "respuesta1", value: formulario.respuesta1 },
+      { nombre: "respuesta2", value: formulario.respuesta2 },
+      { nombre: "respuesta3", value: formulario.respuesta3 },
+      { nombre: "respuesta4", value: formulario.respuesta4 },
+      { nombre: "respcorrecta", value: formulario.respcorrecta },
+    ];
+
+    //Enviamos los datos a la función de validación y recibimos las validaciones
+    const datosValidados = ValidarInputs(verificarInputs);
+    console.log(datosValidados);
+
+    //Enviamos las validaciones al estado que se va a encargar de mostrarlas en el formulario
+    setAlerta(datosValidados);
+
+    //Obtener el total de validación
+    const totalValidaciones = datosValidados
+      .filter((input) => input === false)
+      .map((estado) => {
+        return false;
+      });
+
+    console.log("Total de validaciones", totalValidaciones.length);
+
+    //Validación para enviar los datos al servidor
+    if (totalValidaciones.length >= 1) {
+      console.log("Enviar al servidor");
+    }
+  };
+
+  const ValidarInputs = (data) => {
+    console.log(data);
+
+    //Declaramos un arreglo el cual se va a encargar de guardar las validaciones
+    let errors = [];
+
+    //Recibidos los datos a validar
+    const datosDelFormulario = data;
+
+    //Proceso de validacion
+    datosDelFormulario.map((valorInput) => {
+      // eslint-disable-next-line default-case
+      switch (valorInput.nombre) {
+        case "pregunta": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Por favor ingrese la pregunta",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        case "puntuacion": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Por favor ingrese la puntuación de esta pregunta",
+              estado: true,
+            });
+          } else {
+            var num = false;
+            for (var i = 0; i < valorInput.value.length; i++) {
+              if (
+                valorInput.value.charCodeAt(i) >= 48 &&
+                valorInput.value.charCodeAt(i) <= 57
+              ) {
+                num = true;
+              }
+            }
+            if (num === true) {
+              errors.push({
+                valorInput: valorInput.nombre,
+                mensaje: "",
+                estado: false,
+              });
+            } else {
+              errors.push({
+                valorInput: valorInput.nombre,
+                mensaje: "Ingrese un puntaje válido",
+                estado: true,
+              });
+            }
+            break;
+          }
+        }
+        case "respuesta1": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Ingresa la respuesta",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        case "respuesta2": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Ingresa la respuesta",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        case "respuesta3": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Ingresa la respuesta",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        case "respuesta4": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Ingresa la respuesta",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+      }
+    });
+    //retornamos el total de validaciones
+    return errors;
+  };
+  console.log(formulario);
+
   return (
     <main>
       <NavbarAdmin />
 
       <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-12 pt-12 mx-24">
         <div className="flex justify-between p-12 text-center text-3xl text-white">
-          <Link to="/cuestionario/crear-cuestionario" className="flex justify-start">
+          <Link
+            to="/cuestionario/crear-cuestionario"
+            className="flex justify-start"
+          >
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
           <h1 className="flex justify-center">Agregar Preguntas</h1>
           <div></div>
         </div>
 
-        <form className="mb-8 flex justify-center space-x-48">
+        <form
+          onSubmit={handleLoginSession}
+          className="mb-8 flex justify-center space-x-48"
+        >
           <div>
             {/*Pregunta */}
             <div className="mb-6 w-96">
@@ -29,9 +242,24 @@ export const AgregarPreguntas = () => {
               <input
                 type="text"
                 id="pregunta"
+                name="pregunta"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
+                value={formulario.pregunta}
+                onChange={ManejarEventoDeInputs}
               />
+              {alerta
+                .filter(
+                  (input) =>
+                    input.valorInput === "pregunta" &&
+                    input.estado === true
+                )
+                .map((message) => (
+                  <div className="py-2">
+                    <span className="text-red-500 mt-2">
+                      {message.mensaje}
+                    </span>
+                  </div>
+                ))}
             </div>
 
             {/*Puntuación*/}
@@ -45,9 +273,24 @@ export const AgregarPreguntas = () => {
               <input
                 type="number"
                 id="puntuacion"
+                name="puntuacion"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
+                value={formulario.puntuacion}
+                onChange={ManejarEventoDeInputs}
               />
+              {alerta
+                .filter(
+                  (input) =>
+                    input.valorInput === "puntuacion" &&
+                    input.estado === true
+                )
+                .map((message) => (
+                  <div className="py-2">
+                    <span className="text-red-500 mt-2">
+                      {message.mensaje}
+                    </span>
+                  </div>
+                ))}
             </div>
 
             {/*AREA DE RESPUESTAS */}
@@ -66,25 +309,55 @@ export const AgregarPreguntas = () => {
                 <input
                   type="text"
                   id="respuesta1"
+                  name="respuesta1"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
+                  value={formulario.respuesta1}
+                  onChange={ManejarEventoDeInputs}
                 />
+                {alerta
+                  .filter(
+                    (input) =>
+                      input.valorInput === "respuesta1" &&
+                      input.estado === true
+                  )
+                  .map((message) => (
+                    <div className="py-2">
+                      <span className="text-red-500 mt-2">
+                        {message.mensaje}
+                      </span>
+                    </div>
+                  ))}
               </div>
 
               {/*Respuesta 2*/}
               <div className="mb-6 w-full">
                 <label
-                  htmlFor="respuesta1"
+                  htmlFor="respuesta2"
                   className="block text-sm font-medium text-white dark:text-white mb-1"
                 >
                   Respuesta 2
                 </label>
                 <input
                   type="text"
-                  id="respuesta1"
+                  id="respuesta2"
+                  name="respuesta2"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
+                  value={formulario.respuesta2}
+                      onChange={ManejarEventoDeInputs}
+                    />
+                    {alerta
+                      .filter(
+                        (input) =>
+                          input.valorInput === "respuesta2" &&
+                          input.estado === true
+                      )
+                      .map((message) => (
+                        <div className="py-2">
+                          <span className="text-red-500 mt-2">
+                            {message.mensaje}
+                          </span>
+                        </div>
+                      ))}
               </div>
 
               {/*Respuesta 3*/}
@@ -98,9 +371,24 @@ export const AgregarPreguntas = () => {
                 <input
                   type="text"
                   id="respuesta3"
+                  name="respuesta3"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
+                  value={formulario.respuesta3}
+                  onChange={ManejarEventoDeInputs}
                 />
+                {alerta
+                  .filter(
+                    (input) =>
+                      input.valorInput === "respuesta3" &&
+                      input.estado === true
+                  )
+                  .map((message) => (
+                    <div className="py-2">
+                      <span className="text-red-500 mt-2">
+                        {message.mensaje}
+                      </span>
+                    </div>
+                  ))}
               </div>
 
               {/*Respuesta 4*/}
@@ -114,9 +402,24 @@ export const AgregarPreguntas = () => {
                 <input
                   type="text"
                   id="respuesta4"
+                  name="respuesta4"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
+                  value={formulario.respuesta4}
+                  onChange={ManejarEventoDeInputs}
                 />
+                {alerta
+                  .filter(
+                    (input) =>
+                      input.valorInput === "respuesta4" &&
+                      input.estado === true
+                  )
+                  .map((message) => (
+                    <div className="py-2">
+                      <span className="text-red-500 mt-2">
+                        {message.mensaje}
+                      </span>
+                    </div>
+                  ))}
               </div>
             </div>
 
@@ -138,7 +441,7 @@ export const AgregarPreguntas = () => {
                     <span className="px-2">Respuesta 1</span>
                   </div>
                 </div>
-              
+
                 {/*Checkbox 2*/}
                 <div className="w-full p-1 pt-4">
                   <div className="">
@@ -151,8 +454,7 @@ export const AgregarPreguntas = () => {
                     <span className="px-2">Respuesta 2</span>
                   </div>
                 </div>
-
-                </div>
+              </div>
               <div className="text-white flex justify-between">
                 {/*Checkbox 3*/}
                 <div className="w-full p-1 pt-4">

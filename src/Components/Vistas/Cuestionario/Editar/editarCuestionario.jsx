@@ -63,7 +63,7 @@ export const EditarCuestionario = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input === false)
+      .filter((input) => input.estado === false)
       .map((estado) => {
         return false;
       });
@@ -77,12 +77,12 @@ export const EditarCuestionario = () => {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Pregunta agregada con éxito',
+        title: 'Cuestionario actualizado con éxito',
         showConfirmButton: false,
         timer: 1500
       })
       //Navigate
-      Navigate("/cuestionario/editar-cuestionario/preguntas");
+      Navigate("/cuestionario/editar-cuestionario");
     }
   };
 
@@ -379,14 +379,22 @@ export const EditarCuestionario = () => {
                   </div>
                   {/*!--Agregar preguntas-->*/}
                   <div className="flex justify-end py-4 text w-full">
-                    {/*<Link
+                     {/*<Link
                       to="/cuestionario/crear-cuestionario/agregar-preguntas"
                       className="buttonP  text-white"
                       >*/}
+                    <button className="mx-5 button text text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600">
+                      Guardar
+                    </button>
+                    {/* </Link>*/}
+                    <Link
+                      to="/cuestionario/editar-cuestionario/preguntas"
+                      className="buttonP  text-white"
+                      >
                     <button className="button text text-white bg-green-500 hover:bg-gree-600 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-400 dark:hover:bg-green-500 dark:focus:ring-green-600">
                       Editar preguntas
                     </button>
-                    {/* </Link>*/}
+                     </Link>
                   </div>
                 </div>
               </form>

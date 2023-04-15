@@ -1,10 +1,13 @@
 import NavbarAdmin from "../../../NavbarAdmin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 
 const CrearCuestionario = () => {
   //!VALIDACIONES DE DATOS
+  //Navegacion del boton luego de validar correctamente
+  const Navigate = useNavigate ();
+
   //Estado inicial del formulario
   const datosCuestionario = {
     nombreC: "",
@@ -58,7 +61,7 @@ const CrearCuestionario = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input === false)
+      .filter((input) => input.estado === false)
       .map((estado) => {
         return false;
       });
@@ -66,8 +69,9 @@ const CrearCuestionario = () => {
     console.log("Total de validacioes", totalValidaciones.length);
 
     //Validación para enviar los datos al servidor
-    if (totalValidaciones.length >= 1) {
+    if (totalValidaciones.length >= 4) {
       console.log("Enviar al servidor");
+      Navigate("/cuestionario/crear-cuestionario/agregar-preguntas");
     }
   };
 

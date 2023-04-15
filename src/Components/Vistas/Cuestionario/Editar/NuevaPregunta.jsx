@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavbarAdmin from "../../../NavbarAdmin";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
 export const AggNuevaPregunta = () => {
+//Navegacion del boton luego de validar correctamente
+const Navigate = useNavigate ();
+
   //!VALIDACIONES DE DATOS
   //Estado inicial del formulario
   const datosPreguntas = {
@@ -92,7 +95,16 @@ export const AggNuevaPregunta = () => {
     if (totalValidaciones.length >= 6) {
       if (respuestaCheck !== false) {
         console.log("Enviar al servidor");
-        console.log(formulario);
+         //Alerta de datos enviados
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Pregunta agregada con éxito',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      //Navigate
+      Navigate("/cuestionario/editar-cuestionario/preguntas");
       }
     }
   };

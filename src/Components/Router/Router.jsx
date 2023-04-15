@@ -8,12 +8,14 @@ import Inicio from "../Vistas/Inicio/Inicio";
 import Cuestionario from "../Vistas/Cuestionario/Cuestionario";
 import CrearCuestionario from "../Vistas/Cuestionario/Crear/CrearCuestionario";
 import { AgregarPreguntas } from "../Vistas/Cuestionario/Crear/Preguntas";
-import { VerCuestionario } from "../Vistas/Cuestionario/verCuestionario";
+import { VerCuestionario } from "../Vistas/Cuestionario/Ver/verCuestionario";
 
-import { VerPreguntas } from "../Vistas/Cuestionario/verPreguntas";
+import { VerPreguntas } from "../Vistas/Cuestionario/Ver/verPreguntas";
 import { TablaPreguntas } from "../Vistas/Cuestionario/Editar/TablaPreguntas";
 import { EPregunta } from "../Vistas/Cuestionario/Editar/EPregunta";
 import { AggNuevaPregunta } from "../Vistas/Cuestionario/Editar/NuevaPregunta";
+import { EditarCuestionario } from "../Vistas/Cuestionario/Editar/editarCuestionario";
+import { VerPregunta } from "../Vistas/Cuestionario/Ver/verPregunta";
 
 
 //Rutas Estudiantes
@@ -41,7 +43,8 @@ import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
 //Rutas Usuario
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
-import { EditarCuestionario } from "../Vistas/Cuestionario/Editar/EditarCuestionario";
+
+
 
 
 export default function Router() {
@@ -82,6 +85,12 @@ export default function Router() {
           path="/cuestionario/editar-cuestionario/nueva-pregunta"
           element={<AggNuevaPregunta />}
         />
+        <Route
+          path="/cuestionario/editar-cuestionario/preguntas/verP"
+          element={<VerPregunta />}
+        />
+        
+
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />

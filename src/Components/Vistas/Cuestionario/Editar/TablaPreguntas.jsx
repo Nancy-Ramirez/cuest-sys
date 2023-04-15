@@ -86,7 +86,7 @@ export const TablaPreguntas = () => {
                   <td className="px-6 py-4">12</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
-                      to="/cuestionario/ver-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/verP"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -127,7 +127,7 @@ export const TablaPreguntas = () => {
                   <td className="px-6 py-4">10</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
-                      to="/cuestionario/ver-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/verP"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -167,7 +167,7 @@ export const TablaPreguntas = () => {
                   <td className="px-6 py-4">10</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
-                      to="/cuestionario/ver-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/verP"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
@@ -208,7 +208,7 @@ export const TablaPreguntas = () => {
                   <td className="px-6 py-4">10</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <Link
-                      to="/cuestionario/ver-cuestionario"
+                      to="/cuestionario/editar-cuestionario/preguntas/verP"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">

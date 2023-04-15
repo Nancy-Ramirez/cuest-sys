@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 
 export const Login = () => {
   const Navigate = useNavigate();
-const [log, setLog] = useState(true);
 
   //Valores validos para el correo
   const isValidEmail =
@@ -71,6 +70,8 @@ const [log, setLog] = useState(true);
     //Validacion para enviar los datos al servidor
     if (totalValidaciones.length >= 2) {
       console.log("Enviar al servidor"); 
+
+      //ALERT TO NAVIGATE
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -87,6 +88,8 @@ const [log, setLog] = useState(true);
         icon: "success",
         title: "Ingreso existoso",
       });
+
+      //NAVIGATE ROUTE
       setTimeout(() => {
         Navigate("/inicio");
       }, 2000);

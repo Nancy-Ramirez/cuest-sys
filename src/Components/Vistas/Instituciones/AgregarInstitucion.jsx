@@ -1,10 +1,14 @@
 import NavbarAdmin from "../../NavbarAdmin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const AgregarInstitucion = () => {
   //!VALIDACIONES DE DATOS
+  //Navegacion del boton luego de validar correctamente
+const Navigate = useNavigate();
+
   //Estado inicial del formulario
   const datosInstitucion = {
     nomInstitucion: "",
@@ -55,7 +59,7 @@ const AgregarInstitucion = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input === false)
+      .filter((input) => input.estado === false)
       .map((estado) => {
         return false;
       });
@@ -65,6 +69,18 @@ const AgregarInstitucion = () => {
     //Validación para enviar los datos al servidor
     if (totalValidaciones.length >= 1) {
       console.log("Enviar al servidor");
+      console.log("Enviar al servidor");
+         //Alerta de datos enviados
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Institución agregada con éxito',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      //Navigate
+      setTimeout(() => {Navigate("/institucion")},1500);
+      ;
     }
   };
 
@@ -113,7 +129,7 @@ const AgregarInstitucion = () => {
           <Link to="/institucion" className="flex justify-start">
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
-          <h1 className="flex justify-center">Editar Institución</h1>
+          <h1 className="flex justify-center">Agregar Institución</h1>
           <div></div>
         </div>
 

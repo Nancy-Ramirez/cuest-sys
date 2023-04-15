@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const EditarUnidad = () => {
+export const EditarUnidad = () => {
   //!VALIDACIONES DE DATOS
   //Navegacion del boton luego de validar correctamente
   const Navigate = useNavigate();
@@ -72,7 +72,7 @@ const EditarUnidad = () => {
        Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Unidad creada con éxito',
+        title: 'Unidad actualizada con éxito',
         showConfirmButton: false,
         timer: 1000
       })
@@ -287,4 +287,3 @@ const EditarUnidad = () => {
   );
 };
 
-export default EditarUnidad;

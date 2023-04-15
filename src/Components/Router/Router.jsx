@@ -29,6 +29,7 @@ import EditInsignia from "../Vistas/Insignias/EditarInsignia";
 //Rutas Instituciones
 import Institucion from "../Vistas/Instituciones/Instituciones";
 import AgregarInstitucion from "../Vistas/Instituciones/AgregarInstitucion";
+import { EditarInstitucion } from "../Vistas/Instituciones/editarInstitucion";
 
 //Rutas Reportes
 import Reporte from "../Vistas/Reportes/Reportes";
@@ -38,7 +39,8 @@ import Reseña from "../Vistas/Reseñas/Reseñas";
 
 //Rutas Unidades
 import Unidad from "../Vistas/Unidades/Unidad";
-import EditarUnidad from "../Vistas/Unidades/CrearUnidad";
+import CrearUnidad from "../Vistas/Unidades/CrearUnidad";
+import {EditarUnidad} from "../Vistas/Unidades/EditarUnidad";
 
 //Rutas Usuario
 import Usuario from "../Vistas/Usuarios/Usuarios";
@@ -89,8 +91,6 @@ export default function Router() {
           path="/cuestionario/editar-cuestionario/preguntas/verP"
           element={<VerPregunta />}
         />
-        
-
 
         {/*Estudiante */}
         <Route path="/estudiante" element={<Estudiante />} />
@@ -98,13 +98,18 @@ export default function Router() {
 
         {/*Unidades */}
         <Route path="/unidad" element={<Unidad />} />
-        <Route path="/unidad/unidad" element={<EditarUnidad />} />
+        <Route path="/unidad/unidad" element={<CrearUnidad />} />
+        <Route path="/unidad/editar-unidad" element={<EditarUnidad />} />
 
         {/*Institución */}
         <Route path="/institucion" element={<Institucion />} />
         <Route
           path="/institucion/institucion"
           element={<AgregarInstitucion />}
+        ></Route>
+        <Route
+          path="/institucion/editar-institucion"
+          element={<EditarInstitucion />}
         ></Route>
 
         {/*Usuario */}

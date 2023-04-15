@@ -4,15 +4,14 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const EditarUnidad = () => {
+export const EditarInstitucion = () => {
   //!VALIDACIONES DE DATOS
   //Navegacion del boton luego de validar correctamente
   const Navigate = useNavigate();
 
   //Estado inicial del formulario
-  const datosUnidad = {
-    nUnidad: "",
-    nomUnidad: "",
+  const datosInstitucion = {
+    nomInstitucion: "",
   };
 
   //Estado inicial de la elerta
@@ -23,7 +22,7 @@ const EditarUnidad = () => {
   };
 
   //Estado para manejar los valores del formulario
-  const [formulario, setFormulario] = useState(datosUnidad);
+  const [formulario, setFormulario] = useState(datosInstitucion);
 
   //Estado para manejar las alertas de validación
   const [alerta, setAlerta] = useState([initialStateInput]);
@@ -45,8 +44,10 @@ const EditarUnidad = () => {
 
     //ordenamos los datos para enviarlos a la validación
     let verificarInputs = [
-      { nombre: "nUnidad", value: formulario.nUnidad },
-      { nombre: "nomUnidad", value: formulario.nomUnidad },
+      { nombre: "nomInstitucion", value: formulario.nomInstitucion },
+      { nombre: "temaC", value: formulario.temaC },
+      { nombre: "descripC", value: formulario.descripC },
+      { nombre: "cantPC", value: formulario.cantPC },
     ];
 
     //Enviamos los datos a la función de validación y recibimos las validaciones
@@ -63,22 +64,23 @@ const EditarUnidad = () => {
         return false;
       });
 
-    console.log("Total de validaciones", totalValidaciones.length);
+    console.log("Total de validacioes", totalValidaciones.length);
 
     //Validación para enviar los datos al servidor
-    if (totalValidaciones.length >= 2) {
+    if (totalValidaciones.length >= 1) {
       console.log("Enviar al servidor");
-       //Alerta de datos enviados
-       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Unidad creada con éxito',
+      //Alerta de datos enviados
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Institución actualizada con éxito",
         showConfirmButton: false,
-        timer: 1000
-      })
+        timer: 1000,
+      });
       //Navigate
-      setTimeout(() => {Navigate("/unidad")},1000);
-      ;
+      setTimeout(() => {
+        Navigate("/institucion");
+      }, 1000);
     }
   };
 
@@ -95,44 +97,11 @@ const EditarUnidad = () => {
     datosDelFormulario.map((valorInput) => {
       // eslint-disable-next-line default-case
       switch (valorInput.nombre) {
-        case "nUnidad": {
+        case "nomInstitucion": {
           if (valorInput.value === "" || valorInput.value === null) {
             errors.push({
               valorInput: valorInput.nombre,
-              mensaje: "Ingrese el número de unidad",
-              estado: true,
-            });
-          } else {
-            var num = false;
-            for (var i = 0; i < valorInput.value.length; i++) {
-              if (
-                valorInput.value.charCodeAt(i) >= 48 &&
-                valorInput.value.charCodeAt(i) <= 57
-              ) {
-                num = true;
-              }
-            }
-            if (num === true) {
-              errors.push({
-                valorInput: valorInput.nombre,
-                mensaje: "",
-                estado: false,
-              });
-            } else {
-              errors.push({
-                valorInput: valorInput.nombre,
-                mensaje: "Ingrese un número de unidad válido",
-                estado: true,
-              });
-            }
-          }
-          break;
-        }
-        case "nomUnidad": {
-          if (valorInput.value === "" || valorInput.value === null) {
-            errors.push({
-              valorInput: valorInput.nombre,
-              mensaje: "Ingrese el nombre de la unidad",
+              mensaje: "Por favor ingrese el nombre de la institución",
               estado: true,
             });
           } else {
@@ -155,70 +124,41 @@ const EditarUnidad = () => {
     <main>
       <NavbarAdmin />
 
-      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-40 pt-12 mx-12">
+      <section className="relative overflow-x-auto shadow-md sm:rounded-lg p-40 pt-12 mx-12 ">
         <div className="flex justify-between p-16 text-center text-3xl text-white">
-          <Link to="/unidad" className="flex justify-start">
+          <Link to="/institucion" className="flex justify-start">
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
-          <h1 className="flex justify-center">Editar unidad</h1>
+          <h1 className="flex justify-center">Editar Institución</h1>
           <div></div>
         </div>
 
         <form
           onSubmit={handleLoginSession}
-          className=" mb-8 flex justify-center space-x-48"
+          className="mb-8 flex justify-center space-x-48"
         >
           <div>
-            {/*Numero de unidad*/}
+            {/*Nombre */}
             <div className="mb-6 w-96">
               <label
-                htmlFor="nUnidad"
-                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
+                htmlFor="nomInstitucion"
+                className="block text-sm font-medium text-white dark:text-white mb-1"
               >
-                {" "}
-                Número de unidad
-              </label>
-              <input
-                type="number"
-                id="nUnidad"
-                name="nUnidad"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={formulario.nUnidad}
-                onChange={ManejarEventoDeInputs}
-              />
-              {alerta
-                .filter(
-                  (input) =>
-                    input.valorInput === "nUnidad" && input.estado === true
-                )
-                .map((message) => (
-                  <div className="py-2">
-                    <span className="text-red-500 mt-2">{message.mensaje}</span>
-                  </div>
-                ))}
-            </div>
-
-            {/*Nombre de unidad*/}
-            <div className="mb-6 w-96">
-              <label
-                htmlFor="nomUnidad"
-                className="block text-white text-sm font-medium text-gray-900 dark:text-white mb-1"
-              >
-                {" "}
-                Nombre de unidad
+                Nombre de la institución
               </label>
               <input
                 type="text"
-                id="nomUnidad"
-                name="nomUnidad"
+                id="nomInstitucion"
+                name="nomInstitucion"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={formulario.nomUnidad}
+                value={formulario.nomInstitucion}
                 onChange={ManejarEventoDeInputs}
               />
               {alerta
                 .filter(
                   (input) =>
-                    input.valorInput === "nomUnidad" && input.estado === true
+                    input.valorInput === "nomInstitucion" &&
+                    input.estado === true
                 )
                 .map((message) => (
                   <div className="py-2">
@@ -227,47 +167,65 @@ const EditarUnidad = () => {
                 ))}
             </div>
 
-            {/*Grado*/}
-            <div className="mb-6 ">
+            {/*Tipo */}
+            <div className="mb-6">
               <label
-                htmlFor="gradoUnidad"
-                className="block text-white mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="tipoInstitucion"
+                className="block mb-2 text-sm font-medium text-white dark:text-white"
               >
-                Grado
+                Tipo
               </label>
               <div className="">
                 <select
                   className="rounded-lg w-96"
-                  name="gradoUnidad"
-                  id="gradoUnidad"
+                  name="tipoInstitucion"
+                  id="tipoInstitucion"
                 >
-                  <option id="1">Séptimo</option>
-                  <option id="2">Octavo</option>
-                  <option id="3">Noveno</option>
-                  <option id="4">Primer Año</option>
-                  <option id="5">Segundo Año</option>
+                  <option id="priv">Privada</option>
+                  <option id="public">Pública</option>
                 </select>
               </div>
             </div>
 
-            {/*Materia*/}
+            {/*DeptoInstitucion */}
             <div className="mb-6 ">
               <label
-                htmlFor="materiaUnidad"
-                className="block text-white mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="deptoInstitucion"
+                className="block mb-2 text-sm font-medium text-white dark:text-white"
               >
-                Grado
+                Departamento
               </label>
               <div className="">
                 <select
                   className="rounded-lg w-96"
-                  name="materiaUnidad"
-                  id="materiaUnidad"
+                  name="deptoInstitucion"
+                  id="deptoInstitucion"
                 >
-                  <option id="">Ciencias y tecnología</option>
-                  <option id="1">Biología</option>
-                  <option id="2">Química</option>
-                  <option id="3">Física</option>
+                  <option id="1">San Salvador</option>
+                  <option id="2">Cuscatlán</option>
+                  <option id="3">Chalatenango</option>
+                  <option id="4">La Libertad</option>
+                </select>
+              </div>
+            </div>
+
+            {/*Municipio */}
+            <div className="mb-6 ">
+              <label
+                htmlFor="municipioInstitucion"
+                className="block mb-2 text-sm font-medium text-white dark:text-white"
+              >
+                Municipio
+              </label>
+              <div className="">
+                <select
+                  className="rounded-lg w-96"
+                  name="municipioInstitucion"
+                  id="municipioInstitucion"
+                >
+                  <option id="1">Soyapango</option>
+                  <option id="2">Ilopango</option>
+                  <option id="all">...</option>
                 </select>
               </div>
             </div>
@@ -286,5 +244,3 @@ const EditarUnidad = () => {
     </main>
   );
 };
-
-export default EditarUnidad;

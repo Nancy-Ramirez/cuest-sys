@@ -105,7 +105,7 @@ const gestionarInstitucion = () => {
                   <td className="px-6 py-4"> Soyapango</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/institucion/institucion"
+                      href="/institucion/editar-institucion"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">

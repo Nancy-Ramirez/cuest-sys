@@ -108,7 +108,7 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/unidad/unidad"
+                      href="/unidad/editar-unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -138,7 +138,7 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/unidad/unidad"
+                      href="/unidad/editar-unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -169,7 +169,7 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Biología</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/unidad/unidad"
+                      href="/unidad/editar-unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -200,7 +200,7 @@ const gestionarUnidades = () => {
                   <td className="px-6 py-4">Química</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/unidad/unidad"
+                      href="/unidad/editar-unidad"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">

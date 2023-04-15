@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 export const AggNuevaPregunta = () => {
 //Navegacion del boton luego de validar correctamente
-const Navigate = useNavigate ();
+const Navigate = useNavigate();
 
   //!VALIDACIONES DE DATOS
   //Estado inicial del formulario

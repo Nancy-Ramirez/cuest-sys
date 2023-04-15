@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 
 export const Login = () => {
   const Navigate = useNavigate();
-const [log, setLog] = useState(false);
+const [log, setLog] = useState(true);
 
   //Valores validos para el correo
   const isValidEmail =
@@ -70,11 +70,26 @@ const [log, setLog] = useState(false);
 
     //Validacion para enviar los datos al servidor
     if (totalValidaciones.length >= 2) {
-      console.log("Enviar al servidor");
-      setLog(true);
+      console.log("Enviar al servidor"); 
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+
+      Toast.fire({
+        icon: "success",
+        title: "Ingreso existoso",
+      });
       setTimeout(() => {
         Navigate("/inicio");
-      }, 3000);
+      }, 2000);
     }
   };
   const ValidarInputs = (data) => {
@@ -184,27 +199,6 @@ const [log, setLog] = useState(false);
 
   console.log(formulario);
 
-  //!Alerta de inicio de sesión
-  const alertaLoginExistoso = () => {
-    if (log ===true) {
-      const Toast = Swal.mixin({
-        toast: true,
-        position: "top-end",
-        showConfirmButton: false,
-        timer: 3000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
-        },
-      });
-
-      Toast.fire({
-        icon: "success",
-        title: "Ingreso existoso",
-      });
-    }
-  }
   return (
     <div>
       <section className=" min-h-screen flex justify-center opacity-90 py-2 px-4 sm:px-6 lg:px-8  relative items-center">
@@ -287,7 +281,6 @@ const [log, setLog] = useState(false);
                       </div>
                       <div className="log flex justify-center">
                         <button
-                          onClick={alertaLoginExistoso}
                           className="button text"
                         >
                           <svg>

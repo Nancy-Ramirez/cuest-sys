@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const EditarCuestionario = () => {
   //!VALIDACIONES DE DATOS
@@ -62,7 +63,7 @@ export const EditarCuestionario = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input.estado === false)
+      .filter((input) => input === false)
       .map((estado) => {
         return false;
       });
@@ -72,6 +73,15 @@ export const EditarCuestionario = () => {
     //Validación para enviar los datos al servidor
     if (totalValidaciones.length >= 4) {
       console.log("Enviar al servidor");
+      //Alerta de datos enviados
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Pregunta agregada con éxito',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      //Navigate
       Navigate("/cuestionario/editar-cuestionario/preguntas");
     }
   };

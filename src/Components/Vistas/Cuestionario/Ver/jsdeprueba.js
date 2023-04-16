@@ -6,6 +6,7 @@ const preguntas = [{
         {respuesta: "Espiritual y factible", isCorrect: false},
         {respuesta: "Politico y proyectable", isCorrect: false},
     ],
+    puntuacion: "20",
 },
 {
     pregunta: "Una caracteristica de los conocimientos adquiridos sa través de la práctica:",
@@ -15,6 +16,7 @@ const preguntas = [{
         {respuesta: "Experimentales", isCorrect: false},
         {respuesta: "Empíricos", isCorrect: true},
     ],
+    puntuacion: "24",
 },
 {
     pregunta: "Un ejemplo de ciencia formal es el de:",
@@ -24,6 +26,7 @@ const preguntas = [{
         {respuesta: "Las Ciencias Sociales", isCorrect: false},
         {respuesta: "La Ciencia Ficción", isCorrect: false},
     ],
+    puntuacion: "21",
 },
 {
     pregunta: "Una aplicación de la ciencia y de la tecnología se da en el campo de:",
@@ -33,6 +36,7 @@ const preguntas = [{
         {respuesta: "La medicina", isCorrect: true},
         {respuesta: "La religión", isCorrect: false},
     ],
+    puntuacion: "25",
 },
 ];
 

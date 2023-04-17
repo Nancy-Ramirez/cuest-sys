@@ -44,9 +44,7 @@ export const EPregunta = () => {
 
     if (name === "respcorrecta") {
       const check = document.getElementById(id);
-      console.log(check);
       setRespuestaCheck(check?.checked);
-      console.log(check?.checked);
       formulario.respcorrecta = id;
     } else {
       //Actualizamos los valores capturados a nuestro estado de formulario
@@ -95,7 +93,7 @@ export const EPregunta = () => {
         console.log("Enviar al servidor");
 
         //ALERT TO NAVIGATE
-        Swal .fire({
+        Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Pregunta actualizada con éxito',

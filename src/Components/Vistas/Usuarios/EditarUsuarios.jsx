@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
 
-const AgregarUsuario = () => {
+const EditarUsuario = () => {
   const Navigate = useNavigate();
   //!VALIDACIONES DE DATOS
   const isValidEmail =
@@ -13,7 +13,7 @@ const AgregarUsuario = () => {
   const datosUsuario = {
     nombreUSuario: "",
     emailU: "",
-    passwordU:"",
+    passwordU: "",
   };
 
   //Estado inicial de la elerta
@@ -48,7 +48,7 @@ const AgregarUsuario = () => {
     let verificarInputs = [
       { nombre: "nombreUSuario", value: formulario.nombreUSuario },
       { nombre: "emailU", value: formulario.emailU },
-      {nombre: "passwordU", value: formulario.passwordU},
+      { nombre: "passwordU", value: formulario.passwordU },
     ];
 
     //Enviamos los datos a la función de validación y recibimos las validaciones
@@ -71,11 +71,11 @@ const AgregarUsuario = () => {
     if (totalValidaciones.length >= 3) {
       console.log("Enviar al servidor");
 
-      //ALERTA 
+      //ALERTA
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Usuario agregado con éxito",
+        title: "Usuario actualizado con éxito",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -217,7 +217,7 @@ const AgregarUsuario = () => {
           <Link to="/usuario" className="flex justify-start">
             <Icon icon="lucide:arrow-big-left" width="35" height="35" />
           </Link>
-          <h1 className="flex justify-center">Agregar usuarios</h1>
+          <h1 className="flex justify-center">Editar usuarios</h1>
           <div></div>
         </div>
 
@@ -342,4 +342,4 @@ const AgregarUsuario = () => {
   );
 };
 
-export default AgregarUsuario;
+export default EditarUsuario;

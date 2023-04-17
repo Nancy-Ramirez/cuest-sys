@@ -44,10 +44,8 @@ import {EditarUnidad} from "../Vistas/Unidades/EditarUnidad";
 
 //Rutas Usuario
 import Usuario from "../Vistas/Usuarios/Usuarios";
-import EditarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
-
-
-
+import EditarUsuario from "../Vistas/Usuarios/EditarUsuarios";
+import AgregarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
 
 export default function Router() {
   return (
@@ -114,7 +112,8 @@ export default function Router() {
 
         {/*Usuario */}
         <Route path="/usuario" element={<Usuario />} />
-        <Route path="/usuario/usuario" element={<EditarUsuario />} />
+        <Route path="/usuario/editar-usuario" element={<EditarUsuario />} />
+        <Route path="/usuario/usuario" element={<AgregarUsuario/>}/>
 
         {/*Reporte */}
         <Route path="/reporte" element={<Reporte />} />

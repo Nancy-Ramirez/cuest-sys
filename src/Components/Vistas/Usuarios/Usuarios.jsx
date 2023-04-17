@@ -105,7 +105,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Estudiante</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/usuario/usuario"
+                      href="/usuario/editar-usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -136,7 +136,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Facilitador</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/usuario/usuario"
+                      href="/usuario/editar-usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -168,7 +168,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Estudiante</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/usuario/usuario"
+                      href="/usuario/editar-usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">
@@ -199,7 +199,7 @@ const gestionarUsuario = () => {
                   <td className="px-6 py-4">Administrador</td>
                   <td className="px-6 py-8 flex justify-between content-center">
                     <a
-                      href="/usuario/usuario"
+                      href="/usuario/editar-usuario"
                       className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                     >
                       <button className="btn btn-editarCuestionario ">

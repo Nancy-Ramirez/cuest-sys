@@ -12,7 +12,7 @@ export const Login = () => {
   const isValidEmail =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  //Estado inicial del formulario
+  //!Estado inicial del formulario
   const datosLogin = {
     email: "",
     password: "",
@@ -45,7 +45,7 @@ export const Login = () => {
   const handleLoginSession = (e) => {
     e.preventDefault(); //Previene el comportamiento por defecto que trae consigo el evento
 
-    //Ordenamos los datos para enviarlos a la validación
+    //!Ordenamos los datos para enviarlos a la validación
     let verificarInputs = [
       { nombre: "email", value: formulario.email },
       { nombre: "password", value: formulario.password },
@@ -67,7 +67,7 @@ export const Login = () => {
 
     console.log("Total de validaciones", totalValidaciones.length);
 
-    //Validacion para enviar los datos al servidor
+    //!Validacion para enviar los datos al servidor
     if (totalValidaciones.length >= 2) {
       console.log("Enviar al servidor"); 
 
@@ -103,7 +103,7 @@ export const Login = () => {
     //Recibidos los datos a validar
     const datosDelFormulario = data;
 
-    //Proceso de validacion
+    //!Proceso de validacion
     // eslint-disable-next-line array-callback-return
     datosDelFormulario.map((valorInput) => {
       // eslint-disable-next-line default-case

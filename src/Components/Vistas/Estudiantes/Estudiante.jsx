@@ -3,8 +3,35 @@ import ver from "../../../images/iconos/ver.png";
 import eliminar from "../../../images/iconos/eliminar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Paginacion } from "../../Paginacion";
 
-const gestionarEstudiante = () => {
+export const Estudiante = () => {
+  
+  const [datosServidor, setDatosServidor] = useState([]);
+  console.log("Listar datos", datosServidor);
+  useEffect(() => {
+    async function getInfo() {
+      const url = "http://localhost:8000/api/estudiante/listar";
+
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      try {
+        const resp = await axios.get(url, config);
+        console.log(resp.data);
+        setDatosServidor(resp.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getInfo();
+  }, []);
+
   return (
     <main>
       <NavbarAdmin />
@@ -63,259 +90,57 @@ const gestionarEstudiante = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={imm1}
-                      alt="Jese imm"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Ernesto Guillermo Solares Melara
-                      </div>
-                      <div className="font-normal text-gray-500 hover:text-white">
-                        GuilleMe@gmail.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">3545872</td>
-                  <td className="px-6 py-4"> Liceo Cristiando Juan de Dios</td>
-                  <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/estudiante/estudiante/:id"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verEstudiante ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                  </td>
-                </tr>
-                <tr className="bg-green-200 border dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={imm1}
-                      alt="Jese imm"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Katherine Stefani Lopez Chavez
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        KatherineLopez@gmail.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">3542842</td>
-                  <td className="px-6 py-4"> Colegio Santa Lucia</td>
-                  <td className="px-6 py-4">San Bartolo</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/estudiante/estudiante/:id"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verEstudiante ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={imm1}
-                      alt="Jese imm"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Alejandro Antonio Juarez Medina{" "}
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        MedinaMedina@gmail.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">31425842</td>
-                  <td className="px-6 py-4"> Complejo San Luis</td>
-                  <td className="px-6 py-4">Soyapango</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/estudiante/estudiante/:id"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verEstudiante ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <img
-                      className="w-10 h-10 rounded-full"
-                      src={imm1}
-                      alt="Jese imm"
-                    />
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Romina Caldea Carmona Perez
-                      </div>
-                      <div className="font-normal text-gray-500">
-                        CarmonaCaldea@gmail.com
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">3542542</td>
-                  <td className="px-6 py-4"> Complejo Santa Eduviges</td>
-                  <td className="px-6 py-4">San Benito</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/estudiante/estudiante/:id"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verEstudiante ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <button className="btn btn-eliminarCuestionario ">
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                  </td>
-                </tr>
+                {datosServidor.map((alumno) => {
+                  return (
+                    <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
+                      <th
+                        scope="row"
+                        className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        <img
+                          className="w-10 h-10 rounded-full"
+                          src={imm1}
+                          alt="Jese imm"
+                        />
+                        <div className="pl-3">
+                          <div className="text-base font-semibold">
+                            {alumno.nombre}
+                          </div>
+                          <div className="font-normal text-gray-500 hover:text-white">
+                            {alumno.correo}
+                          </div>
+                        </div>
+                      </th>
+                      <td className="px-6 py-4">{alumno.nie}</td>
+                      <td className="px-6 py-4">
+                        {" "}
+                        {alumno.institucion}
+                      </td>
+                      <td className="px-6 py-4">{alumno.municipio}</td>
+                      <td className="px-6 py-8 flex justify-between content-center">
+                        <Link
+                          to="/estudiante/estudiante/:id"
+                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        >
+                          <button className="btn btn-verEstudiante ">
+                            <img src={ver} alt="" width="30px" />
+                          </button>
+                        </Link>
+                        <button className="btn btn-eliminarCuestionario ">
+                          <img src={eliminar} alt="" width="25px" />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+                
               </tbody>
             </table>
           </div>
-          <nav
-            className="flex items-center justify-between pt-4"
-            aria-label="Table navigation"
-          >
-            <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Mostrando{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">
-                1-10
-              </span>{" "}
-              de{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">
-                10
-              </span>
-            </span>
-            <ul className="inline-flex items-center -space-x-px">
-              <li>
-                <a
-                  href="/"
-                  className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span className="sr-only">Anterior</span>
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <Link
-                  to="/estudiante/estudiante/:id"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  1
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  2
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  aria-current="page"
-                  className="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                >
-                  3
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  ...
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  5
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span className="sr-only">Siguiente</span>
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <Paginacion/>
         </div>
       </section>
     </main>
   );
 };
 
-export default gestionarEstudiante;

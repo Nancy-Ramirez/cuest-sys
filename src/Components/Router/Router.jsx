@@ -19,7 +19,7 @@ import { VerPregunta } from "../Vistas/Cuestionario/Ver/verPregunta";
 
 
 //Rutas Estudiantes
-import Estudiante from "../Vistas/Estudiantes/Estudiante";
+import {Estudiante} from "../Vistas/Estudiantes/Estudiante";
 import VerEstudiante from "../Vistas/Estudiantes/VerEstudiante";
 
 //Rutas Insignias

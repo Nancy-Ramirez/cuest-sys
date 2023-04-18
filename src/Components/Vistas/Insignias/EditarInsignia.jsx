@@ -1,9 +1,11 @@
 import NavbarAdmin from "../../NavbarAdmin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const EditarInsignia = () => {
+    const Navigate = useNavigate();
 
 //!VALIDACIONES DE DATOS
   //Estado inicial del formulario
@@ -55,7 +57,7 @@ const EditarInsignia = () => {
 
     //Obtener el total de validación
     const totalValidaciones = datosValidados
-      .filter((input) => input === false)
+      .filter((input) => input.estado === false)
       .map((estado) => {
         return false;
       });
@@ -63,8 +65,20 @@ const EditarInsignia = () => {
     console.log("Total de validaciones", totalValidaciones.length);
 
     //Validación para enviar los datos al servidor
-    if (totalValidaciones.length >= 1) {
+    if (totalValidaciones.length >= 2) {
       console.log("Enviar al servidor");
+      //Alerta de datos enviados
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "insignia actualizada con éxito",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+      //Navigate
+      setTimeout(() => {
+        Navigate("/insignia");
+      }, 1000);
     }
   };
 

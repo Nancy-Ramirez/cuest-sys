@@ -46,6 +46,7 @@ import {EditarUnidad} from "../Vistas/Unidades/EditarUnidad";
 import Usuario from "../Vistas/Usuarios/Usuarios";
 import EditarUsuario from "../Vistas/Usuarios/EditarUsuarios";
 import AgregarUsuario from "../Vistas/Usuarios/AgregarUsuarios";
+import { Prueba } from "../pruebas";
 
 export default function Router() {
   return (
@@ -113,7 +114,7 @@ export default function Router() {
         {/*Usuario */}
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/usuario/editar-usuario" element={<EditarUsuario />} />
-        <Route path="/usuario/usuario" element={<AgregarUsuario/>}/>
+        <Route path="/usuario/usuario" element={<AgregarUsuario />} />
 
         {/*Reporte */}
         <Route path="/reporte" element={<Reporte />} />
@@ -127,6 +128,7 @@ export default function Router() {
 
         {/*Login */}
         <Route path="/inicio" element={<Inicio />}></Route>
+        <Route path="/Prueba" element={<Prueba />}></Route>
       </Routes>
     </BrowserRouter>
   );

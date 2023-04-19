@@ -5,8 +5,73 @@ import agregar from "../../../images/iconos/agregar.png";
 import NavbarAdmin from "../../NavbarAdmin";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Paginacion } from "../../Paginacion";
 
-const gestionarCuestionario = () => {
+const GestionarCuestionario = () => {
+
+  const [dataPage, setDataPage] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [tablaData, setTablaData] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+
+
+  const sigIndex = currentPage * dataPage;
+  const primerIndex = sigIndex - dataPage;
+
+  //Llamar api
+
+  const [datosServidor, setDatosServidor] = useState([]);
+   const totalData = datosServidor.length;
+  console.log("Listar datos", datosServidor);
+  useEffect(() => {
+    async function getInfo() {
+      const url = "http://localhost:8000/api/cuestionario/listar";
+
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      try {
+        const resp = await axios.get(url, config);
+        console.log(resp.data);
+        setDatosServidor(resp.data);
+        setTablaData(resp.data);
+      }
+      catch (err) {
+        console.error(err);
+      }
+    }
+    getInfo();
+  }, []);
+
+  //Busqueda
+
+  const handleChange = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+  }
+  const filtrar = (terminoBusqueda) => {
+    var resultadosBusqueda = tablaData.filter((elemento) => {
+      if (
+        elemento.nombre
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+        elemento.municipio
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase())
+      ) {
+        return elemento;
+      }
+    });
+    setDatosServidor(resultadosBusqueda);
+  }
+
   const FuncionEliminar = () => {
     Swal.fire({
       title: "¿Estás seguro?",
@@ -69,6 +134,8 @@ const gestionarCuestionario = () => {
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Buscar cuestionario"
+                value={busqueda}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -80,7 +147,7 @@ const gestionarCuestionario = () => {
                     Nombre
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Materia
+                    Unidad
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Grado
@@ -91,274 +158,66 @@ const gestionarCuestionario = () => {
                 </tr>
               </thead>
               <tbody className="text-center">
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Aprendamos a ser científicos y científicas
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Ciencias</td>
-                  <td className="px-6 py-4"> Séptimo</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/cuestionario/ver-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <Link
-                      to="/cuestionario/editar-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </Link>
-                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <button
-                        onClick={FuncionEliminar}
-                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
-                      >
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Reacciones químicas
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Química</td>
-                  <td className="px-6 py-4"> Primer año bachillerato</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/cuestionario/ver-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <Link
-                      to="/cuestionario/editar-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </Link>
-                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <button
-                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
-                        onClick={FuncionEliminar}
-                      >
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Vectores y más
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Física</td>
-                  <td className="px-6 py-4"> Segundo año bachillerato</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/cuestionario/ver-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <Link
-                      to="/cuestionario/editar-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </Link>
-                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <button
-                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
-                        onClick={FuncionEliminar}
-                      >
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Células</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">Ciencias</td>
-                  <td className="px-6 py-4">Octavo</td>
-                  <td className="px-6 py-8 flex justify-between content-center">
-                    <Link
-                      to="/cuestionario/ver-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </Link>
-                    <Link
-                      to="/cuestionario/editar-cuestionario"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </Link>
-                    <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                      <button
-                        className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
-                        onClick={FuncionEliminar}
-                      >
-                        <img src={eliminar} alt="" width="25px" />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
+                {datosServidor &&
+                  datosServidor
+                    .map((cuest) => {
+                      return (
+                        <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
+                          <th
+                            scope="row"
+                            className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                          >
+                            <div className="pl-3">
+                              <div className="text-base font-semibold">
+                                {cuest.nombre_cuestionario}
+                              </div>
+                            </div>
+                          </th>
+                          <td className="px-6 py-4">{cuest.nombre_unidad}</td>
+                          <td className="px-6 py-4">{cuest.grado_academico}</td>
+                          <td className="px-6 py-8 flex justify-between content-center">
+                            <Link
+                              to="/cuestionario/ver-cuestionario"
+                              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            >
+                              <button className="btn btn-verCuestionario rounded-full hover:bg-green-400 ">
+                                <img src={ver} alt="" width="30px" />
+                              </button>
+                            </Link>
+                            <Link
+                              to="/cuestionario/editar-cuestionario"
+                              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            >
+                              <button className="btn btn-editarCuestionario rounded-full hover:bg-green-400">
+                                <img src={editar} alt="" width="25px" />
+                              </button>
+                            </Link>
+                            <div className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                              <button
+                                onClick={FuncionEliminar}
+                                className="btn btn-eliminarCuestionario rounded-full hover:bg-green-400"
+                              >
+                                <img src={eliminar} alt="" width="25px" />
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })
+                    .slice(primerIndex, sigIndex)}
               </tbody>
             </table>
           </div>
-          <nav
-            className="flex items-center justify-between pt-4"
-            aria-label="Table navigation"
-          >
-            <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Mostrando{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">
-                1-4
-              </span>{" "}
-              de{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">
-                10
-              </span>
-            </span>
-            <ul className="inline-flex items-center -space-x-px">
-              <li>
-                <Link
-                  to="/"
-                  className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span className="sr-only">Anterior</span>
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  1
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  2
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  aria-current="page"
-                  className="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                >
-                  3
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  ...
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  5
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span className="sr-only">Siguiente</span>
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <Paginacion
+            dataPage={dataPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalData={totalData}
+          />
         </div>
       </section>
     </main>
   );
 };
 
-export default gestionarCuestionario;
+export default GestionarCuestionario;

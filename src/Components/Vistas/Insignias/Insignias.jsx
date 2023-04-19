@@ -1,8 +1,71 @@
 import ver from "../../../images/iconos/ver.png";
 import editar from "../../../images/iconos/editar.png";
 import NavbarAdmin from "../../NavbarAdmin";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Paginacion } from "../../Paginacion";
 
-const gestionarInsignia = () => {
+const GestionarInsignia = () => {
+
+  const [dataPage, setDataPage] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [tablaData, setTablaData] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
+
+  const sigIndex = currentPage * dataPage;
+  const primerIndex = sigIndex - dataPage;
+
+  //Llamar api
+
+  const [datosServidor, setDatosServidor] = useState([]);
+  const totalData = datosServidor.length;
+  console.log("Listar datos", datosServidor);
+  useEffect(() => {
+    async function getInfo() {
+      const url = "http://localhost:8000/api/insignia/listar";
+
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      try {
+        const resp = await axios.get(url, config);
+        console.log(resp.data);
+        setDatosServidor(resp.data);
+        setTablaData(resp.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getInfo();
+  }, []);
+
+  //Busqueda
+
+  const handleChange = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+  };
+  const filtrar = (terminoBusqueda) => {
+    var resultadosBusqueda = tablaData.filter((elemento) => {
+      if (
+        elemento.nombre
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase()) ||
+        elemento.municipio
+          .toString()
+          .toLowerCase()
+          .includes(terminoBusqueda.toLowerCase())
+      ) {
+        return elemento;
+      }
+    });
+    setDatosServidor(resultadosBusqueda);
+  };
+
   return (
     <main>
       <NavbarAdmin />
@@ -36,6 +99,8 @@ const gestionarInsignia = () => {
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Buscar insignia"
+                value={busqueda}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -59,241 +124,58 @@ const gestionarInsignia = () => {
               </thead>
               <tbody className="text-center">
                 {/*Dato 1 */}
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">
-                        Sin clasificación
-                      </div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">0</td>
-                  <td className="px-6 py-4">250</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="/insignia/insignia"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario ">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </a>
-                  </td>
-                </tr>
-
-                {/*Dato 2 */}
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Bronce I</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">251</td>
-                  <td className="px-6 py-4">100</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="/insignia/insignia"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario ">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </a>
-                  </td>
-                </tr>
-
-                {/*Dato 3 */}
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Bronce II</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">1001</td>
-                  <td className="px-6 py-4">2500</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="/insignia/insignia"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario ">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </a>
-                  </td>
-                </tr>
-
-                {/*Dato 4 */}
-                <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
-                  <th
-                    scope="row"
-                    className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    <div className="pl-3">
-                      <div className="text-base font-semibold">Bronce III</div>
-                    </div>
-                  </th>
-                  <td className="px-6 py-4">2501</td>
-                  <td className="px-6 py-4">5000</td>
-                  <td className="px-6 py-8 flex justify-center content-center">
-                    <a
-                      href="#"
-                      className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-verCuestionario ">
-                        <img src={ver} alt="" width="30px" />
-                      </button>
-                    </a>
-                    <a
-                      href="/insignia/insignia"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      <button className="btn btn-editarCuestionario ">
-                        <img src={editar} alt="" width="25px" />
-                      </button>
-                    </a>
-                  </td>
-                </tr>
+                {datosServidor &&
+                  datosServidor
+                    .map((insignia) => {
+                      return (
+                        <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
+                          <th
+                            scope="row"
+                            className="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white"
+                          >
+                            <div className="pl-3">
+                              <div className="text-base font-semibold">
+                                {insignia.nombre}
+                              </div>
+                            </div>
+                          </th>
+                          <td className="px-6 py-4">{insignia.puntaje_minimo}</td>
+                          <td className="px-6 py-4">{insignia.puntaje_maximo}</td>
+                          <td className="px-6 py-8 flex justify-center content-center">
+                            <a
+                              href="/"
+                              className="font-medium pr-5 text-blue-600 dark:text-blue-500 hover:underline"
+                            >
+                              <button className="btn btn-verCuestionario ">
+                                <img src={ver} alt="" width="30px" />
+                              </button>
+                            </a>
+                            <a
+                              href="/insignia/insignia"
+                              className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            >
+                              <button className="btn btn-editarCuestionario ">
+                                <img src={editar} alt="" width="25px" />
+                              </button>
+                            </a>
+                          </td>
+                        </tr>
+                      );
+                    })
+                    .slice(primerIndex, sigIndex)}
               </tbody>
             </table>
           </div>
-          <nav
-            className="flex items-center justify-between pt-4"
-            aria-label="Table navigation"
-          >
-            <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
-              Mostrando{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">
-                1-10
-              </span>{" "}
-              de{" "}
-              <span className="font-semibold text-gray-900 dark:text-white">
-                10
-              </span>
-            </span>
-            <ul className="inline-flex items-center -space-x-px">
-              <li>
-                <a
-                  href="#"
-                  className="block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span className="sr-only">Anterior</span>
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  1
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  2
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  aria-current="page"
-                  className="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                >
-                  3
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  ...
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  5
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span className="sr-only">Siguiente</span>
-                  <svg
-                    className="w-5 h-5"
-                    aria-hidden="true"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
+          <Paginacion
+            dataPage={dataPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            totalData={totalData}
+          />
         </div>
       </section>
     </main>
   );
 };
 
-export default gestionarInsignia;
+export default GestionarInsignia;

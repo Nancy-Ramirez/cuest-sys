@@ -5,7 +5,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import Cookies from "universal-cookie";
+ 
+
 export const Login = () => {
+
+  const cookies = new Cookies();
   const Navigate = useNavigate();
 
   //Valores validos para el correo
@@ -69,9 +74,20 @@ export const Login = () => {
 
     //!Validacion para enviar los datos al servidor
     if (totalValidaciones.length >= 2) {
-      console.log("Enviar al servidor"); 
+      console.log("Enviar al servidor");
 
-      //ALERT TO NAVIGATE
+      const tokenApp = "fs654+6df45sd0fs6f54";
+      const typeUser = 1;
+      cookies.set(
+        "tokenSessionApp",
+        {
+          token: tokenApp,
+          type: typeUser,
+        },
+        { path: "/" }
+      );
+
+      //ALERT TO NAVIGATE          
       const Toast = Swal.mixin({
         toast: true,
         position: "top-end",
@@ -95,6 +111,8 @@ export const Login = () => {
       }, 2000);
     }
   };
+
+
   const ValidarInputs = (data) => {
     console.log(data);
     //Declaramos un arreglo el cual se va a encargar de guardar las validaciones

@@ -3,16 +3,22 @@ import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
-import React from 'react'
+import React from "react";
+import { async } from "q";
+import axios from "axios";
 
 const AgregarInstitucion = () => {
   //!VALIDACIONES DE DATOS
   //Navegacion del boton luego de validar correctamente
-const Navigate = useNavigate();
+  const Navigate = useNavigate();
 
   //Estado inicial del formulario
   const datosInstitucion = {
     nomInstitucion: "",
+    departamento: "",
+    municipio: "",
+    tipo: ""
+
   };
 
   //Estado inicial de la elerta
@@ -23,7 +29,7 @@ const Navigate = useNavigate();
   };
 
   //Estado para manejar los valores del formulario
-  const [formulario, setFormulario] = useState (datosInstitucion);
+  const [formulario, setFormulario] = useState(datosInstitucion);
 
   //Estado para manejar las alertas de validación
   const [alerta, setAlerta] = useState([initialStateInput]);
@@ -46,9 +52,6 @@ const Navigate = useNavigate();
     //ordenamos los datos para enviarlos a la validación
     let verificarInputs = [
       { nombre: "nomInstitucion", value: formulario.nomInstitucion },
-      { nombre: "temaC", value: formulario.temaC },
-      { nombre: "descripC", value: formulario.descripC },
-      { nombre: "cantPC", value: formulario.cantPC },
     ];
 
     //Enviamos los datos a la función de validación y recibimos las validaciones
@@ -70,20 +73,44 @@ const Navigate = useNavigate();
     //Validación para enviar los datos al servidor
     if (totalValidaciones.length >= 1) {
       console.log("Enviar al servidor");
-      console.log("Enviar al servidor");
-         //Alerta de datos enviados
+      EnviarDatosServer();
+      //Alerta de datos enviados
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Institución agregada con éxito',
+        position: "center",
+        icon: "success",
+        title: "Institución agregada con éxito",
         showConfirmButton: false,
-        timer: 1500
-      })
+        timer: 1500,
+      });
       //Navigate
-      setTimeout(() => {Navigate("/institucion")},1500);
-      ;
+      setTimeout(() => {
+        Navigate("/institucion");
+      }, 1500);
     }
   };
+
+  //Conección a API
+  async function EnviarDatosServer() {
+    const url = "http://localhost:8000/api/institucion/insertar/";
+    const infoInputs = {
+      departamento: formulario.departamento,
+      municipio: formulario.municipio,
+      nombre_institucion: formulario.nomInstitucion,
+      tipo_institucion: formulario.tipo,
+    };
+    let config = {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    };
+    try {
+      const resp = await axios.post(url, infoInputs, config);
+      console.log(resp.data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   const ValidarInputs = (data) => {
     console.log(data);

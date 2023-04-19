@@ -1,11 +1,11 @@
 export const Paginacion = ({
-  alumnosPage,
+  dataPage,
   currentPage,
   setCurrentPage,
-  totalAlumnos,
+  totalData,
 }) => {
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(totalAlumnos / alumnosPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalData/ dataPage); i++) {
     pageNumbers.push(i);
   }
 

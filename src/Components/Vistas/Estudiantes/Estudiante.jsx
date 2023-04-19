@@ -11,12 +11,15 @@ export const Estudiante = () => {
   //Paginacion
   const [alumnosPage, setAlumnosPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
+  const [tablaUsuarios, setTablaUsuarios] = useState([]);
+  const [busqueda, setBusqueda] = useState("");
 
   const sigIndex = currentPage * alumnosPage;
   const primerIndex = sigIndex - alumnosPage;
   
   //llamar api
-  const [datosServidor, setDatosServidor] = useState([]);const totalAlumnos = datosServidor.length;
+  const [datosServidor, setDatosServidor] = useState([]);
+  const totalAlumnos = datosServidor.length;
   console.log("Listar datos", datosServidor);
   useEffect(() => {
     async function getInfo() {
@@ -32,6 +35,7 @@ export const Estudiante = () => {
         const resp = await axios.get(url, config);
         console.log(resp.data);
         setDatosServidor(resp.data);
+        setTablaUsuarios(resp.data);
       } catch (err) {
         console.error(err);
       }
@@ -39,7 +43,35 @@ export const Estudiante = () => {
     getInfo();
   }, []);
 
+
+  //Busqueda
+  
+
+  const handleChange = (e) => {
+    setBusqueda(e.target.value);
+    filtrar(e.target.value);
+  }
+  
+  const filtrar = (terminoBusqueda) => {
+    var resultadosBusqueda = tablaUsuarios.filter
+      ((elemento) => {
+        if (
+          elemento.nombre
+            .toString()
+            .toLowerCase()
+            .includes(terminoBusqueda.toLowerCase()) ||
+          elemento.municipio
+            .toString()
+            .toLowerCase()
+            .includes(terminoBusqueda.toLowerCase)
+        ) {
+          return elemento;
+        }
+      });
+    setDatosServidor(resultadosBusqueda);
+  }
   return (
+    
     <main>
       <NavbarAdmin />
 
@@ -72,6 +104,8 @@ export const Estudiante = () => {
                 id="table-search-users"
                 className="block p-2 pl-10 text-sm text-black border border-gray-700 rounded-lg w-80 bg-green-100 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Buscar estudiante"
+                value={busqueda}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -97,7 +131,7 @@ export const Estudiante = () => {
                 </tr>
               </thead>
               <tbody>
-                {datosServidor.map((alumno) => {
+                {datosServidor && datosServidor.map((alumno) => {
                   return (
                     <tr className="bg-green-200 border-b dark:bg-gray-800 dark:border-gray-700  hover:bg-coll6 hover:text-white dark:hover:bg-gray-600">
                       <th

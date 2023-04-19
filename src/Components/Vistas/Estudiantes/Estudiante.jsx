@@ -8,8 +8,15 @@ import { useEffect, useState } from "react";
 import { Paginacion } from "../../Paginacion";
 
 export const Estudiante = () => {
+  //Paginacion
+  const [alumnosPage, setAlumnosPage] = useState(4);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const sigIndex = currentPage * alumnosPage;
+  const primerIndex = sigIndex - alumnosPage;
   
-  const [datosServidor, setDatosServidor] = useState([]);
+  //llamar api
+  const [datosServidor, setDatosServidor] = useState([]);const totalAlumnos = datosServidor.length;
   console.log("Listar datos", datosServidor);
   useEffect(() => {
     async function getInfo() {
@@ -132,12 +139,12 @@ export const Estudiante = () => {
                       </td>
                     </tr>
                   );
-                })}
+                }).slice(primerIndex,sigIndex)}
                 
               </tbody>
             </table>
           </div>
-          <Paginacion/>
+          <Paginacion alumnosPage={alumnosPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalAlumnos={totalAlumnos}/>
         </div>
       </section>
     </main>

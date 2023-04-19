@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import preguntas from "./jsdeprueba";
 import { useState, useEffect } from "react";
+import React from 'react'
 
 export const VerPregunta = () => {
   {

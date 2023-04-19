@@ -1,7 +1,7 @@
 import NavbarAdmin from "../../NavbarAdmin";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useState, React } from "react";
 import Swal from "sweetalert2";
 
 const EditarUnidad = () => {

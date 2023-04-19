@@ -1,5 +1,6 @@
 import "../Reportes/Reportes.css";
 import NavbarAdmin from "../../NavbarAdmin";
+import React from 'react'
 import { Icon } from "@iconify/react";
 import { Municipio } from "../OpcionesReportes/Municipio";
 import { Edades } from "../OpcionesReportes/Edades";

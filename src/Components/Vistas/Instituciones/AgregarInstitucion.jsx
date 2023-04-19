@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import React from 'react'
 
 const AgregarInstitucion = () => {
   //!VALIDACIONES DE DATOS

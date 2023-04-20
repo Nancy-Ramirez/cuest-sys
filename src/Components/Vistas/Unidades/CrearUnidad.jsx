@@ -1,10 +1,17 @@
 import NavbarAdmin from "../../NavbarAdmin";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useState, React } from "react";
+import { useState, React, useEffect } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const EditarUnidad = () => {
+  //Nombre sobre
+  useEffect(() => {
+    document.title = "Agregar Institución";
+  }, []);
+
+
   //!VALIDACIONES DE DATOS
   //Navegacion del boton luego de validar correctamente
   const Navigate = useNavigate();
@@ -68,17 +75,18 @@ const EditarUnidad = () => {
     //Validación para enviar los datos al servidor
     if (totalValidaciones.length >= 2) {
       console.log("Enviar al servidor");
-       //Alerta de datos enviados
-       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Unidad creada con éxito',
+      //Alerta de datos enviados
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Unidad creada con éxito",
         showConfirmButton: false,
-        timer: 1000
-      })
+        timer: 1000,
+      });
       //Navigate
-      setTimeout(() => {Navigate("/unidad")},1000);
-      ;
+      setTimeout(() => {
+        Navigate("/unidad");
+      }, 1000);
     }
   };
 
@@ -256,7 +264,7 @@ const EditarUnidad = () => {
                 htmlFor="materiaUnidad"
                 className="block text-white mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Grado
+                Materia
               </label>
               <div className="">
                 <select
@@ -264,10 +272,10 @@ const EditarUnidad = () => {
                   name="materiaUnidad"
                   id="materiaUnidad"
                 >
-                  <option id="">Ciencias y tecnología</option>
-                  <option id="1">Biología</option>
-                  <option id="2">Química</option>
-                  <option id="3">Física</option>
+                  <option id="1">Ciencias y tecnología</option>
+                  <option id="2">Biología</option>
+                  <option id="3">Química</option>
+                  <option id="4">Física</option>
                 </select>
               </div>
             </div>

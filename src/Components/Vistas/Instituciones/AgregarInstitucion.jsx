@@ -8,8 +8,14 @@ import { async } from "q";
 import axios from "axios";
 
 const AgregarInstitucion = () => {
+  //Nombre sobre
+  useEffect(() => {
+    document.title = "Agregar-Institución";
+  }, []);
   //Listar datos de municipio
   const [datosServidor, setDatosServidor] = useState([]);
+  console.log(datosServidor);
+
   useEffect(() => {
     async function getInfo() {
       const url = "http://localhost:8000/api/municipio/listar";
@@ -73,8 +79,8 @@ const AgregarInstitucion = () => {
     //ordenamos los datos para enviarlos a la validación
     let verificarInputs = [
       { nombre: "nombre_institucion", value: formulario.nombre_institucion },
-      { nombre: "id_municipio", value: formulario.id_municipio },
-      { nombre: "tipo_institucion", value: formulario.tipo_institucion },
+      { nombre: "id_municipio", value: formulario.id_municipio.id },
+      { nombre: "tipo_institucion", value: formulario.tipo_institucion.id },
     ];
 
     //Enviamos los datos a la función de validación y recibimos las validaciones
@@ -101,20 +107,38 @@ const AgregarInstitucion = () => {
   };
 
   //Conección a API
-  async function EnviarDatosServer() {
-    const url = "http://localhost:8000/api/institucion/insertar/";
-    const infoInputs = {
-      municipio_id: formulario.id_municipio,
-      nombre_institucion: formulario.nombre_institucion,
-      tipo_institucion: formulario.tipo_institucion,
-    };
+   function EnviarDatosServer() {
+     const url = "http://localhost:8000/api/institucion/insertar/";
+     
     let config = {
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        "Content-Type": "multipart/form-data",
+        'Accept': "application/json",
       },
-    };
-    try {
+     };
+     const setDataFormulario = {
+       nombre_institucion: formulario.nombre_institucion,
+       tipo_institucion: formulario.tipo_institucion,
+       municipio_id: formulario.id_municipio
+     };
+     
+     
+     axios
+       .post(url, setDataFormulario, config)
+       .then((response) =>
+         console.log(response.data, "Response---------------")
+       );
+     setFormulario(datosInstitucion)
+     Swal.fire({
+       icon: 'success',
+       title: 'Materia agregada',
+       showConfirmButton: false,
+       timer:1500
+     })
+     setTimeout(() => {
+      Navigate("/institucion");
+     }, 1500);
+   /* try {
       const resp = await axios.post(url, infoInputs, config);
       console.log(resp.data);
       Swal.fire({
@@ -130,7 +154,7 @@ const AgregarInstitucion = () => {
       }, 1500);
     } catch (err) {
       console.error(err);
-    }
+    }*/
   }
 
   const ValidarInputs = (data) => {
@@ -163,15 +187,15 @@ const AgregarInstitucion = () => {
           break;
         }
         case "id_municipio": {
-          if (valorInput.value === "" || valorInput.value === null) {
+          if (valorInput.id === "" || valorInput.id === null) {
             errors.push({
-              valorInput: valorInput.nombre,
+              valorInput: valorInput.id,
               mensaje: "Por favor ingrese el municipio",
               estado: true,
             });
           } else {
             errors.push({
-              valorInput: valorInput.nombre,
+              valorInput: valorInput.id,
               mensaje: "",
               estado: false,
             });
@@ -261,11 +285,11 @@ const AgregarInstitucion = () => {
                   className="rounded-lg w-96"
                   name="tipo_institucion"
                   id="tipo_institucion"
-                  value={formulario.tipo_institucion}
+                  value={formulario.tipo_institucion.id}
                   onChange={ManejarEventoDeInputs}
                 >
-                  <option id="Privada">Privada</option>
-                  <option id="Publica">Pública</option>
+                  <option id="privada" name="privada">privada</option>
+                  <option id="publica" name="publica">pública</option>
                 </select>
               </div>
             </div>
@@ -288,7 +312,10 @@ const AgregarInstitucion = () => {
                 >
                   {datosServidor.map((municipio) => {
                     return (
-                      <option id={municipio.id_municipio}>
+                      <option
+                        id={municipio.id_municipio}
+                        value={municipio.id_municipio}
+                      >
                         {municipio.nombre_municipio}
                       </option>
                     );

@@ -9,17 +9,17 @@ import { Paginacion } from "../../Paginacion";
 
 export const Estudiante = () => {
   //Paginacion
-  const [alumnosPage, setAlumnosPage] = useState(4);
+  const [dataPage, setdataPage] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
-  const [tablaUsuarios, setTablaUsuarios] = useState([]);
+  const [tablaData, settablaData] = useState([]);
   const [busqueda, setBusqueda] = useState("");
 
-  const sigIndex = currentPage * alumnosPage;
-  const primerIndex = sigIndex - alumnosPage;
+  const sigIndex = currentPage * dataPage;
+  const primerIndex = sigIndex - dataPage;
   
   //llamar api
   const [datosServidor, setDatosServidor] = useState([]);
-  const totalAlumnos = datosServidor.length;
+  const totalData = datosServidor.length;
   console.log("Listar datos", datosServidor);
   useEffect(() => {
     async function getInfo() {
@@ -35,7 +35,7 @@ export const Estudiante = () => {
         const resp = await axios.get(url, config);
         console.log(resp.data);
         setDatosServidor(resp.data);
-        setTablaUsuarios(resp.data);
+        settablaData(resp.data);
       } catch (err) {
         console.error(err);
       }
@@ -53,7 +53,7 @@ export const Estudiante = () => {
   }
   
   const filtrar = (terminoBusqueda) => {
-    var resultadosBusqueda = tablaUsuarios.filter
+    var resultadosBusqueda = tablaData.filter
       ((elemento) => {
         if (
           elemento.nombre
@@ -178,7 +178,7 @@ export const Estudiante = () => {
               </tbody>
             </table>
           </div>
-          <Paginacion alumnosPage={alumnosPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalAlumnos={totalAlumnos}/>
+          <Paginacion dataPage={dataPage} currentPage={currentPage} setCurrentPage={setCurrentPage} totalData={totalData}/>
         </div>
       </section>
     </main>

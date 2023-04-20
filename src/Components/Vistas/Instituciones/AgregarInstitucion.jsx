@@ -1,23 +1,45 @@
 import NavbarAdmin from "../../NavbarAdmin";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import React from "react";
 import { async } from "q";
 import axios from "axios";
 
 const AgregarInstitucion = () => {
+  //Listar datos de municipio
+  const [datosServidor, setDatosServidor] = useState([]);
+  useEffect(() => {
+    async function getInfo() {
+      const url = "http://localhost:8000/api/municipio/listar";
+
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      };
+      try {
+        const resp = await axios.get(url, config);
+        console.log(resp.data);
+        setDatosServidor(resp.data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    getInfo();
+  }, []);
+
   //!VALIDACIONES DE DATOS
   //Navegacion del boton luego de validar correctamente
   const Navigate = useNavigate();
 
   //Estado inicial del formulario
   const datosInstitucion = {
-    nomInstitucion: "",
-    municipio: "",
-    tipo: ""
-
+    nombre_institucion: "",
+    id_municipio: "",
+    tipo_institucion: "",
   };
 
   //Estado inicial de la elerta
@@ -50,7 +72,9 @@ const AgregarInstitucion = () => {
 
     //ordenamos los datos para enviarlos a la validación
     let verificarInputs = [
-      { nombre: "nomInstitucion", value: formulario.nomInstitucion },
+      { nombre: "nombre_institucion", value: formulario.nombre_institucion },
+      { nombre: "id_municipio", value: formulario.id_municipio },
+      { nombre: "tipo_institucion", value: formulario.tipo_institucion },
     ];
 
     //Enviamos los datos a la función de validación y recibimos las validaciones
@@ -70,11 +94,9 @@ const AgregarInstitucion = () => {
     console.log("Total de validacioes", totalValidaciones.length);
 
     //Validación para enviar los datos al servidor
-    if (totalValidaciones.length >= 1) {
+    if (totalValidaciones.length >= 3) {
       console.log("Enviar al servidor");
       EnviarDatosServer();
-      //Alerta de datos enviados
-     
     }
   };
 
@@ -82,9 +104,9 @@ const AgregarInstitucion = () => {
   async function EnviarDatosServer() {
     const url = "http://localhost:8000/api/institucion/insertar/";
     const infoInputs = {
-      municipio_id: formulario.municipio,
-      nombre_institucion: formulario.nomInstitucion,
-      tipo_institucion: formulario.tipo,
+      municipio_id: formulario.id_municipio,
+      nombre_institucion: formulario.nombre_institucion,
+      tipo_institucion: formulario.tipo_institucion,
     };
     let config = {
       headers: {
@@ -106,7 +128,6 @@ const AgregarInstitucion = () => {
       setTimeout(() => {
         Navigate("/institucion");
       }, 1500);
-
     } catch (err) {
       console.error(err);
     }
@@ -125,11 +146,43 @@ const AgregarInstitucion = () => {
     datosDelFormulario.map((valorInput) => {
       // eslint-disable-next-line default-case
       switch (valorInput.nombre) {
-        case "nomInstitucion": {
+        case "nombre_institucion": {
           if (valorInput.value === "" || valorInput.value === null) {
             errors.push({
               valorInput: valorInput.nombre,
               mensaje: "Por favor ingrese el nombre de la institución",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        case "id_municipio": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Por favor ingrese el municipio",
+              estado: true,
+            });
+          } else {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "",
+              estado: false,
+            });
+          }
+          break;
+        }
+        case "tipo_institucion": {
+          if (valorInput.value === "" || valorInput.value === null) {
+            errors.push({
+              valorInput: valorInput.nombre,
+              mensaje: "Por favor ingrese el tipo",
               estado: true,
             });
           } else {
@@ -169,7 +222,7 @@ const AgregarInstitucion = () => {
             {/*Nombre */}
             <div className="mb-6 w-96">
               <label
-                htmlFor="nomInstitucion"
+                htmlFor="nombre_institucion"
                 className="block text-sm font-medium text-white dark:text-white mb-1"
               >
                 Nombre de la institución
@@ -177,15 +230,15 @@ const AgregarInstitucion = () => {
               <input
                 type="text"
                 id="nombre_institucion"
-                name="nomInstitucion"
+                name="nombre_institucion"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                value={formulario.nomInstitucion}
+                value={formulario.nombre_institucion}
                 onChange={ManejarEventoDeInputs}
               />
               {alerta
                 .filter(
                   (input) =>
-                    input.valorInput === "nomInstitucion" &&
+                    input.valorInput === "nombre_institucion" &&
                     input.estado === true
                 )
                 .map((message) => (
@@ -206,11 +259,13 @@ const AgregarInstitucion = () => {
               <div className="">
                 <select
                   className="rounded-lg w-96"
-                  name="tipoInstitucion"
+                  name="tipo_institucion"
                   id="tipo_institucion"
+                  value={formulario.tipo_institucion}
+                  onChange={ManejarEventoDeInputs}
                 >
-                  <option id="privada">Privada</option>
-                  <option id="publica">Pública</option>
+                  <option id="Privada">Privada</option>
+                  <option id="Publica">Pública</option>
                 </select>
               </div>
             </div>
@@ -226,12 +281,18 @@ const AgregarInstitucion = () => {
               <div className="">
                 <select
                   className="rounded-lg w-96"
-                  name="municipioInstitucion"
+                  name="id_municipio"
                   id="id_municipio"
+                  value={formulario.id_municipio}
+                onChange={ManejarEventoDeInputs}
                 >
-                  <option id="2">Soyapango</option>
-                  <option id="3">Ilopango</option>
-                  <option id="all">...</option>
+                  {datosServidor.map((municipio) => {
+                    return (
+                      <option id={municipio.id_municipio}>
+                        {municipio.nombre_municipio}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
             </div>

@@ -15,7 +15,6 @@ const AgregarInstitucion = () => {
   //Estado inicial del formulario
   const datosInstitucion = {
     nomInstitucion: "",
-    departamento: "",
     municipio: "",
     tipo: ""
 
@@ -75,17 +74,7 @@ const AgregarInstitucion = () => {
       console.log("Enviar al servidor");
       EnviarDatosServer();
       //Alerta de datos enviados
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Institución agregada con éxito",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      //Navigate
-      setTimeout(() => {
-        Navigate("/institucion");
-      }, 1500);
+     
     }
   };
 
@@ -93,8 +82,7 @@ const AgregarInstitucion = () => {
   async function EnviarDatosServer() {
     const url = "http://localhost:8000/api/institucion/insertar/";
     const infoInputs = {
-      departamento: formulario.departamento,
-      municipio: formulario.municipio,
+      municipio_id: formulario.municipio,
       nombre_institucion: formulario.nomInstitucion,
       tipo_institucion: formulario.tipo,
     };
@@ -107,6 +95,18 @@ const AgregarInstitucion = () => {
     try {
       const resp = await axios.post(url, infoInputs, config);
       console.log(resp.data);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Institución agregada con éxito",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      //Navigate
+      setTimeout(() => {
+        Navigate("/institucion");
+      }, 1500);
+
     } catch (err) {
       console.error(err);
     }
@@ -176,7 +176,7 @@ const AgregarInstitucion = () => {
               </label>
               <input
                 type="text"
-                id="nomInstitucion"
+                id="nombre_institucion"
                 name="nomInstitucion"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value={formulario.nomInstitucion}
@@ -207,32 +207,10 @@ const AgregarInstitucion = () => {
                 <select
                   className="rounded-lg w-96"
                   name="tipoInstitucion"
-                  id="tipoInstitucion"
+                  id="tipo_institucion"
                 >
-                  <option id="priv">Privada</option>
-                  <option id="public">Pública</option>
-                </select>
-              </div>
-            </div>
-
-            {/*DeptoInstitucion */}
-            <div className="mb-6 ">
-              <label
-                htmlFor="deptoInstitucion"
-                className="block mb-2 text-sm font-medium text-white dark:text-white"
-              >
-                Departamento
-              </label>
-              <div className="">
-                <select
-                  className="rounded-lg w-96"
-                  name="deptoInstitucion"
-                  id="deptoInstitucion"
-                >
-                  <option id="1">San Salvador</option>
-                  <option id="2">Cuscatlán</option>
-                  <option id="3">Chalatenango</option>
-                  <option id="4">La Libertad</option>
+                  <option id="privada">Privada</option>
+                  <option id="publica">Pública</option>
                 </select>
               </div>
             </div>
@@ -249,10 +227,10 @@ const AgregarInstitucion = () => {
                 <select
                   className="rounded-lg w-96"
                   name="municipioInstitucion"
-                  id="municipioInstitucion"
+                  id="id_municipio"
                 >
-                  <option id="1">Soyapango</option>
-                  <option id="2">Ilopango</option>
+                  <option id="2">Soyapango</option>
+                  <option id="3">Ilopango</option>
                   <option id="all">...</option>
                 </select>
               </div>

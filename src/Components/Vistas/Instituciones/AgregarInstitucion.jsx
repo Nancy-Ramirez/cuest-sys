@@ -285,11 +285,11 @@ const AgregarInstitucion = () => {
                   className="rounded-lg w-96"
                   name="tipo_institucion"
                   id="tipo_institucion"
-                  value={formulario.tipo_institucion.id}
+                  value={formulario.tipo_institucion}
                   onChange={ManejarEventoDeInputs}
                 >
-                  <option id="privada" name="privada">privada</option>
-                  <option id="publica" name="publica">pública</option>
+                  <option id="privada" name="privada">Privada</option>
+                  <option id="publica" name="publica">Pública</option>
                 </select>
               </div>
             </div>

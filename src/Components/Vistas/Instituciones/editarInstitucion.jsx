@@ -121,6 +121,8 @@ export const EditarInstitucion = () => {
   };
   console.log(formulario);
 
+  //!Editar
+
   return (
     <main>
       <NavbarAdmin />

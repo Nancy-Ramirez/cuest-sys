@@ -173,11 +173,12 @@ const GestionarInstitucion = () => {
                           <td className="px-6 py-4">{inst.municipio}</td>
                           <td className="px-6 py-8 flex justify-between content-center">
                             <a
-                              href="/institucion/editar-institucion"
+                              href={"/institucion/" + inst.id_institucion}
                               className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                             >
                               <button className="btn btn-editarCuestionario ">
                                 <img src={editar} alt="" width="25px" />
+
                               </button>
                             </a>
 

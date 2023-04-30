@@ -8,7 +8,7 @@ import axios from "axios";
 const EditarUnidad = () => {
   //Nombre sobre
   useEffect(() => {
-    document.title = "Agregar Institución";
+    document.title = "Crear unidad";
   }, []);
 
 

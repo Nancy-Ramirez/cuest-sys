@@ -10,7 +10,7 @@ import axios from "axios";
 const AgregarInstitucion = () => {
   //Nombre sobre
   useEffect(() => {
-    document.title = "Agregar-Institución";
+    document.title = "Agregar Institución";
   }, []);
   //Listar datos de municipio
   const [datosServidor, setDatosServidor] = useState([]);

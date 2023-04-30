@@ -107,7 +107,7 @@ export default function Router() {
           element={<AgregarInstitucion />}
         ></Route>
         <Route
-          path="/institucion/editar-institucion"
+          path="/institucion/:id"
           element={<EditarInstitucion />}
         ></Route>
 
